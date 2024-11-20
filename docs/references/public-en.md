@@ -310,16 +310,3 @@ Decentralized RPC node provider to Kaia, Ethereum, Polygon, Arbitrum and others.
 
 * [Website](https://www.quicknode.com/)
 * [Docs](https://www.quicknode.com/docs/welcome)
-
-## Useful Resources 
-
-- Wallet: [Kaia Wallet](../build/tools/wallets/kaia-wallet.md) is a browser extension wallet for the Kaia Network.
-
-- Faucet: You can obtain test KAIA for the Kairos test network from [KAIA Faucet](https://faucet.kaia.io).
-
-- Explorer: [Kaiascope](../build/tools/block-explorers/kaiascope.md) is the block explorer for the Kaia Network.
-
-- ChainID : Kairos: 1001 (0x3E9), Mainnet: 8217 (0x2019)
-
-- Gas price: dynamically adjusted within the range [25, 750]. The range can be changed via on-chain governance. For more information, refer to [governance](https://docs.kaia.io/references/json-rpc/governance/chain-config/) and
-[Transaction Fees](../learn/transaction-fees/transaction-fees.md)
