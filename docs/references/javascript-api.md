@@ -4,63 +4,60 @@ description: An introduction to the JavaScript client libraries that let you int
 lang: en
 ---
 
-In order for a web app to interact with the Ethereum blockchain (i.e. read blockchain data and/or send transactions to the network), it must connect to an Ethereum node.
+In order for a web app to interact with the Xphere blockchain (i.e. read blockchain data and/or send transactions to the network), it must connect to a Xphere node.
 
-For this purpose, every Ethereum client implements the [JSON-RPC](/references/json-rpc/) specification, so there are a uniform set of [methods](/references/json-rpc/#json-rpc-methods) that applications can rely on.
+For this purpose, every Xphere client implements the [JSON-RPC](/references/json-rpc/) specification, so there are a uniform set of [methods](/references/json-rpc/#json-rpc-methods) that applications can rely on.
 
-If you want to use JavaScript to connect with an Ethereum node, it's possible to use vanilla JavaScript but several convenience libraries exist within the ecosystem that make this much easier. With these libraries, developers can write intuitive, one-line methods to initialize JSON-RPC requests (under the hood) that interact with Ethereum.
+If you want to use JavaScript to connect with a Xphere node, it's possible to use vanilla JavaScript but several convenience libraries exist within the ecosystem that make this much easier. With these libraries, developers can write intuitive, one-line methods to initialize JSON-RPC requests (under the hood) that interact with Xphere.
 
-Please note that since The Merge, two connected pieces of Ethereum software - an execution client and a consensus client - are required to run a node. Please ensure your node includes both an execution and consensus client. If your node is not on your local machine (e.g. your node is running on an AWS instance) update the IP addresses in the tutorial accordingly. For more information please see our page on running a node.
+Please note that for running a node, it's essential to ensure your node includes all necessary components for proper operation. If your node is not on your local machine (e.g. your node is running on an AWS instance), update the IP addresses in the tutorial accordingly. For more information, please see our page on running a node.
 
 ## Prerequisites {#prerequisites}
 
-As well as understanding JavaScript, it might be helpful to understand the Ethereum stack and Ethereum clients.
+As well as understanding JavaScript, it might be helpful to understand the Xphere stack and Xphere clients.
 
 ## Why use a library? {#why-use-a-library}
 
-These libraries abstract away much of the complexity of interacting directly with an Ethereum node. They also provide utility functions (e.g. converting ETH to Gwei) so as a developer you can spend less time dealing with the intricacies of Ethereum clients and more time focused on the unique functionality of your application.
+These libraries abstract away much of the complexity of interacting directly with a Xphere node. They also provide utility functions (e.g. converting XPH to smaller units) so as a developer you can spend less time dealing with the intricacies of Xphere clients and more time focused on the unique functionality of your application.
 
 ## Library features {#library-features}
 
-### Connect to Ethereum nodes {#connect-to-ethereum-nodes}
+### Connect to Xphere nodes {#connect-to-xphere-nodes}
 
-Using providers, these libraries allow you to connect to Ethereum and read its data, whether that's over JSON-RPC, INFURA, Etherscan, Alchemy or MetaMask.
+Using providers, these libraries allow you to connect to Xphere and read its data, whether that's over JSON-RPC, XphereScan, or other supported services.
 
 **Ethers example**
 
-```js
+```javascript
 // A BrowserProvider wraps a standard Web3 provider, which is
-// what MetaMask injects as window.ethereum into each page
-const provider = new ethers.BrowserProvider(window.ethereum)
+// injected into each page
+const provider = new ethers.BrowserProvider(window.xphereProvider)
 
-// The MetaMask plugin also allows signing transactions to
-// send ether and pay to change state within the blockchain.
-// For this, we need the account signer...
+// Sign transactions to send XPH and change the state within the blockchain
 const signer = provider.getSigner()
 ```
 
-**Web3js example**
+**Web3js Example**
 
-```js
+```javascript
 var web3 = new Web3("http://localhost:8545")
 // or
 var web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"))
 
-// change provider
+// Change provider
 web3.setProvider("ws://localhost:8546")
 // or
 web3.setProvider(new Web3.providers.WebsocketProvider("ws://localhost:8546"))
 
-// Using the IPC provider in node.js
+// Using the IPC provider in Node.js
 var net = require("net")
-var web3 = new Web3("/Users/myuser/Library/Ethereum/geth.ipc", net) // mac os path
-// or
 var web3 = new Web3(
-  new Web3.providers.IpcProvider("/Users/myuser/Library/Ethereum/geth.ipc", net)
-) // mac os path
-// on windows the path is: "\\\\.\\pipe\\geth.ipc"
-// on linux the path is: "/users/myuser/.ethereum/geth.ipc"
+  new Web3.providers.IpcProvider("/Users/myuser/Library/Xphere/geth.ipc", net)
+)
+// On Windows: "\\\\.\\pipe\\xphere.ipc"
+// On Linux: "/users/myuser/.xphere/geth.ipc"
 ```
+
 
 Once set up you'll be able to query the blockchain for:
 
@@ -138,7 +135,7 @@ wallet.getBalance()
 wallet.getTransactionCount()
 // { Promise: 0 }
 
-// Sending ether
+// Sending xp
 wallet.sendTransaction(tx)
 ```
 
@@ -215,7 +212,7 @@ This means you can:
 
 ### Utility functions {#utility-functions}
 
-Utility functions give you handy shortcuts that make building with Ethereum a little easier.
+Utility functions give you handy shortcuts that make building with xphere a little easier.
 
 ETH values are in Wei by default. 1 ETH = 1,000,000,000,000,000,000 WEI – this means you're dealing with a lot of numbers! `web3.utils.toWei` converts ether to Wei for you.
 
@@ -231,6 +228,3 @@ balance = await provider.getBalance("ethers.eth")
 ethers.utils.formatEther(balance)
 // '2.337132817842795605'
 ```
-
-- [Web3js utility functions](https://docs.web3js.org/api/web3-utils)
-- [Ethers utility functions](https://docs.ethers.io/v5/api/utils/)
