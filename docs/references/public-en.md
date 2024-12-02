@@ -22,15 +22,15 @@ Please note that these endpoints are provided to the community for testing and d
 
 **HTTPS**
 
-| Service Provider | Endpoints                          | Namespaces      | Type    |
-|------------------|------------------------------------|-----------------|---------|
-| Xphere Foundation| `https://public-en.x-phere.com`    | xphere,eth,net  | Full    |
+| Service Provider | Endpoints                          | Namespaces      | Type    | status  |
+|------------------|------------------------------------|-----------------|---------|---------|
+| Xphere Foundation| `https://public.x-phere.com`    | xp,eth,net  | Full    | pending |
 
 **WebSocket**
 
-| Service Provider | Endpoints                          | Namespaces      | Type    |
-|------------------|------------------------------------|-----------------|---------|
-| Xphere Foundation| `wss://public-en.x-phere.com/ws`   | xphere,eth,net  | Full    |
+| Service Provider | Endpoints                          | Namespaces      | Type    | status  |
+|------------------|------------------------------------|-----------------|---------|---------|
+| Xphere Foundation| `wss://public.x-phere.com/ws`   | xp,eth,net  | Full    | pending |
 
 ### Testnet Public JSON-RPC Endpoints
 
@@ -38,13 +38,13 @@ Please note that these endpoints are provided to the community for testing and d
 
 | Service Provider | Endpoints                          | Namespaces      | Type    |
 |------------------|------------------------------------|-----------------|---------|
-| Xphere Foundation| `https://public-en-testnet.x-phere.com` | xphere,eth,net | Full    |
+| Xphere Foundation| `https://testnet.x-phere.com` | eth,net | Full    |
 
 **WebSocket**
 
 | Service Provider | Endpoints                          | Namespaces      | Type    |
 |------------------|------------------------------------|-----------------|---------|
-| Xphere Foundation| `wss://public-en-testnet.x-phere.com/ws` | xphere,eth,net | Full    |
+| Xphere Foundation| `wss://testnet.x-phere.com/ws` | eth,net,web3 | Full    |
 
 ## RPC Service Providers
 

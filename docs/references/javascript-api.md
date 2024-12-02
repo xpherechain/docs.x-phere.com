@@ -31,7 +31,7 @@ Using providers, these libraries allow you to connect to Xphere and read its dat
 ```javascript
 // A BrowserProvider wraps a standard Web3 provider, which is
 // injected into each page
-const provider = new ethers.BrowserProvider(window.xphereProvider)
+const provider = new ethers.BrowserProvider(window.ethereum)
 
 // Sign transactions to send XPH and change the state within the blockchain
 const signer = provider.getSigner()
