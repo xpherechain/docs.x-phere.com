@@ -108,11 +108,11 @@ const config: Config = {
           sidebarid: "refSidebar",
           label: "References",
         },
-        {
-          to: "whitepaper",
-          position: "left",
-          label: "Whitepaper",
-        },
+        // {
+        //   to: "whitepaper",
+        //   position: "left",
+        //   label: "Whitepaper",
+        // },
         // {to: '/blog', label: 'Blog', position: 'left'},
         {
           href: "https://github.com/x-phere",
