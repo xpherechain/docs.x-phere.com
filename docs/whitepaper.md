@@ -1,11 +1,6 @@
-
 **Xphere v2.0**
 
 Paul Kim
-
-Seoullabs
-
-[dhkim@seoullabs.io](mailto:dhkim@seoullabs.io)
 
 **ABSTRACT**
 
@@ -15,33 +10,29 @@ The Main Chain ensures security and decentralization with a robust PoW consensus
 
 This innovative design supports diverse applications such as finance, logistics, and digital asset management, aiming to expand the potential of decentralized networks and drive the next generation of blockchain innovation.
 
-----
+---
+
 **Table of Contents**
 
 1. Introduction
 2. Dual-chain Architecture
-    1. Main Chain: Optimized PBFT Consensus
-    2. Proof Chain: Pow-Based Validation Layer
-    3. Interaction Between Main Chain and Proof Chain
+   1. Main Chain: Optimized PBFT Consensus
+   2. Proof Chain: Pow-Based Validation Layer
+   3. Interaction Between Main Chain and Proof Chain
 3. Consensus
-    1. Consensus Mechanism: Trust and Security with Proof of Work (PoW)
-    2. 51% Attack Mitigation in Xphere
+   1. Consensus Mechanism: Trust and Security with Proof of Work (PoW)
+   2. 51% Attack Mitigation in Xphere
 4. Economic Model of Coin
-    1. Coin Utility and Role in the Network
-    2. Emission Mechanism
-    3. Distribution Model
+   1. Coin Utility and Role in the Network
+   2. Emission Mechanism
+   3. Distribution Model
 5. Ethereum Compatibility in Xphere
-    1. Key Aspects of Ethereum Compatibility
-    2. Benefits of. thereum Compatibility
-    3. Building a Bridge Between Ecosystems
+   1. Key Aspects of Ethereum Compatibility
+   2. Benefits of. thereum Compatibility
+   3. Building a Bridge Between Ecosystems
 6. Conclusion
-----
 
-
-find . -type f -path "*/.git/config" -exec grep -l "x-phere" {} \; | xargs -I{} dirname $(dirname {})
-
-
-
+---
 
 **1. INTRODUCTION**
 
@@ -50,11 +41,11 @@ The blockchain space has experienced rapid innovation, yet many networks face ch
 **Key Limitations of Xphere 1.0**:
 
 - **Limited Accessibility**:
-    - The proprietary smart contract structure made it difficult for existing EVM developers and users to adopt the platform, hindering ecosystem growth.
+  - The proprietary smart contract structure made it difficult for existing EVM developers and users to adopt the platform, hindering ecosystem growth.
 - **Transaction Drop Issues**:
-    - Users often experienced dropped transactions, leading to frustration and reduced reliability for decentralized applications.
+  - Users often experienced dropped transactions, leading to frustration and reduced reliability for decentralized applications.
 - **Inconsistent Block Generation**:
-    - Irregular block times created uncertainty for users and developers, impacting both usability and security.
+  - Irregular block times created uncertainty for users and developers, impacting both usability and security.
 
 These limitations not only restricted the growth of xphere's ecosystem but also posed potential risks to its long-term adoption and scalability.
 
@@ -91,14 +82,14 @@ In each stage, all nodes communicate with one another, resulting in excessive ne
 To address these challenges, Xphere employs an **optimized PBFT** mechanism by introducing a **Council** and a **Committee** structure. This approach significantly reduces communication overhead while retaining the benefits of PBFT.
 
 1. **Council Formation**:
-    - The Council is a governing body comprising selected nodes in the network.
-    - Members are chosen based on predefined criteria to ensure decentralization and fairness.
+   - The Council is a governing body comprising selected nodes in the network.
+   - Members are chosen based on predefined criteria to ensure decentralization and fairness.
 2. **Dynamic Committee Selection**:
-    - For each consensus round, a subset of Council members, the **Committee**, is randomly selected.
-    - The Committee handles the exchange of consensus messages, reducing the need for communication among all nodes.
+   - For each consensus round, a subset of Council members, the **Committee**, is randomly selected.
+   - The Committee handles the exchange of consensus messages, reducing the need for communication among all nodes.
 3. **Efficient Consensus Communication**:
-    - By confining message exchanges to the Committee, the communication load is drastically reduced.
-    - Even as the number of total nodes grows, the communication complexity remains constant or minimally affected.
+   - By confining message exchanges to the Committee, the communication load is drastically reduced.
+   - Even as the number of total nodes grows, the communication complexity remains constant or minimally affected.
 
 **Consensus Process in Xphere's Main Chain**
 
@@ -120,12 +111,12 @@ This streamlined process ensures efficient communication and predictable perform
 
 **Comparison: Traditional PBFT vs. Xphere PBFT**
 
-| **Feature** | **Traditional PBFT** | **Xphere PBFT** |
-| --- | --- | --- |
-| **Communication Overhead** | Exponential (O(n²)) | Limited to Committee (O(k²)) |
-| **Scalability** | Poor as network size grows | Scalable with Council-Committee model |
-| **Decentralization** | Reduced due to node limits | Retained with Council representation |
-| **Security** | Strong but resource-intensive | Strong with randomized Committee |
+| **Feature**                | **Traditional PBFT**          | **Xphere PBFT**                       |
+| -------------------------- | ----------------------------- | ------------------------------------- |
+| **Communication Overhead** | Exponential (O(n²))           | Limited to Committee (O(k²))          |
+| **Scalability**            | Poor as network size grows    | Scalable with Council-Committee model |
+| **Decentralization**       | Reduced due to node limits    | Retained with Council representation  |
+| **Security**               | Strong but resource-intensive | Strong with randomized Committee      |
 
 **Conclusion**
 
@@ -140,27 +131,27 @@ The **Proof Chain** in Xphere's dual-chain architecture serves as a dedicated va
 The Proof Chain's primary functions are:
 
 1. **Validator Selection**:
-    - The Proof Chain is responsible for determining which nodes are eligible to participate as validators within the network.
-    - This process is secured through cryptographic proof generated by PoW operations.
+   - The Proof Chain is responsible for determining which nodes are eligible to participate as validators within the network.
+   - This process is secured through cryptographic proof generated by PoW operations.
 2. **Proof Generation**:
-    - Using the **SHA-256** algorithm, nodes solve complex computational puzzles to produce proofs.
-    - The produced proof is a verifiable output that establishes the validator’s eligibility.
+   - Using the **SHA-256** algorithm, nodes solve complex computational puzzles to produce proofs.
+   - The produced proof is a verifiable output that establishes the validator’s eligibility.
 3. **Supporting Security**:
-    - The computational difficulty of PoW ensures that the network remains resistant to tampering and Sybil attacks.
-    - This layer acts as a foundation of trust for the network’s operation.
+   - The computational difficulty of PoW ensures that the network remains resistant to tampering and Sybil attacks.
+   - This layer acts as a foundation of trust for the network’s operation.
 
 **Understanding SHA-256**
 
 The **SHA-256 (Secure Hash Algorithm 256-bit)** is a cryptographic hash function widely used in blockchain networks for its security and efficiency.
 
 1. **How it Works**:
-    - SHA-256 takes an input (e.g., a block of data) and processes it through a series of mathematical operations to generate a fixed-length, 256-bit hash.
-    - The hash is deterministic, meaning the same input will always produce the same output, but the output is seemingly random and unique.
+   - SHA-256 takes an input (e.g., a block of data) and processes it through a series of mathematical operations to generate a fixed-length, 256-bit hash.
+   - The hash is deterministic, meaning the same input will always produce the same output, but the output is seemingly random and unique.
 2. **Why SHA-256 is Ideal for PoW**:
-    - **Collision Resistance**: It is computationally infeasible to find two different inputs that produce the same hash.
-    - **Pre-image Resistance**: It is virtually impossible to derive the original input from the hash output.
-    - **Efficient Verification**: Once a hash is generated, it can be quickly and easily verified.
-    - **Difficulty Adjustment**: By requiring hashes to meet specific criteria (e.g., a certain number of leading zeros), the network can dynamically adjust the computational difficulty to control the time taken to find a valid proof.
+   - **Collision Resistance**: It is computationally infeasible to find two different inputs that produce the same hash.
+   - **Pre-image Resistance**: It is virtually impossible to derive the original input from the hash output.
+   - **Efficient Verification**: Once a hash is generated, it can be quickly and easily verified.
+   - **Difficulty Adjustment**: By requiring hashes to meet specific criteria (e.g., a certain number of leading zeros), the network can dynamically adjust the computational difficulty to control the time taken to find a valid proof.
 
 **Proof Chain Consensus Process**
 
@@ -172,22 +163,22 @@ The **SHA-256 (Secure Hash Algorithm 256-bit)** is a cryptographic hash function
 **Key Characteristics of the Proof Chain**
 
 1. **Dedicated Validation Layer**:
-    - The Proof Chain does not handle transaction processing, ensuring its focus remains solely on validation and proof generation.
+   - The Proof Chain does not handle transaction processing, ensuring its focus remains solely on validation and proof generation.
 2. **Enhanced Security**:
-    - By using SHA-256 and PoW, the Proof Chain provides robust protection against attacks, including Sybil attacks and tampering.
+   - By using SHA-256 and PoW, the Proof Chain provides robust protection against attacks, including Sybil attacks and tampering.
 3. **Scalability through Specialization**:
-    - Offloading the validation process to the Proof Chain allows the Main Chain to focus on transaction processing, improving overall network efficiency.
+   - Offloading the validation process to the Proof Chain allows the Main Chain to focus on transaction processing, improving overall network efficiency.
 4. **Trust Foundation for the Main Chain**:
-    - Validators selected through the Proof Chain provide a trusted basis for the Main Chain’s operations.
+   - Validators selected through the Proof Chain provide a trusted basis for the Main Chain’s operations.
 
 **Advantages of the Proof Chain**
 
-| **Feature** | **Benefit** |
-| --- | --- |
-| **Secure Validator Selection** | Ensures only eligible nodes participate in consensus. |
-| **SHA-256 PoW Integration** | Offers high security and verifiable proof generation. |
-| **Specialized Function** | Avoids processing transactions, keeping the validation process lean. |
-| **Scalable Architecture** | Allows the Main Chain to operate efficiently without validation overhead. |
+| **Feature**                    | **Benefit**                                                               |
+| ------------------------------ | ------------------------------------------------------------------------- |
+| **Secure Validator Selection** | Ensures only eligible nodes participate in consensus.                     |
+| **SHA-256 PoW Integration**    | Offers high security and verifiable proof generation.                     |
+| **Specialized Function**       | Avoids processing transactions, keeping the validation process lean.      |
+| **Scalable Architecture**      | Allows the Main Chain to operate efficiently without validation overhead. |
 
 **Conclusion**
 
@@ -202,37 +193,37 @@ The **Main Chain** and **Proof Chain** in Xphere's dual-chain architecture opera
 **Key Collaboration Mechanisms**
 
 1. **Status Synchronization via RPC Communication**:
-    - The Proof Chain and Main Chain regularly exchange data through efficient RPC communication protocols.
-    - This process ensures that the current state of both chains remains synchronized, enabling real-time updates on validator statuses and system metrics.
+   - The Proof Chain and Main Chain regularly exchange data through efficient RPC communication protocols.
+   - This process ensures that the current state of both chains remains synchronized, enabling real-time updates on validator statuses and system metrics.
 2. **Validator Selection Coordination**:
-    - The Proof Chain performs intensive **SHA-256 PoW computations** to generate proofs and determine eligible validators.
-    - These selected validators are then communicated to the Main Chain, which assigns them roles in block validation and consensus processes.
-    - The collaborative approach ensures fairness and reliability in validator selection, strengthening network security and decentralization.
+   - The Proof Chain performs intensive **SHA-256 PoW computations** to generate proofs and determine eligible validators.
+   - These selected validators are then communicated to the Main Chain, which assigns them roles in block validation and consensus processes.
+   - The collaborative approach ensures fairness and reliability in validator selection, strengthening network security and decentralization.
 3. **Algorithmic Data Exchange**:
-    - Computation results, such as PoW proofs and validator scores, are dynamically shared between the chains.
-    - This exchange allows the Main Chain to make informed decisions about block production and consensus finalization.
+   - Computation results, such as PoW proofs and validator scores, are dynamically shared between the chains.
+   - This exchange allows the Main Chain to make informed decisions about block production and consensus finalization.
 
 **Interaction Flow**
 
 1. **Proof Generation on the Proof Chain**:
-    - Nodes compete to solve PoW challenges, and the Proof Chain generates cryptographic proofs.
+   - Nodes compete to solve PoW challenges, and the Proof Chain generates cryptographic proofs.
 2. **Validator Status Update via RPC**:
-    - The Proof Chain shares validated proof data with the Main Chain.
-    - The Main Chain updates its validator registry based on the received data.
+   - The Proof Chain shares validated proof data with the Main Chain.
+   - The Main Chain updates its validator registry based on the received data.
 3. **Consensus Execution on the Main Chain**:
-    - Validators selected by the Proof Chain participate in the Main Chain's consensus mechanism.
-    - This ensures a continuous and transparent validator rotation.
+   - Validators selected by the Proof Chain participate in the Main Chain's consensus mechanism.
+   - This ensures a continuous and transparent validator rotation.
 4. **State Feedback to the Proof Chain**:
-    - The Main Chain provides feedback to the Proof Chain, including validator performance and system status, enabling adjustments in future validator selection processes.
+   - The Main Chain provides feedback to the Proof Chain, including validator performance and system status, enabling adjustments in future validator selection processes.
 
 **Advantages of This Integration**
 
-| **Feature** | **Benefit** |
-| --- | --- |
-| **Real-Time Synchronization** | Maintains a consistent network state across both chains. |
-| **Secure Validator Selection** | Ensures fairness and reliability through collaborative data exchange. |
+| **Feature**                       | **Benefit**                                                                          |
+| --------------------------------- | ------------------------------------------------------------------------------------ |
+| **Real-Time Synchronization**     | Maintains a consistent network state across both chains.                             |
+| **Secure Validator Selection**    | Ensures fairness and reliability through collaborative data exchange.                |
 | **Efficient Resource Allocation** | Offloads computation-heavy tasks to the Proof Chain, optimizing network performance. |
-| **Enhanced Scalability** | Modular interaction between chains allows the network to scale seamlessly. |
+| **Enhanced Scalability**          | Modular interaction between chains allows the network to scale seamlessly.           |
 
 **Conclusion**
 
@@ -247,36 +238,36 @@ Xphere's consensus mechanism is built on **Proof of Work (PoW)**, a time-tested 
 **Core Principles of PoW**
 
 1. **Computational Effort**:
-    - Validators compete to solve complex mathematical puzzles, a process requiring significant computational resources.
-    - The first validator to solve the puzzle gains the right to add a new block to the blockchain, driving the network's consensus.
+   - Validators compete to solve complex mathematical puzzles, a process requiring significant computational resources.
+   - The first validator to solve the puzzle gains the right to add a new block to the blockchain, driving the network's consensus.
 2. **Verification of Work**:
-    - The result of the computation (proof) can be easily verified by other nodes in the network, ensuring fairness and validity in the consensus process.
+   - The result of the computation (proof) can be easily verified by other nodes in the network, ensuring fairness and validity in the consensus process.
 3. **Economic Incentives**:
-    - Validators are rewarded for their computational efforts, creating a strong incentive for honest participation.
-    - The high cost of computation acts as a deterrent against malicious actions, as any attempt to manipulate the network would require disproportionate resources.
+   - Validators are rewarded for their computational efforts, creating a strong incentive for honest participation.
+   - The high cost of computation acts as a deterrent against malicious actions, as any attempt to manipulate the network would require disproportionate resources.
 
 **PoW and Network Security**
 
 1. **Resistance to Attacks**:
-    - **Sybil Attack Prevention**: PoW requires computational resources that make it economically impractical for attackers to generate fake nodes at scale.
-    - **51% Attack Defense**: Gaining control of the network’s majority computational power becomes infeasible as the network grows, ensuring security against hostile takeovers.
+   - **Sybil Attack Prevention**: PoW requires computational resources that make it economically impractical for attackers to generate fake nodes at scale.
+   - **51% Attack Defense**: Gaining control of the network’s majority computational power becomes infeasible as the network grows, ensuring security against hostile takeovers.
 2. **Immutable Ledger**:
-    - Altering the blockchain would require re-computing the PoW for all subsequent blocks, which becomes exponentially harder over time.
+   - Altering the blockchain would require re-computing the PoW for all subsequent blocks, which becomes exponentially harder over time.
 3. **Decentralized Trust**:
-    - Trust is distributed across the network, removing the need for a centralized authority.
-    - The consensus process ensures that no single participant can manipulate the system.
+   - Trust is distributed across the network, removing the need for a centralized authority.
+   - The consensus process ensures that no single participant can manipulate the system.
 
 **Optimized PoW in Xphere**
 
 Xphere’s implementation of PoW is tailored to its dual-chain architecture, with enhancements to improve efficiency and scalability:
 
 1. **Specialized Role in the Proof Chain**:
-    - PoW is exclusively used in the **Proof Chain** for validator selection, allowing the network to offload computationally heavy tasks from the Main Chain.
-    - This separation ensures that the Main Chain remains optimized for transaction processing and block finalization.
+   - PoW is exclusively used in the **Proof Chain** for validator selection, allowing the network to offload computationally heavy tasks from the Main Chain.
+   - This separation ensures that the Main Chain remains optimized for transaction processing and block finalization.
 2. **Efficient Computation Design**:
-    - Xphere integrates SHA-256 as the cryptographic backbone of its PoW mechanism. This provides robust security through collision resistance and pre-image resistance while ensuring efficient validation of computational proofs.
+   - Xphere integrates SHA-256 as the cryptographic backbone of its PoW mechanism. This provides robust security through collision resistance and pre-image resistance while ensuring efficient validation of computational proofs.
 3. **Energy Optimization**:
-    - While maintaining PoW’s inherent security benefits, Xphere incorporates mechanisms to minimize computational waste, addressing common energy concerns associated with traditional PoW networks.
+   - While maintaining PoW’s inherent security benefits, Xphere incorporates mechanisms to minimize computational waste, addressing common energy concerns associated with traditional PoW networks.
 
 **Benefits of PoW in Xphere**
 
@@ -295,23 +286,23 @@ Xphere's consensus mechanism is uniquely designed to eliminate the possibility o
 **Mechanisms to Prevent 51% Attacks**
 
 1. **Alliance-Restricted Mining**:
-    - Only nodes approved by the Alliance are authorized to validate mining activities and participate in the PoW process.
-    - This restriction ensures that unauthorized or malicious nodes are completely excluded from the network.
+   - Only nodes approved by the Alliance are authorized to validate mining activities and participate in the PoW process.
+   - This restriction ensures that unauthorized or malicious nodes are completely excluded from the network.
 2. **Randomized Miner-Validator Assignment**:
-    - Miners cannot directly choose which Alliance node to submit their work to.
-    - The system dynamically assigns miners to Alliance nodes in a randomized manner, preventing collusion and manipulation.
+   - Miners cannot directly choose which Alliance node to submit their work to.
+   - The system dynamically assigns miners to Alliance nodes in a randomized manner, preventing collusion and manipulation.
 3. **Separation of Miners and Alliances**:
-    - Miners operate independently and have no influence over which Alliance node validates their work.
-    - This ensures that mining remains impartial and that no coordinated effort can target specific nodes.
+   - Miners operate independently and have no influence over which Alliance node validates their work.
+   - This ensures that mining remains impartial and that no coordinated effort can target specific nodes.
 
 **Why This Design Matters**
 
 - **Immunity to Coordinated Attacks**:  
-    To launch a 51% attack, an actor would need to control the majority of computational power in the network. Xphere’s Alliance-restricted mining and randomized assignments make this feat impossible.
+   To launch a 51% attack, an actor would need to control the majority of computational power in the network. Xphere’s Alliance-restricted mining and randomized assignments make this feat impossible.
 - **Fair and Decentralized Validation**:  
-    The dynamic miner-validator assignment ensures that no entity can monopolize validation, reinforcing the network's decentralized nature.
+   The dynamic miner-validator assignment ensures that no entity can monopolize validation, reinforcing the network's decentralized nature.
 - **Reliable Security Framework**:  
-    By combining controlled participation and unbiased validation, Xphere achieves a robust, trustless consensus system that safeguards the network from manipulation and attack.
+   By combining controlled participation and unbiased validation, Xphere achieves a robust, trustless consensus system that safeguards the network from manipulation and attack.
 
 This innovative approach secures Xphere against 51% attacks while maintaining decentralization and scalability, setting a new standard for blockchain security.
 
@@ -324,21 +315,21 @@ As Xphere operates on its own mainnet, the native asset is classified as a **coi
 Xphere’s coin serves as the foundation of the ecosystem, enabling key functionalities such as:
 
 1. **Transaction Fees**:
-    - Used for processing and validating transactions on the Main Chain.
+   - Used for processing and validating transactions on the Main Chain.
 2. **Staking**:
-    - Validators are required to stake coins to participate in consensus, ensuring alignment with the network’s security and integrity.
+   - Validators are required to stake coins to participate in consensus, ensuring alignment with the network’s security and integrity.
 3. **Incentives for Miners and Alliances**:
-    - Coins are rewarded to miners and Alliance nodes as part of the Proof Chain's operation, driving active network participation.
+   - Coins are rewarded to miners and Alliance nodes as part of the Proof Chain's operation, driving active network participation.
 4. **Governance**:
-    - Coin holders may participate in future governance mechanisms, influencing decisions related to network upgrades and policies.
+   - Coin holders may participate in future governance mechanisms, influencing decisions related to network upgrades and policies.
 
 **B. Emission Mechanism**
 
 1. **Total Supply**:
-    - The total coin supply is capped at **5.5 billion coins**, ensuring scarcity and long-term value retention.
+   - The total coin supply is capped at **5.5 billion coins**, ensuring scarcity and long-term value retention.
 2. **Deflationary Model**:
-    - The emission follows a **16% annual reduction model**, gradually decreasing the reward for miners and validators each year.
-    - This deflationary mechanism promotes scarcity, incentivizing early participation while maintaining economic stability over time.
+   - The emission follows a **16% annual reduction model**, gradually decreasing the reward for miners and validators each year.
+   - This deflationary mechanism promotes scarcity, incentivizing early participation while maintaining economic stability over time.
 
 **C. Fund Structure**
 
@@ -351,27 +342,27 @@ Xphere is designed to ensure **seamless compatibility with Ethereum**, leveragin
 **i. Key Aspects of Ethereum Compatibility**
 
 1. **EVM Compatibility**:
-    - Xphere supports the execution of smart contracts written in **Solidity**, the primary programming language used on Ethereum.
-    - Developers can deploy existing Ethereum-based dApps directly on Xphere with minimal changes, reducing migration costs and time.
+   - Xphere supports the execution of smart contracts written in **Solidity**, the primary programming language used on Ethereum.
+   - Developers can deploy existing Ethereum-based dApps directly on Xphere with minimal changes, reducing migration costs and time.
 2. **Cross-Chain Interoperability**:
-    - Xphere's architecture allows seamless interaction with Ethereum, enabling assets and data to move between the two networks.
-    - This interoperability creates a bridge for users and developers to leverage the strengths of both ecosystems.
+   - Xphere's architecture allows seamless interaction with Ethereum, enabling assets and data to move between the two networks.
+   - This interoperability creates a bridge for users and developers to leverage the strengths of both ecosystems.
 3. **Tool Integration**:
-    - Popular Ethereum tools such as **MetaMask**, **Truffle**, and **Hardhat** are fully compatible with Xphere, ensuring developers can use familiar workflows.
-    - This lowers the barrier to entry for developers transitioning to Xphere while maintaining a consistent user experience.
+   - Popular Ethereum tools such as **MetaMask**, **Truffle**, and **Hardhat** are fully compatible with Xphere, ensuring developers can use familiar workflows.
+   - This lowers the barrier to entry for developers transitioning to Xphere while maintaining a consistent user experience.
 4. **Scalable Infrastructure**:
-    - While maintaining compatibility with Ethereum, Xphere addresses Ethereum's scalability challenges by leveraging its dual-chain architecture.
-    - Xphere offers higher transaction throughput and lower fees, making it a viable alternative for dApps facing performance bottlenecks on Ethereum.
+   - While maintaining compatibility with Ethereum, Xphere addresses Ethereum's scalability challenges by leveraging its dual-chain architecture.
+   - Xphere offers higher transaction throughput and lower fees, making it a viable alternative for dApps facing performance bottlenecks on Ethereum.
 
 **ii. Benefits of Ethereum Compatibility**
 
 1. **Access to a Large Ecosystem**:
-    - By aligning with Ethereum standards, Xphere taps into the vast Ethereum developer community and its existing dApps, fostering rapid adoption.
+   - By aligning with Ethereum standards, Xphere taps into the vast Ethereum developer community and its existing dApps, fostering rapid adoption.
 2. **User and Developer Familiarity**:
-    - Developers familiar with Ethereum can easily transition to Xphere without needing to learn a new language or framework.
-    - End-users benefit from a familiar wallet and dApp experience, ensuring a smooth onboarding process.
+   - Developers familiar with Ethereum can easily transition to Xphere without needing to learn a new language or framework.
+   - End-users benefit from a familiar wallet and dApp experience, ensuring a smooth onboarding process.
 3. **Enhanced Performance for dApps**:
-    - dApps running on Xphere enjoy faster transaction speeds and lower costs, addressing Ethereum's congestion and high gas fee issues.
+   - dApps running on Xphere enjoy faster transaction speeds and lower costs, addressing Ethereum's congestion and high gas fee issues.
 
 **iii. Building a Bridge Between Ecosystems**
 

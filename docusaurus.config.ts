@@ -1,50 +1,50 @@
-import {themes as prismThemes} from 'prism-react-renderer';
-import type {Config} from '@docusaurus/types';
-import type * as Preset from '@docusaurus/preset-classic';
+import { themes as prismThemes } from "prism-react-renderer";
+import type { Config } from "@docusaurus/types";
+import type * as Preset from "@docusaurus/preset-classic";
 import type * as OpenApiPlugin from "docusaurus-plugin-openapi-docs";
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'X-Phere v2.0 Docs',
-  tagline: 'Welcome to the X-Phere',
-  favicon: 'img/favicon.ico',
+  title: "X-Phere v2.0 Docs",
+  tagline: "Welcome to the X-Phere",
+  favicon: "img/favicon.ico",
 
   // Set the production url of your site here
-  url: 'https://docs.x-phere.com',
+  url: "https://docs.x-phere.com",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl: "/",
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: "facebook", // Usually your GitHub org/user name.
+  projectName: "docusaurus", // Usually your repo name.
 
-  onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenLinks: "throw",
+  onBrokenMarkdownLinks: "warn",
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: "en",
+    locales: ["en"],
   },
 
   presets: [
     [
-      'classic',
+      "classic",
       {
         docs: {
-          routeBasePath: '/', // Serve the docs at the site's root
-          sidebarPath: './sidebars.ts',
+          routeBasePath: "/", // Serve the docs at the site's root
+          sidebarPath: "./sidebars.ts",
           docItemComponent: "@theme/ApiItem", // Derived from docusaurus-theme-openapi
 
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
         },
         // blog: {
         //   showReadingTime: true,
@@ -62,7 +62,7 @@ const config: Config = {
         //   onUntruncatedBlogPosts: 'warn',
         // },
         theme: {
-          customCss: './src/css/custom.css',
+          customCss: "./src/css/custom.css",
         },
       } satisfies Preset.Options,
     ],
@@ -71,12 +71,12 @@ const config: Config = {
 
   themeConfig: {
     // Replace with your project's social card
-    image: 'img/docusaurus-social-card.jpg',
+    image: "img/docusaurus-social-card.jpg",
     navbar: {
-      title: 'X-Phere',
+      title: "X-Phere",
       logo: {
-        alt: 'X-Phere',
-        src: 'img/logo.svg',
+        alt: "X-Phere",
+        src: "img/logo.svg",
       },
       items: [
         // {
@@ -96,7 +96,7 @@ const config: Config = {
         //   position: 'left',
         //   sidebarid: 'nodeSidebar',
         //   label: 'Nodes',
-        // },          
+        // },
         // {
         //   label: "Petstore API",
         //   position: "left",
@@ -104,44 +104,49 @@ const config: Config = {
         // },
         {
           to: "references",
-          position: 'left',
-          sidebarid: 'refSidebar',
-          label: 'References',
+          position: "left",
+          sidebarid: "refSidebar",
+          label: "References",
+        },
+        {
+          to: "whitepaper",
+          position: "left",
+          label: "Whitepaper",
         },
         // {to: '/blog', label: 'Blog', position: 'left'},
         {
-          href: 'https://github.com/x-phere',
-          label: 'GitHub',
-          position: 'right',
+          href: "https://github.com/x-phere",
+          label: "GitHub",
+          position: "right",
         },
       ],
     },
     footer: {
-      style: 'dark',
+      style: "dark",
       links: [
         {
-          title: 'Community',
+          title: "Community",
           items: [
             {
-              label: 'telegram',
-              href: 'https://t.me/Xphere_official',
+              label: "telegram",
+              href: "https://t.me/Xphere_official",
             },
             {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
+              label: "Discord",
+              href: "https://discordapp.com/invite/docusaurus",
             },
             {
-              label: 'X',
-              href: 'https://x.com/Xphere_official',
+              label: "X",
+              href: "https://x.com/Xphere_official",
             },
           ],
         },
         {
-          title: 'More',
+          title: "More",
           items: [
             {
-              label: 'GitHub',
-              href: 'https://github.com/x-phere',
+              label: "GitHub",
+              href: "https://github.com/x-phere",
             },
           ],
         },
@@ -150,7 +155,7 @@ const config: Config = {
     },
     plugins: [
       [
-        'docusaurus-plugin-openapi-docs',
+        "docusaurus-plugin-openapi-docs",
         {
           id: "api", // plugin id
           docsPluginId: "classic", // configured for preset-classic
@@ -162,9 +167,9 @@ const config: Config = {
                 groupPathsBy: "tag",
               },
             } satisfies OpenApiPlugin.Options,
-          }
+          },
         },
-      ]
+      ],
     ],
     prism: {
       theme: prismThemes.github,
