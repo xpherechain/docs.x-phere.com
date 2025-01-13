@@ -186,7 +186,7 @@ The Proof Chain is an integral part of Xphere's dual-chain architecture, providi
 
 **iii. Interaction Between Main Chain and Proof Chain**
 
-![도표, 라인, 평면도, 스크린샷이(가) 표시된 사진 자동 생성된 설명]
+![X-Phere Architecture](/img/xphere-architecture.jpeg)
 
 The **Main Chain** and **Proof Chain** in Xphere's dual-chain architecture operate in a tightly integrated manner, ensuring seamless communication and functionality. The two chains work collaboratively through **algorithmic computations** and **RPC (Remote Procedure Call) communication** to maintain a synchronized network state and facilitate validator selection.
 
@@ -331,9 +331,11 @@ Xphere’s coin serves as the foundation of the ecosystem, enabling key function
    - The emission follows a **16% annual reduction model**, gradually decreasing the reward for miners and validators each year.
    - This deflationary mechanism promotes scarcity, incentivizing early participation while maintaining economic stability over time.
 
-**C. Fund Structure**
+**C. Distribution Model**
 
 Xphere coins are distributed in a manner that balances network operation, ecosystem growth, and community incentives:
+
+![Distribution Model](/img/distribution-model.png)
 
 **5. ETHEREUM COMPATIBILITY IN XPHERE**
 
