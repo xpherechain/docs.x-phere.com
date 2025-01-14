@@ -1,4 +1,8 @@
-# Public JSON-RPC Endpoints
+---
+title: Public JSON-RPC Endpoints
+description: A comprehensive guide to publicly accessible JSON-RPC endpoints for interacting with the Xphere network, including mainnet and testnet endpoints, service providers, and important considerations for usage.
+lang: en
+---
 
 Publicly accessible JSON-RPC endpoints enable you to test and operate your blockchain applications by interacting with the Xphere network without the need to run your own node.
 
@@ -22,29 +26,29 @@ Please note that these endpoints are provided to the community for testing and d
 
 **HTTPS**
 
-| Service Provider | Endpoints                          | Namespaces      | Type    | status  |
-|------------------|------------------------------------|-----------------|---------|---------|
-| Xphere Foundation| `https://public.x-phere.com`    | xp,eth,net  | Full    | pending |
+| Service Provider  | Endpoints                    | Namespaces | Type | status  |
+| ----------------- | ---------------------------- | ---------- | ---- | ------- |
+| Xphere Foundation | `https://public.x-phere.com` | xp,eth,net | Full | pending |
 
 **WebSocket**
 
-| Service Provider | Endpoints                          | Namespaces      | Type    | status  |
-|------------------|------------------------------------|-----------------|---------|---------|
-| Xphere Foundation| `wss://public.x-phere.com/ws`   | xp,eth,net  | Full    | pending |
+| Service Provider  | Endpoints                     | Namespaces | Type | status  |
+| ----------------- | ----------------------------- | ---------- | ---- | ------- |
+| Xphere Foundation | `wss://public.x-phere.com/ws` | xp,eth,net | Full | pending |
 
 ### Testnet Public JSON-RPC Endpoints
 
 **HTTPS**
 
-| Service Provider | Endpoints                          | Namespaces      | Type    |
-|------------------|------------------------------------|-----------------|---------|
-| Xphere Foundation| `https://testnet.x-phere.com` | eth,net | Full    |
+| Service Provider  | Endpoints                     | Namespaces | Type |
+| ----------------- | ----------------------------- | ---------- | ---- |
+| Xphere Foundation | `https://testnet.x-phere.com` | eth,net    | Full |
 
 **WebSocket**
 
-| Service Provider | Endpoints                          | Namespaces      | Type    |
-|------------------|------------------------------------|-----------------|---------|
-| Xphere Foundation| `wss://testnet.x-phere.com/ws` | eth,net,web3 | Full    |
+| Service Provider  | Endpoints                      | Namespaces   | Type |
+| ----------------- | ------------------------------ | ------------ | ---- |
+| Xphere Foundation | `wss://testnet.x-phere.com/ws` | eth,net,web3 | Full |
 
 ## RPC Service Providers
 

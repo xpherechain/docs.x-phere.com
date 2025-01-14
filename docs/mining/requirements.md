@@ -1,7 +1,3 @@
----
-title: Introduction
-description: A comprehensive guide for dApp development, providing essential reference information including API endpoints, SDK libraries, and technical specifications for both frontend and backend development.
-lang: en
----
+# Requirements
 
 This section serves as a comprehensive resource for dApp (decentralized application) development, providing essential referential information crucial to both frontend and backend development. Here, you will find detailed documentation on API endpoints, SDK libraries, and other vital components that empower developers to create and integrate blockchain-based applications seamlessly. Whether you're building the user interface or crafting the backend logic, this section will be your go-to reference for all technical specifications and functionality details.

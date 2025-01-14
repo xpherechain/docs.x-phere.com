@@ -1,4 +1,3 @@
-
 const sidebars = {
   // learnSidebar: [
   //   'learn/learn',
@@ -13,10 +12,10 @@ const sidebars = {
   //   },
   // ],
   refSidebar: [
-    'references/references',
-    'references/public-en',
-    'references/javascript-api',
-    'references/json-rpc',
+    "references/references",
+    "references/public-en",
+    "references/javascript-api",
+    "references/json-rpc",
     // {
     //   type: "category",
     //   label: "Petstore",
@@ -39,6 +38,12 @@ const sidebars = {
     //   ],
     // },
   ],
-}
+  miningSidebar: [
+    "mining/mining",
+    "mining/getting-started",
+    // "mining/requirements",
+    // "mining/rewards",
+  ],
+};
 
-module.exports = sidebars
+module.exports = sidebars;
