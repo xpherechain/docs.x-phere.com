@@ -108,6 +108,12 @@ const config: Config = {
           sidebarid: "refSidebar",
           label: "References",
         },
+        {
+          to: "mining",
+          position: "left",
+          sidebarid: "miningSidebar",
+          label: "Mining",
+        },
         // {
         //   to: "whitepaper",
         //   position: "left",
