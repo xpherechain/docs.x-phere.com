@@ -40,8 +40,8 @@ const sidebars = {
   ],
   miningSidebar: [
     "mining/mining",
+    "mining/requirements",
     "mining/getting-started",
-    // "mining/requirements",
     // "mining/rewards",
   ],
 };

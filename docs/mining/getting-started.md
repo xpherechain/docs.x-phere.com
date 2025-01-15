@@ -1,68 +1,80 @@
 ---
 title: Getting Started
-description: A comprehensive guide to setting up and running the Xphere miner, including download instructions, configuration steps, and platform-specific setup details for both MacOS and Windows systems.
+description: A comprehensive guide for setting up and running the Xphere miner
 lang: en
 ---
 
-## Release
+This guide walks you through the complete process of setting up and running an Xphere miner.
 
-Stay up-to-date with the latest updates and improvements:
+## Prerequisites
 
-- **Latest Release Notes**: [Release v0.0.1](https://github.com/xpherechain/Xphere-miner/releases/tag/v0.0.1)
+Before you begin mining, ensure you have:
 
----
+- Checked the [system requirements](/mining/requirements)
+- A Zigap wallet account
+- The latest Xphere miner binary
 
-### 2. Download the Program
+## Installation Guide
 
-1. Visit the [latest release page](https://github.com/xpherechain/Xphere-miner/releases).
-2. Download the miner binary appropriate for your operating system.
-3. **Make sure to also download (or place) the `config.json` file in the same directory as the binary.**
+### 1. Wallet Setup
 
-4. Set Up the Target Miner
-   To run the miner program, you need to set the targetMiner. Follow these steps
-   - Visit https://about.zigap.io and create a wallet.
-   - Once the wallet is created, copy the generated address and set it as the targetMiner in the configuration.
-   - Select the `XPHERE 2.0 (Testnet) network` in the wallet, then copy the generated wallet address and use it as the targetMiner in your setup.
+1. Create a new wallet at [Zigap](https://about.zigap.io)
+2. Select the `XPHERE 2.0 (Testnet)` network
+3. Copy your wallet address - you'll need this for miner configuration
 
-#### MacOS
+### 2. Download the Miner
 
-1. Open the Terminal.
-2. Navigate to the directory where you placed the MacOS miner binary, and also place the `config.json` file in the same directory.
-3. The file to which you are granting execute permissions.
+Download the latest version of the Xphere miner:
 
+1. Visit the [releases page](https://github.com/xpherechain/Xphere-miner/releases)
+2. Download the appropriate binary for your operating system
+3. Make sure to also download (or place) the config.json file in the same directory as the binary.
+
+Latest version: [Release v0.0.1](https://github.com/xpherechain/Xphere-miner/releases/tag/v0.0.1)
+
+### 3. Installation Steps
+
+#### For MacOS Users
+
+1. Open Terminal
+2. Navigate to your download directory
+3. Make the binary executable:
    ```bash
    chmod +x miner-darwin-amd64
    ```
-
-4. Run the following command:
-
+4. Run the miner:
    ```bash
-   ./miner-darwin-amd64 -config ./config.json -targetMiner your wallet address
-
-   Note: If you encounter a warning about an unidentified developer, go to System Preferences → Security & Privacy → General, and allow the miner program.
+   ./miner-darwin-amd64 -config ./config.json -targetMiner YOUR_WALLET_ADDRESS
    ```
 
-##### Example
+> **Note**: If you see a security warning, go to System Preferences → Security & Privacy → General and allow the application to run.
 
-    ```bash
-    ~/Downloads % ./miner-darwin-amd64 -config ./config.json -targetMiner "0x25752A3bD667E5a86cF297E74027503d48054442"
-    ```
+#### For Windows Users
 
-#### Windows
+1. Open Command Prompt as administrator
+2. Navigate to your download directory
+3. Run the miner:
+   ```bash
+   miner-windows-amd64 -config ./config.json -targetMiner YOUR_WALLET_ADDRESS
+   ```
 
-1. Open Command Prompt with administrator privileges.
-2. Navigate to the directory where you placed the Windows miner binary, and also place the config.json file in the same directory.
-3. Run the following command:
+## Configuration
 
+The miner requires two main parameters:
+
+- `config.json`: Contains basic configuration settings
+- `targetMiner`: Your Zigap wallet address
+
+### Example Commands
+
+MacOS:
+
+```bash
+./miner-darwin-amd64 -config ./config.json -targetMiner 0x25752A3bD667E5a86cF297E74027503d48054442
 ```
-miner-window-amd64 -config ./config.json -targetMiner your wallet addr
+
+Windows:
+
+```bash
+miner-windows-amd64 -config ./config.json -targetMiner 0x43ee5CDDF65F4cafA4b834e3c93108532Fe8768
 ```
-
-**Make sure to use the appropriate command for your operating system and the location of the downloaded files.
-For example, run the following command**
-
-##### Example
-
-    ```bash
-    C:\Users\USER\Downloads>miner-window-amd64 -config ./config.json -targetminer 0x43ee5CDDF65F4cafA4b834e3c93108532Fe8768
-    ```
