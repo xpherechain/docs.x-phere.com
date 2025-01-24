@@ -121,6 +121,12 @@ const config: Config = {
         // },
         // {to: '/blog', label: 'Blog', position: 'left'},
         {
+          to: "faucet",
+          position: "left",
+          sidebarid: "faucetSidebar",
+          label: "Faucet",
+        },
+        {
           href: "https://github.com/x-phere",
           label: "GitHub",
           position: "right",

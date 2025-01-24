@@ -38,6 +38,7 @@ const sidebars = {
     //   ],
     // },
   ],
+
   miningSidebar: [
     "mining/mining",
     "mining/requirements",
