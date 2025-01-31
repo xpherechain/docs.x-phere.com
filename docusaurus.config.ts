@@ -70,6 +70,11 @@ const config: Config = {
   themes: ["docusaurus-theme-openapi-docs"], // export theme components
 
   themeConfig: {
+    colorMode: {
+      defaultMode: "dark", // 기본 모드를 다크 모드로 설정
+      disableSwitch: false, // 다크/라이트 모드 전환 버튼 활성화 (true로 설정하면 전환 불가능)
+      respectPrefersColorScheme: false, // 사용자의 시스템 설정을 따르지 않음 (true로 설정하면 OS 테마를 따름)
+    },
     // Replace with your project's social card
     image: "img/docusaurus-social-card.jpg",
     navbar: {
