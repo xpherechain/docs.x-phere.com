@@ -108,7 +108,7 @@ export default function HomepageFeatures(): JSX.Element {
             <div className={styles.techTitle}>
               <h3 data-aos="fade-up" data-aos-delay="200">
                 <span>
-                  Technical Structure<br/>
+                  Technical Structure <br/>
                   and Operation Principles
                 </span>
               </h3>
@@ -198,7 +198,7 @@ export default function HomepageFeatures(): JSX.Element {
                 <dl>
                   <dt></dt>
                   <dd>
-                    <h5>Explorer (XPHERE TestNet)</h5>
+                    <h5>Explorer (XPHERE Testnet)</h5>
                     <p>Explore your token transactions and monitor Blockchain activity with Explorer</p>
                     <a href="#"><span><strong>Go to Explorer</strong></span></a>
                   </dd>
