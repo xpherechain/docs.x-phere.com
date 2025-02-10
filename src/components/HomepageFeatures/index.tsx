@@ -65,37 +65,46 @@ export default function HomepageFeatures(): JSX.Element {
               </p>
             </div>
             <Slider {...settings} className={styles.introList}>
-              <div className={`${styles.introItem} ${styles.item1}`} data-aos="fade-up" data-aos-delay="0">
-                <div>
-                  <dl>
-                    <dt>Xphere Overview</dt>
-                    <dd>Offers API endpoints, SDKs, and essential development materials</dd>
-                  </dl>
+                <div className={`${styles.introItem} ${styles.item1}`} data-aos="fade-up" data-aos-delay="0">
+                  <a href="references/">
+                    <div>
+                      <dl>
+                        <dt>Xphere Overview</dt>
+                        <dd>Offers API endpoints, SDKs, and essential development materials</dd>
+                      </dl>
+                    </div>
+                  </a>
                 </div>
-              </div>
+
               <div className={`${styles.introItem} ${styles.item2}`} data-aos="fade-up" data-aos-delay="200">
-                <div>
-                  <dl>
-                    <dt>XPublic JSON-RPC Endpoint</dt>
-                    <dd>Public endpoints to connect with the Xphere network</dd>
-                  </dl>
-                </div>
+                <a href="references/public-en/">
+                  <div>
+                    <dl>
+                      <dt>XPublic JSON-RPC Endpoint</dt>
+                      <dd>Public endpoints to connect with the Xphere network</dd>
+                    </dl>
+                  </div>
+                </a>
               </div>
               <div className={`${styles.introItem} ${styles.item3}`} data-aos="fade-up" data-aos-delay="400">
-                <div>
-                  <dl>
-                    <dt>JavaScript API Libraries</dt>
-                    <dd>Details on JavaScript APIs for Xphere communication</dd>
-                  </dl>
-                </div>
+                <a href="references/javascript-api/">
+                  <div>
+                    <dl>
+                      <dt>JavaScript API Libraries</dt>
+                      <dd>Details on JavaScript APIs for Xphere communication</dd>
+                    </dl>
+                  </div>
+                </a>
               </div>
               <div className={`${styles.introItem} ${styles.item4}`} data-aos="fade-up" data-aos-delay="600">
-                <div>
-                  <dl>
-                    <dt>JSON-RPC API</dt>
-                    <dd>Documentation for Xphere’s JSON-RPC API</dd>
-                  </dl>
-                </div>
+                <a href="references/json-rpc/">
+                  <div>
+                    <dl>
+                      <dt>JSON-RPC API</dt>
+                      <dd>Documentation for Xphere’s JSON-RPC API</dd>
+                    </dl>
+                  </div>
+                </a>
               </div>
             </Slider>
           </div>
@@ -180,7 +189,7 @@ export default function HomepageFeatures(): JSX.Element {
                   <dd>
                     <h5>ZIGAP Wallet</h5>
                     <p>Create your Xphere 2.0 Testnet Wallet using ZIGAP Wallet.</p>
-                    <a href="#"><span><strong>ZIGAP Download</strong></span></a>
+                    <a href="https://about.zigap.io/" target="_blank"><span><strong>ZIGAP Download</strong></span></a>
                   </dd>
                 </dl>
               </li>
@@ -190,7 +199,7 @@ export default function HomepageFeatures(): JSX.Element {
                   <dd>
                     <h5>GitHub</h5>
                     <p>Download the official mining program from GitHub and start mining today.</p>
-                    <a href="https://github.com/xpherechain/Xphere-miner"><span><strong>Download link</strong></span></a>
+                    <a href="https://github.com/xpherechain/Xphere-miner" target="_blank"><span><strong>Download link</strong></span></a>
                   </dd>
                 </dl>
               </li>
@@ -200,7 +209,7 @@ export default function HomepageFeatures(): JSX.Element {
                   <dd>
                     <h5>Tamsa Explorer (XPHERE Testnet)</h5>
                     <p>Explore your token transactions and monitor Blockchain activity with Tamsa Explorer</p>
-                    <a href="#"><span><strong>Go to Explorer</strong></span></a>
+                    <a href="https://xp2test.tamsa.io/main" target="_blank"><span><strong>Go to Explorer</strong></span></a>
                   </dd>
                 </dl>
               </li>
@@ -241,7 +250,7 @@ export default function HomepageFeatures(): JSX.Element {
         <ul>
           <li><a href="https://twitter.com/Xphere_official " target="_blank">X</a></li>
           <li><a href="https://t.me/Xphere_official" target="_blank">Telegram</a></li>
-          <li><a href="https://medium.com/xphere-official" target="_blank">Medium</a></li>
+          <li><a href="https://medium.com/@Xphere_official" target="_blank">Medium</a></li>
           <li><a href="https://discord.gg/xphere" target="_blank">discord</a></li>
           <li><a href="https://github.com/xpherechain" target="_blank">Github</a></li>
         </ul>

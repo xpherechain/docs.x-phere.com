@@ -173,6 +173,24 @@ const config: Config = {
           ],
         },
         {
+          title: "Docs",
+          items: [
+            {
+              label: "Docs",
+              href: "/",
+            }, {
+              label: "Reference",
+              href: "/references",
+            }, {
+              label: "Mining",
+              href: "/mining",
+            }, {
+              label: "Faucet",
+              href: "/faucet",
+            },
+          ]
+        },
+        {
           title: "More",
           items: [
             {
