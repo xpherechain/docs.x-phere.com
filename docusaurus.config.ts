@@ -9,7 +9,7 @@ const config: Config = {
   title: "X-Phere v2.0 Docs",
   tagline: "Welcome to the X-Phere",
   favicon: "img/favicon.ico",
-
+  
   // Set the production url of your site here
   url: "https://docs.x-phere.com",
   // Set the /<baseUrl>/ pathname under which your site is served
@@ -19,7 +19,7 @@ const config: Config = {
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: "facebook", // Usually your GitHub org/user name.
-  projectName: "docusaurus", // Usually your repo name.
+  projectName: "x-phere", // Usually your repo name.
 
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
@@ -76,6 +76,14 @@ const config: Config = {
   themes: ["docusaurus-theme-openapi-docs"], // export theme components
 
   themeConfig: {
+    metadata: [
+      { name: 'og:title', content: 'X-Phere v2.0 Docs' },
+      { name: 'og:description', content: 'Welcome to the X-Phere' },
+      { name: 'og:image', content: 'https://docs.x-phere.com/img/kakao_bg.png' },
+      { name: 'og:url', content: 'https://docs.x-phere.com' },
+      { name: 'og:type', content: 'website' },
+      { name: 'og:site_name', content: 'X-Phere v2.0 Docs' },
+    ],
     colorMode: {
       defaultMode: "dark", // 기본 모드를 다크 모드로 설정
       disableSwitch: false, // 다크/라이트 모드 전환 버튼 활성화 (true로 설정하면 전환 불가능)
