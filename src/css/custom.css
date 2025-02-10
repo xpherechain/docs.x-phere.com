@@ -28,3 +28,110 @@
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+
+
+
+
+body {background: #000;}
+#__docusaurus {padding-top: 130px;}
+.navbar {position: fixed !important; left: 0; right: 0; top: 0; height: 130px !important; padding: 0 !important; background-color: rgba(255,255,255,0.02) !important; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);}
+.navbar:after {content: ''; display: block; position: absolute; left: 0; right: 0; bottom: 0; background: #333; height: 1px;}
+.navbar > div:nth-child(1) > div:nth-child(1) {padding-left: 130px; justify-content: center; gap: 60px;}
+.navbar > div:nth-child(1) > div:nth-child(1) > a {color: #fff;}
+.navbar > div:nth-child(1) > div:nth-child(1) > a:nth-child(2) {position: absolute; left: 0; top: 0; margin-right: 0; width: 130px; height: 130px; text-indent: -9999px; background: url('/img/gnb_logo.png')no-repeat center center / 72px auto; transition: all .3s ease-in-out; -webkit-transition: all .3s ease-in-out;}
+.navbar > div:nth-child(1) > div:nth-child(1) > a:hover {color: #b60020;}
+
+.main-wrapper {background: url('/img/sub_bg.jpg')no-repeat center top / 100% auto;}
+aside {padding-top: 60px !important; background: #000; border-right-color: #333 !important;}
+aside > div:nth-child(1) {top: 90px !important;}
+
+.menu.thin-scrollbar {padding: 0;}
+.theme-doc-sidebar-menu {}
+.menu__list-item:not(:first-child) {margin-top: 0;}
+.menu__link {padding: 10px 20px;}
+.menu__link--active:not(.menu__link--sublist) {background: none; color: #fff; position: relative;}
+.menu__link--active:not(.menu__link--sublist):before {content: ''; display: block; width: 2px; background: #fff; position: absolute; left: 0; top: 0; bottom: 0;}
+
+main {padding-top: 60px; padding-bottom: 120px;}
+main > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) {max-width: 100% !important;}
+main > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) {display: none;}
+
+.breadcrumbs {margin-bottom: 40px;}
+.breadcrumbs__item:not(:last-child):after {filter: invert(1); margin: 0 10px;}
+.breadcrumbs__item--active .breadcrumbs__link {color: #C0826F; font-size: 16px;}
+.breadcrumbs__link {padding: 0;}
+
+.theme-doc-markdown {border-radius: 20px; border: 1px solid #333; padding: 40px; background-color: rgba(0,0,0,0.5) !important; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);}
+.markdown h1:first-child {color: #fff;}
+.markdown > h2,
+.markdown > h3 {color: #fff; font-weight: 600;}
+.markdown table th,
+.markdown table td {border-color: #555;}
+.markdown table thead tr {border-bottom: none;}
+.markdown table thead th {background: #262626; color: #7B7B7B; font-weight: 400;}
+.markdown code {background: none;}
+.theme-code-block {background: none !important;}
+.codeBlockContent_biex pre {background: #262626 !important; border: solid 1px #232323; border-radius: 16px;}
+
+.codeBlockContent_biex pre span {color: #fff !important; font-weight: 200;}
+.codeBlockContent_biex pre span.comment {font-style: normal !important; color: #6273A4 !important;}
+.codeBlockContent_biex pre span.keyword {color: #BC92F8 !important;}
+.codeBlockContent_biex pre span.string {color: #FF79C6 !important;}
+.codeBlockContent_biex pre span.function {color: #4FFA7B !important;}
+
+.theme-doc-footer {margin-top: 1rem !important; text-align: right;}
+.theme-doc-footer .row {display: block;}
+.theme-doc-footer .col {width: 100%;}
+.pagination-nav {display: none;}
+
+footer.footer {background-color: #000 !important; border-top: 1px solid #333; color: #666 !important;}
+footer.footer > div {width: 100%; max-width: 100% !important; padding-left: 130px !important; padding-right: 130px !important;}
+
+@media (min-width:997px) {
+  .navbar > div:nth-child(1) > div:nth-child(2) > div {display: none;}
+}
+
+@media (max-width:1680px) {
+  #__docusaurus {padding-top: 90px;}
+  .navbar {height: 90px !important;}
+  .navbar > div:nth-child(1) > div:nth-child(1) {padding-left: 90px;}
+  .navbar > div:nth-child(1) > div:nth-child(1) > a:nth-child(2) {width: 90px; height: 90px; background-size: 60px auto;}
+  aside > div:nth-child(1) {top: 40px !important;}
+  main > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) {top: 110px !important;}
+  footer.footer > div {padding-left: 90px !important; padding-right: 90px !important;}
+}
+
+@media (max-width:1280px) {
+  #__docusaurus {padding-top: 72px;}
+  .navbar {height: 72px !important;}
+  .navbar > div:nth-child(1) > div:nth-child(1) {padding-left: 72px;}
+  .navbar > div:nth-child(1) > div:nth-child(1) > a:nth-child(2) {width: 72px; height: 72px; background-size: 40px auto;}
+  aside > div:nth-child(1) {top: 20px !important;}
+  main > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) {top: 92px !important;}
+  footer.footer > div {padding-left: 72px !important; padding-right: 72px !important;}
+}
+
+
+
+@media (max-width:996px) {
+  .navbar > div:nth-child(1) > div:nth-child(1) {justify-content: flex-end; padding-right: 10px;}
+  .navbar > div:nth-child(3) {height: 100vh !important; z-index: 1; overflow-y: hidden; background: #000;}
+  .navbar > div:nth-child(3) > div:nth-child(1) {height: 72px !important;}
+  .navbar > div:nth-child(3) > div:nth-child(1) a {width: 40px; height: 40px; text-indent: -9999px; background: url('/img/gnb_logo.png')no-repeat center center / cover;}
+  .navbar > div:nth-child(3) > div:nth-child(1) > div {display: none;}
+  .navbar > div:nth-child(3) .navbar-sidebar__item {padding: 0;}
+  main {padding-top: 0; padding-bottom: 0;}
+  .breadcrumbs {margin-bottom: 20px;}
+  .breadcrumbs__item--active .breadcrumbs__link {font-size: 14px;}
+  .theme-doc-toc-mobile {display: none;}
+  .theme-doc-markdown {padding: 20px;}
+  footer.footer > div {padding-left: 20px !important; padding-right: 20px !important;}
+}
+
+@media (max-width:768px) {
+  #__docusaurus {padding-top: 0;}
+  .navbar {position: relative !important;}
+}
+
+

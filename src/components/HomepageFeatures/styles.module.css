@@ -49,97 +49,6 @@ outline:none;
 
 
 
-
-/* common */
-h1#title {position: absolute; width: 0; height: 0; text-indent: -9999px; left: -10000px; top: -100000px; overflow: hidden;}
-.wrap {width: 100%; overflow: hidden; padding-top: 130px; background: #000;}
-.container {width: 100%; max-width: 1600px; margin: 0 auto; padding-left: 20px; padding-right: 20px;}
-.section {position: relative;}
-.sectionInner {width: 100%; padding-left: 130px; padding-right: 130px; position: relative; z-index: 1;}
-
-@media (max-width:1680px) {
-	.wrap {padding-top: 90px;}
-	.sectionInner {padding-left: 90px; padding-right: 90px;}
-}
-
-@media (max-width:1280px) {
-	.wrap {padding-top: 72px;}
-	.sectionInner {padding-left: 72px; padding-right: 72px;}
-}
-
-@media (max-width:992px) {
-	.body_temp {position: fixed; width: 100%; margin: 0 auto; left: 0; right: 0;}
-	.sectionInner {padding-left: 20px; padding-right: 20px;}
-}
-
-@media (max-width:768px) {
-	.wrap {padding-top: 0;}
-	.sectionInner {padding-left: 0; padding-right: 0;}
-}
-
-
-
-body {background: #000;}
-body > div {padding-top: 130px;}
-body > div > nav {position: fixed !important; left: 0; right: 0; top: 0; height: 130px !important; padding: 0 !important; background-color: rgba(255,255,255,0.02) !important; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);}
-body > div > nav:after {content: ''; display: block; position: absolute; left: 0; right: 0; bottom: 0; background: #333; height: 1px;}
-body > div > nav > div:nth-child(1) > div:nth-child(1) {padding-left: 130px; justify-content: center; gap: 60px;}
-body > div > nav > div:nth-child(1) > div:nth-child(1) > a {color: #fff;}
-body > div > nav > div:nth-child(1) > div:nth-child(1) > a:nth-child(2) {position: absolute; left: 0; top: 0; margin-right: 0; width: 130px; height: 130px; text-indent: -9999px; background: url('/img/gnb_logo.png')no-repeat center center / 72px auto; transition: all .3s ease-in-out; -webkit-transition: all .3s ease-in-out;}
-body > div > nav > div:nth-child(1) > div:nth-child(1) > a:hover {color: #b60020;}
-
-aside {padding-top: 60px; background: #000;}
-aside > div:nth-child(1) {top: 90px !important;}
-main {padding-top: 60px; background: #000;}
-main > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) {top: 150px !important;}
-footer {background-color: #000 !important; border-top: 1px solid #333; color: #666 !important;}
-footer > div {width: 100%; max-width: 100% !important; padding-left: 130px !important; padding-right: 130px !important;}
-
-@media (min-width:997px) {
-  body > div > nav > div:nth-child(1) > div:nth-child(2) > div {display: none;}
-}
-
-@media (max-width:1680px) {
-  body > div {padding-top: 90px;}
-  body > div > nav {height: 90px !important;}
-  body > div > nav > div:nth-child(1) > div:nth-child(1) {padding-left: 90px;}
-  body > div > nav > div:nth-child(1) > div:nth-child(1) > a:nth-child(2) {width: 90px; height: 90px; background-size: 60px auto;}
-  aside > div:nth-child(1) {top: 40px !important;}
-  main > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) {top: 110px !important;}
-  footer > div {padding-left: 90px !important; padding-right: 90px !important;}
-}
-
-@media (max-width:1280px) {
-  body > div {padding-top: 72px;}
-  body > div > nav {height: 72px !important;}
-  body > div > nav > div:nth-child(1) > div:nth-child(1) {padding-left: 72px;}
-  body > div > nav > div:nth-child(1) > div:nth-child(1) > a:nth-child(2) {width: 72px; height: 72px; background-size: 40px auto;}
-  aside > div:nth-child(1) {top: 20px !important;}
-  main > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) {top: 92px !important;}
-  footer > div {padding-left: 72px !important; padding-right: 72px !important;}
-}
-
-
-
-@media (max-width:996px) {
-  body > div > nav > div:nth-child(1) > div:nth-child(1) {justify-content: flex-end; padding-right: 10px;}
-  body > div > nav > div:nth-child(3) {height: 100vh !important; z-index: 1; overflow-y: hidden;}
-  body > div > nav > div:nth-child(3) > div:nth-child(1) {height: 72px !important;}
-  body > div > nav > div:nth-child(3) > div:nth-child(1) a {width: 40px; height: 40px; text-indent: -9999px; background: url('/img/gnb_logo.png')no-repeat center center / cover;}
-  body > div > nav > div:nth-child(3) > div:nth-child(1) > div {display: none;}
-  main {padding-top: 0;}
-  footer > div {padding-left: 20px !important; padding-right: 20px !important;}
-
-}
-
-@media (max-width:768px) {
-  body > div {padding-top: 0;}
-  body > div > nav {position: relative !important;}
-
-}
-
-
-
 .aside,
 .fixLogo {position: fixed; z-index: 100; top: 130px; width: 130px; padding: 60px 0; bottom: 0; display: flex; align-items: flex-end; justify-content: center; background: rgba(255,255,255,0.02); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); transition: all .3s ease-in-out; -webkit-transition: all .3s ease-in-out;}
 .aside {left: 0; border-right: solid 1px #333;}
@@ -176,6 +85,36 @@ footer > div {width: 100%; max-width: 100% !important; padding-left: 130px !impo
   .aside,
 	.fixLogo {display: none;}
 }
+
+
+
+/* common */
+h1#title {position: absolute; width: 0; height: 0; text-indent: -9999px; left: -10000px; top: -100000px; overflow: hidden;}
+.wrap {width: 100%; overflow: hidden; padding-top: 130px; background: #000;}
+.container {width: 100%; max-width: 1600px; margin: 0 auto; padding-left: 20px; padding-right: 20px;}
+.section {position: relative;}
+.sectionInner {width: 100%; padding-left: 130px; padding-right: 130px; position: relative; z-index: 1;}
+
+@media (max-width:1680px) {
+	.wrap {padding-top: 90px;}
+	.sectionInner {padding-left: 90px; padding-right: 90px;}
+}
+
+@media (max-width:1280px) {
+	.wrap {padding-top: 72px;}
+	.sectionInner {padding-left: 72px; padding-right: 72px;}
+}
+
+@media (max-width:992px) {
+	.body_temp {position: fixed; width: 100%; margin: 0 auto; left: 0; right: 0;}
+	.sectionInner {padding-left: 20px; padding-right: 20px;}
+}
+
+@media (max-width:768px) {
+	.wrap {padding-top: 0;}
+	.sectionInner {padding-left: 0; padding-right: 0;}
+}
+
 
 
 
