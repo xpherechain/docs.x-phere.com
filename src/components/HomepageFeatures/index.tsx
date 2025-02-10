@@ -198,8 +198,8 @@ export default function HomepageFeatures(): JSX.Element {
                 <dl>
                   <dt></dt>
                   <dd>
-                    <h5>Explorer (XPHERE Testnet)</h5>
-                    <p>Explore your token transactions and monitor Blockchain activity with Explorer</p>
+                    <h5>Tamsa Explorer (XPHERE Testnet)</h5>
+                    <p>Explore your token transactions and monitor Blockchain activity with Tamsa Explorer</p>
                     <a href="#"><span><strong>Go to Explorer</strong></span></a>
                   </dd>
                 </dl>
