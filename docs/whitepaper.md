@@ -15,22 +15,26 @@ This innovative design supports diverse applications such as finance, logistics,
 ## Table of Contents
 
 1. [Introduction](#1-introduction)
-2. [Dual-chain Architecture](#2-dual-chain-architecture)
+2. [Technical Specifications](#2-technical-specifications)
+   1. [Network Architecture](#i-network-architecture)
+   2. [Node Requirements](#ii-node-requirements)
+   3. [Transaction Throughput](#iii-transaction-throughput)
+3. [Dual-chain Architecture](#3-dual-chain-architecture)
    1. [Main Chain: Optimized PBFT Consensus](#i-main-chain-optimized-pbft-consensus)
    2. [Proof Chain: PoW-Based Validation Layer](#ii-proof-chain-pow-based-validation-layer)
    3. [Interaction Between Main Chain and Proof Chain](#iii-interaction-between-main-chain-and-proof-chain)
-3. [Consensus](#3-consensus)
+4. [Consensus](#4-consensus)
    1. [Consensus Mechanism: Trust and Security with Proof of Work (PoW)](#i-consensus-mechanism-trust-and-security-with-proof-of-work-pow)
    2. [51% Attack Mitigation in Xphere](#ii-51-attack-mitigation-in-xphere)
-4. [Economic Model of Coin](#4-economic-model-of-coin)
+5. [Economic Model of Coin](#5-economic-model-of-coin)
    1. [Coin Utility and Role in the Network](#a-coin-utility-and-role-in-the-network)
    2. [Emission Mechanism](#b-emission-mechanism)
    3. [Distribution Model](#c-distribution-model)
-5. [Ethereum Compatibility in Xphere](#5-ethereum-compatibility-in-xphere)
+6. [Ethereum Compatibility in Xphere](#6-ethereum-compatibility-in-xphere)
    1. [Key Aspects of Ethereum Compatibility](#i-key-aspects-of-ethereum-compatibility)
    2. [Benefits of Ethereum Compatibility](#ii-benefits-of-ethereum-compatibility)
    3. [Building a Bridge Between Ecosystems](#iii-building-a-bridge-between-ecosystems)
-6. [Conclusion](#6-conclusion)
+7. [Conclusion](#7-conclusion)
 
 ---
 
@@ -59,7 +63,26 @@ Xphere v2.0 is built with the following key objectives:
 
 Xphere v2.0 represents a significant step forward, addressing the foundational challenges of its predecessor while paving the way for a more accessible and reliable blockchain ecosystem.
 
-## 2. DUAL-CHAIN ARCHITECTURE
+## 2. TECHNICAL SPECIFICATIONS
+
+### i. Network Architecture
+
+Xphere's dual-chain architecture consists of the Main Chain and the Proof Chain. The Main Chain handles transaction processing and block finalization, while the Proof Chain focuses on validator selection and cryptographic proof generation.
+
+### ii. Node Requirements
+
+To participate in the Xphere network, nodes must meet the following minimum requirements:
+
+- **CPU**: 16 CPUs
+- **RAM**: 32 GB
+- **Storage**: 250 GB SSD
+- **Network**: High-speed internet connection with at least 100 Mbps bandwidth
+
+### iii. Transaction Throughput
+
+Xphere's architecture is designed to handle a high volume of transactions, with the Main Chain capable of processing up to 4,000 transactions per second (TPS).
+
+## 3. DUAL-CHAIN ARCHITECTURE
 
 ### i. Main Chain: Optimized PBFT Consensus
 
@@ -229,7 +252,7 @@ The **Main Chain** and **Proof Chain** in Xphere's dual-chain architecture opera
 
 The integration of the Main Chain and Proof Chain through algorithmic computations and RPC communication is a cornerstone of Xphere's dual-chain architecture. This collaboration enables secure, reliable validator selection and efficient state synchronization, ensuring the network operates cohesively and scales effectively to meet the demands of decentralized applications.
 
-## 3. CONSENSUS
+## 4. CONSENSUS
 
 ### i. Consensus Mechanism: Trust and Security with Proof of Work (PoW)
 
@@ -306,7 +329,7 @@ Xphere's consensus mechanism is uniquely designed to eliminate the possibility o
 
 This innovative approach secures Xphere against 51% attacks while maintaining decentralization and scalability, setting a new standard for blockchain security.
 
-## 4. ECONOMIC MODEL OF THE COIN
+## 5. ECONOMIC MODEL OF THE COIN
 
 As Xphere operates on its own mainnet, the native asset is classified as a **coin** rather than a token. The coin’s distribution, emission mechanism, and utility are carefully designed to ensure a sustainable and balanced ecosystem for the network's growth.
 
@@ -337,7 +360,7 @@ Xphere coins are distributed in a manner that balances network operation, ecosys
 
 ![Distribution Model](/img/distribution-model.png)
 
-## 5. ETHEREUM COMPATIBILITY IN XPHERE
+## 6. ETHEREUM COMPATIBILITY IN XPHERE
 
 Xphere is designed to ensure **seamless compatibility with Ethereum**, leveraging its established ecosystem while providing the scalability and flexibility of a next-generation blockchain. By supporting Ethereum's widely adopted **EVM (Ethereum Virtual Machine)** standard, Xphere opens its network to developers, tools, and decentralized applications (dApps) that already operate within the Ethereum ecosystem.
 
@@ -372,7 +395,7 @@ Xphere’s Ethereum compatibility ensures that it acts as a **complementary netw
 
 This strategic interoperability not only accelerates adoption but also positions Xphere as a critical player in the evolution of blockchain ecosystems, supporting both innovation and integration across networks.
 
-## 6. CONCLUSION
+## 7. CONCLUSION
 
 Xphere represents a transformative step forward in blockchain technology, combining innovation, scalability, and robust security to address the limitations of existing networks. By introducing a **dual-chain architecture** that integrates the **Main Chain** and **Proof Chain**, Xphere achieves an optimized balance between scalability, security, and decentralization.
 
