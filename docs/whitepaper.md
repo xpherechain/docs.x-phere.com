@@ -17,7 +17,7 @@ This innovative design supports diverse applications such as finance, logistics,
 1. Introduction
 2. Dual-chain Architecture
    1. Main Chain: Optimized PBFT Consensus
-   2. Proof Chain: Pow-Based Validation Layer
+   2. Proof Chain: PoW-Based Validation Layer
    3. Interaction Between Main Chain and Proof Chain
 3. Consensus
    1. Consensus Mechanism: Trust and Security with Proof of Work (PoW)
@@ -28,7 +28,7 @@ This innovative design supports diverse applications such as finance, logistics,
    3. Distribution Model
 5. Ethereum Compatibility in Xphere
    1. Key Aspects of Ethereum Compatibility
-   2. Benefits of. thereum Compatibility
+   2. Benefits of Ethereum Compatibility
    3. Building a Bridge Between Ecosystems
 6. Conclusion
 
@@ -36,7 +36,7 @@ This innovative design supports diverse applications such as finance, logistics,
 
 **1. INTRODUCTION**
 
-The blockchain space has experienced rapid innovation, yet many networks face challenges in balancing accessibility, stability, and user adoption. **xphere 1.0** was introduced as a unique blockchain platform with its own smart contract structure, distinct from the commonly used EVM (Ethereum Virtual Machine) ecosystem. While this proprietary approach offered certain technical advantages, it also introduced significant limitations.
+The blockchain space has experienced rapid innovation, yet many networks face challenges in balancing accessibility, stability, and user adoption. **Xphere 1.0** was introduced as a unique blockchain platform with its own smart contract structure, distinct from the commonly used EVM (Ethereum Virtual Machine) ecosystem. While this proprietary approach offered certain technical advantages, it also introduced significant limitations.
 
 **Key Limitations of Xphere 1.0**:
 
@@ -47,17 +47,17 @@ The blockchain space has experienced rapid innovation, yet many networks face ch
 - **Inconsistent Block Generation**:
   - Irregular block times created uncertainty for users and developers, impacting both usability and security.
 
-These limitations not only restricted the growth of xphere's ecosystem but also posed potential risks to its long-term adoption and scalability.
+These limitations not only restricted the growth of Xphere's ecosystem but also posed potential risks to its long-term adoption and scalability.
 
-To address these challenges and unlock the full potential of the network, we developed **xphere v2.0**, an upgraded blockchain platform designed to enhance accessibility, reliability, and scalability. By learning from the shortcomings of xphere v1.0, xphere v2.0 introduces a robust architecture that integrates **dual-chain technology** and significantly improves the user experience.
+To address these challenges and unlock the full potential of the network, we developed **Xphere v2.0**, an upgraded blockchain platform designed to enhance accessibility, reliability, and scalability. By learning from the shortcomings of Xphere v1.0, Xphere v2.0 introduces a robust architecture that integrates **dual-chain technology** and significantly improves the user experience.
 
-xphere v2.0 is built with the following key objectives:
+Xphere v2.0 is built with the following key objectives:
 
 - Seamless integration with EVM-compatible tools and ecosystems, opening the network to a wider range of developers and users.
 - Improved transaction reliability to eliminate dropped transactions and enhance overall network trust.
 - Consistent block generation for predictable performance and better support for decentralized applications.
 
-xphere v2.0 represents a significant step forward, addressing the foundational challenges of its predecessor while paving the way for a more accessible and reliable blockchain ecosystem.
+Xphere v2.0 represents a significant step forward, addressing the foundational challenges of its predecessor while paving the way for a more accessible and reliable blockchain ecosystem.
 
 **2. DUAL-CHAIN ARCHITECTURE**
 
@@ -186,7 +186,7 @@ The Proof Chain is an integral part of Xphere's dual-chain architecture, providi
 
 **iii. Interaction Between Main Chain and Proof Chain**
 
-![X-Phere Architecture](/img/xphere-architecture.jpeg)
+![Xphere Architecture](/img/xphere-architecture.jpeg)
 
 The **Main Chain** and **Proof Chain** in Xphere's dual-chain architecture operate in a tightly integrated manner, ensuring seamless communication and functionality. The two chains work collaboratively through **algorithmic computations** and **RPC (Remote Procedure Call) communication** to maintain a synchronized network state and facilitate validator selection.
 
@@ -328,7 +328,7 @@ Xphere’s coin serves as the foundation of the ecosystem, enabling key function
 1. **Total Supply**:
    - The total coin supply is capped at **5.5 billion coins**, ensuring scarcity and long-term value retention.
 2. **Deflationary Model**:
-   - The emission follows a **16% annual reduction model**, gradually decreasing the reward for miners and validators each year.
+   - The emission follows a **26.28% annual reduction model**, gradually decreasing the reward for miners and validators each year.
    - This deflationary mechanism promotes scarcity, incentivizing early participation while maintaining economic stability over time.
 
 **C. Distribution Model**
@@ -380,7 +380,7 @@ The **Main Chain**, with its PBFT-based consensus, ensures consistent block crea
 
 Xphere also prioritizes interoperability and accessibility. By supporting **Ethereum compatibility**, Xphere bridges the gap between its innovative infrastructure and the vast Ethereum ecosystem. Developers and users can seamlessly leverage familiar tools, dApps, and workflows while benefiting from Xphere's superior performance and efficiency.
 
-The **coinomics** of Xphere further underscores its sustainability, with a capped supply of 5.5 billion coins, a deflationary model reducing emission by 16% annually, and a strategic distribution model that balances incentives for miners, Alliances, and the Foundation. This economic model not only encourages early participation but also ensures long-term network health and value retention.
+The **coinomics** of Xphere further underscores its sustainability, with a capped supply of 5.5 billion coins, a deflationary model reducing emission by 26.28% annually, and a strategic distribution model that balances incentives for miners, Alliances, and the Foundation. This economic model not only encourages early participation but also ensures long-term network health and value retention.
 
 Xphere's comprehensive approach to network security includes unique mechanisms to prevent 51% attacks by restricting mining to Alliance-approved nodes and randomizing miner-to-validator assignments. These measures guarantee the network’s resilience against malicious activities while promoting a trustless and decentralized ecosystem.
 
