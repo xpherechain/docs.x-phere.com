@@ -315,12 +315,42 @@ h1#title {position: absolute; width: 0; height: 0; text-indent: -9999px; left: -
   .keyList li:last-child {margin-bottom: 0;}
 
 }
+/* 전체 리스트 스타일 초기화 */
+ol {
+  counter-reset: section;
+  list-style: none;
+  padding-left: 20px;
+}
 
+/* 1차 목록 (1, 2, 3...) */
+ol > li {
+  counter-increment: section;
+}
+ol > li::before {
+  content: counter(section) ". ";
+  font-weight: bold;
+}
 
+/* 2차 목록 (i, ii, iii...) */
+ol ol {
+  counter-reset: subsection;
+}
+ol ol > li {
+  counter-increment: subsection;
+}
+ol ol > li::before {
+  content: counter(subsection, lower-roman) ". ";
+  font-weight: bold;
+}
 
-
-
-
-
-
-
+/* 3차 목록 (a, b, c...) */
+ol ol ol {
+  counter-reset: subsubsection;
+}
+ol ol ol > li {
+  counter-increment: subsubsection;
+}
+ol ol ol > li::before {
+  content: counter(subsubsection, lower-alpha) ". ";
+  font-weight: bold;
+}
