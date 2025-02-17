@@ -39,7 +39,7 @@ The miner runs natively on:
 
 ### Network Integration
 
-- Full XPHERE TEST NET 2.0 compatibility
+- Full XPHERE 2.0 compatibility
 - Automatic network difficulty adjustment
 - Real-time block synchronization
 
@@ -49,7 +49,7 @@ The miner runs natively on:
 | ------------- | --------------------- |
 | Algorithm     | SHA-256               |
 | Threading     | Multi-threaded        |
-| Network       | XPHERE TEST NET 2.0   |
+| Network       | XPHERE 2.0            |
 | Configuration | JSON + CLI parameters |
 
 ## Best Practices
