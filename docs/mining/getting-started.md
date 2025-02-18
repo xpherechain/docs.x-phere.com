@@ -117,9 +117,11 @@ The miner requires two main parameters:
 - `config.json`: Contains basic configuration settings
 - `targetMiner`: Your Zigap wallet address
 
-### Example Commands
+## Example Commands - Mainnet,Testnet
 
-MacOS:
+### MacOS
+
+#### Mainnet
 
 - Using config.json
 
@@ -142,10 +144,18 @@ MacOS:
 - Running without config.json (Manually specify all parameters)
 
 ```bash
-./miner-darwin-amd64 -targetMiner 0xcf52d7D7Ffb9Fe4De4fa218d14BbF7Af04603B3 -domain https://sgp-mining.x-phere.com,https://bkk-mining.x-phere.com,https://hkg-mining.x-phere.com,https://idn-mining.x-phere.com
+./miner-darwin-amd64 -targetMiner 0xcf52d7D...7Af04603B3 -domain https://sgp-mining.x-phere.com,https://bkk-mining.x-phere.com,https://hkg-mining.x-phere.com,https://idn-mining.x-phere.com
 ```
 
-Windows:
+#### TestNet
+
+```bash
+ ./miner-darwin-amd64 -targetMiner 0x43e...e8768 -domain https://testnet-asia-mining.x-phere.com
+```
+
+### Windows
+
+#### Mainnet
 
 - Using config.json
 
@@ -165,4 +175,10 @@ Windows:
 
 ```bash
 miner-windows-amd64 -targetMiner 0xcf52d7D7Ffb9Fe4De4fa218d14BbF7Af04603B3 -domain https://sgp-mining.x-phere.com,https://bkk-mining.x-phere.com,https://hkg-mining.x-phere.com,https://idn-mining.x-phere.com
+```
+
+#### TestNet
+
+```bash
+miner-windows-amd64 -targetMiner 0xcf52d7D7Ffb9Fe4De4fa218d14BbF7Af04603B3 -domain https://testnet-asia-mining.x-phere.com
 ```
