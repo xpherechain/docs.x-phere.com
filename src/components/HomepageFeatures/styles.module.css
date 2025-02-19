@@ -90,7 +90,7 @@ outline:none;
 
 /* common */
 h1#title {position: absolute; width: 0; height: 0; text-indent: -9999px; left: -10000px; top: -100000px; overflow: hidden;}
-.wrap {width: 100%; overflow: hidden; padding-top: 130px; background: #000;}
+.wrap {width: 100%; overflow: hidden; padding-top: 130px; background: #000; position: relative; margin-top: -60px; margin-bottom: -120px;}
 .container {width: 100%; max-width: 1600px; margin: 0 auto; padding-left: 20px; padding-right: 20px;}
 .section {position: relative;}
 .sectionInner {width: 100%; padding-left: 130px; padding-right: 130px; position: relative; z-index: 1;}
@@ -103,6 +103,10 @@ h1#title {position: absolute; width: 0; height: 0; text-indent: -9999px; left: -
 @media (max-width:1280px) {
 	.wrap {padding-top: 72px;}
 	.sectionInner {padding-left: 72px; padding-right: 72px;}
+}
+
+@media (max-width:996px) {
+  .wrap {margin-top: 0; margin-bottom: 0;}
 }
 
 @media (max-width:992px) {
