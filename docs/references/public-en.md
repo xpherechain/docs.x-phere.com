@@ -26,15 +26,15 @@ Please note that these endpoints are provided to the community for testing and d
 
 **HTTPS**
 
-| Service Provider  | Endpoints                    | Namespaces | Type | status  |
-| ----------------- | ---------------------------- | ---------- | ---- | ------- |
-| Xphere Foundation | `https://en-hkg.x-phere.com` | xp,eth,net | Full | pending |
+| Service Provider  | Endpoints                                                      | Namespaces | Type | status  |
+| ----------------- | -------------------------------------------------------------- | ---------- | ---- | ------- |
+| Xphere Foundation | `https://en-hkg.x-phere.com`<br />`https://en-bkk.x-phere.com` | xp,eth,net | Full | pending |
 
 **WebSocket**
 
-| Service Provider  | Endpoints                     | Namespaces | Type | status  |
-| ----------------- | ----------------------------- | ---------- | ---- | ------- |
-| Xphere Foundation | `wss://en-hkg.x-phere.com/ws` | xp,eth,net | Full | pending |
+| Service Provider  | Endpoints                                                        | Namespaces | Type | status  |
+| ----------------- | ---------------------------------------------------------------- | ---------- | ---- | ------- |
+| Xphere Foundation | `wss://en-hkg.x-phere.com/ws`<br />`wss://en-bkk.x-phere.com/ws` | xp,eth,net | Full | pending |
 
 ### Testnet Public JSON-RPC Endpoints
 
