@@ -28,13 +28,13 @@ Please note that these endpoints are provided to the community for testing and d
 
 | Service Provider  | Endpoints                    | Namespaces | Type | status  |
 | ----------------- | ---------------------------- | ---------- | ---- | ------- |
-| Xphere Foundation | `https://public.x-phere.com` | xp,eth,net | Full | pending |
+| Xphere Foundation | `https://en-hkg.x-phere.com` | xp,eth,net | Full | pending |
 
 **WebSocket**
 
 | Service Provider  | Endpoints                     | Namespaces | Type | status  |
 | ----------------- | ----------------------------- | ---------- | ---- | ------- |
-| Xphere Foundation | `wss://public.x-phere.com/ws` | xp,eth,net | Full | pending |
+| Xphere Foundation | `wss://en-hkg.x-phere.com/ws` | xp,eth,net | Full | pending |
 
 ### Testnet Public JSON-RPC Endpoints
 
