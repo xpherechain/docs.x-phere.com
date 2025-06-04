@@ -39,6 +39,21 @@ const sidebars = {
     // },
   ],
 
+  nodeSidebar: [
+    {
+      type: "category",
+      label: "X Endpoint Node",
+      items: [
+        "nodes/X Endpoint Node",
+        "nodes/requirements",
+        "nodes/Install XEN Guide",
+        "nodes/XEN CLI Commands",
+        "nodes/json-RPC APIs",
+      ],
+    },
+    "nodes/downloads/Downloads",
+  ],
+
   miningSidebar: [
     "mining/mining",
     "mining/requirements",
