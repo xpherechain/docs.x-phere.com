@@ -359,6 +359,25 @@ Xphere’s coin serves as the foundation of the ecosystem, enabling key function
    - **Reward Distribution Frequency**: Rewards are distributed every **60 blocks**, ensuring regular and consistent compensation for network participants.
    - **Transaction-Based Rewards**: Each block provides transaction-based rewards, creating direct incentives for transaction processing and network activity.
 
+#### Emission Schedule Over 100 Years
+The following table demonstrates the systematic reduction of mining rewards over a 100-year period:
+   | Year | Annual Mining Reward | Per Block Reward |
+   | ---- | -------------------- | ---------------- |
+   | 1    | 1,051,200,000        | 2,000            |
+   | 2    | 774,944,640          | 1,474.4          |
+   | 3    | 571,289,188.608      | 1,086.92768      |
+   | ...  | ...                  | ...              |
+   | 98   | 0.00015047           | 0.00000029       |
+   | 99   | 0.00011093           | 0.00000021       |
+   | 100  | 0.00008178           | 0.00000016       |
+
+**Total Reward Over 100 Years**: 4,000,000,000 tokens
+#### Key Characteristics of the Emission Schedule:
+- **Predictable Decline**: The 26.28% annual reduction creates a predictable and transparent emission curve
+- **Long-term Sustainability**: The model ensures network incentives remain viable for decades while maintaining scarcity
+- **Early Adopter Advantage**: Higher initial rewards incentivize early network participation and security
+- **Mathematical Precision**: The emission schedule is algorithmically determined, ensuring fairness and transparency
+
 ### C. Transaction Fee Burn Mechanism
 
 Xphere implements a **50% transaction fee burn mechanism** as a cornerstone of its sustainable economic model, designed to create long-term value preservation and network stability:
@@ -366,10 +385,8 @@ Xphere implements a **50% transaction fee burn mechanism** as a cornerstone of i
 #### Balanced Deflation
 
 1. **Controlled Network Activity Mitigation**:
-
    - The burn mechanism provides balanced deflationary pressure to prevent excessive network activity from causing inflationary effects.
    - By permanently removing 50% of transaction fees from circulation, the system maintains economic equilibrium even during high-usage periods.
-
 2. **Value Stability Through Appropriate Inflation Pressure Management**:
    - The burn mechanism works synergistically with the 26.28% annual emission reduction to ensure optimal inflation control.
    - This dual-deflationary approach creates a stable foundation for long-term value preservation.
@@ -377,10 +394,8 @@ Xphere implements a **50% transaction fee burn mechanism** as a cornerstone of i
 #### Validator Incentive Preservation
 
 1. **Sufficient Validator Reward Maintenance**:
-
    - While 50% of fees are burned, the remaining 50% ensures validators receive adequate compensation for network security.
    - This balance maintains strong validator participation essential for network integrity.
-
 2. **Decentralized Consensus Mechanism Sustainability**:
    - The preserved portion of transaction fees supports the long-term viability of the consensus mechanism.
    - Validators remain economically incentivized to maintain network security and performance.
@@ -388,10 +403,8 @@ Xphere implements a **50% transaction fee burn mechanism** as a cornerstone of i
 #### Transparency and Predictability
 
 1. **Clear and Reliable Burn Policy for Market Confidence**:
-
    - The fixed 50% burn rate provides market participants with transparent and predictable tokenomics.
    - This clarity enhances investor confidence and supports informed decision-making within the ecosystem.
-
 2. **Democratic Policy Decision Process Through Governance**:
    - Future adjustments to the burn mechanism can be implemented through community governance.
    - This democratic approach ensures that policy changes reflect the collective interests of network participants.
