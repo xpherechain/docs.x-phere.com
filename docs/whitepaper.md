@@ -29,7 +29,8 @@ This innovative design supports diverse applications such as finance, logistics,
 5. [Economic Model of Coin](#5-economic-model-of-coin)
    1. [Coin Utility and Role in the Network](#a-coin-utility-and-role-in-the-network)
    2. [Emission Mechanism](#b-emission-mechanism)
-   3. [Distribution Model](#c-distribution-model)
+   3. [Transaction Fee Burn Mechanism](#c-transaction-fee-burn-mechanism)
+   4. [Distribution Model](#d-distribution-model)
 6. [Ethereum Compatibility in Xphere](#6-ethereum-compatibility-in-xphere)
    1. [Key Aspects of Ethereum Compatibility](#i-key-aspects-of-ethereum-compatibility)
    2. [Benefits of Ethereum Compatibility](#ii-benefits-of-ethereum-compatibility)
@@ -354,7 +355,52 @@ Xphere’s coin serves as the foundation of the ecosystem, enabling key function
    - The emission follows a **26.28% annual reduction model**, gradually decreasing the reward for miners and validators each year.
    - This deflationary mechanism promotes scarcity, incentivizing early participation while maintaining economic stability over time.
 
-### C. Distribution Model
+### C. Transaction Fee Burn Mechanism
+
+Xphere implements a **50% transaction fee burn mechanism** as a cornerstone of its sustainable economic model, designed to create long-term value preservation and network stability:
+
+#### Balanced Deflation
+
+1. **Controlled Network Activity Mitigation**:
+
+   - The burn mechanism provides balanced deflationary pressure to prevent excessive network activity from causing inflationary effects.
+   - By permanently removing 50% of transaction fees from circulation, the system maintains economic equilibrium even during high-usage periods.
+
+2. **Value Stability Through Appropriate Inflation Pressure Management**:
+   - The burn mechanism works synergistically with the 26.28% annual emission reduction to ensure optimal inflation control.
+   - This dual-deflationary approach creates a stable foundation for long-term value preservation.
+
+#### Validator Incentive Preservation
+
+1. **Sufficient Validator Reward Maintenance**:
+
+   - While 50% of fees are burned, the remaining 50% ensures validators receive adequate compensation for network security.
+   - This balance maintains strong validator participation essential for network integrity.
+
+2. **Decentralized Consensus Mechanism Sustainability**:
+   - The preserved portion of transaction fees supports the long-term viability of the consensus mechanism.
+   - Validators remain economically incentivized to maintain network security and performance.
+
+#### Transparency and Predictability
+
+1. **Clear and Reliable Burn Policy for Market Confidence**:
+
+   - The fixed 50% burn rate provides market participants with transparent and predictable tokenomics.
+   - This clarity enhances investor confidence and supports informed decision-making within the ecosystem.
+
+2. **Democratic Policy Decision Process Through Governance**:
+   - Future adjustments to the burn mechanism can be implemented through community governance.
+   - This democratic approach ensures that policy changes reflect the collective interests of network participants.
+
+#### Economic Impact and Benefits
+
+The 50% burn mechanism creates several key advantages for the Xphere ecosystem:
+
+- **Usage-Based Scarcity**: Higher network activity directly correlates with increased coin burns, creating a positive feedback loop between adoption and value preservation.
+- **Long-term Sustainability**: The mechanism ensures that network growth contributes to coin scarcity rather than dilution, supporting sustainable economic growth.
+- **Market Stability**: By providing predictable deflationary pressure, the burn mechanism helps stabilize coin value against market volatility.
+
+### D. Distribution Model
 
 Xphere coins are distributed in a manner that balances network operation, ecosystem growth, and community incentives:
 
