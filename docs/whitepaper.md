@@ -354,6 +354,10 @@ Xphere’s coin serves as the foundation of the ecosystem, enabling key function
 2. **Deflationary Model**:
    - The emission follows a **26.28% annual reduction model**, gradually decreasing the reward for miners and validators each year.
    - This deflationary mechanism promotes scarcity, incentivizing early participation while maintaining economic stability over time.
+3. **Block Reward System**:
+   - **Reward Adjustment Cycle**: Block rewards are adjusted every **31,536,000 blocks**, creating predictable emission cycles.
+   - **Reward Distribution Frequency**: Rewards are distributed every **60 blocks**, ensuring regular and consistent compensation for network participants.
+   - **Transaction-Based Rewards**: Each block provides transaction-based rewards, creating direct incentives for transaction processing and network activity.
 
 ### C. Transaction Fee Burn Mechanism
 
