@@ -101,11 +101,6 @@ const CurrentRelease = (props) => {
             );
           })}
         </div>
-        <div className="current-release-releasetag">
-          <a href={githubUrl + "releases/tag/" + tagName} target="_blank">
-            Release notes for {tagName}.
-          </a>
-        </div>
       </>
     );
   } else {

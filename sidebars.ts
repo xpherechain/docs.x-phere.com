@@ -42,15 +42,16 @@ const sidebars = {
   nodeSidebar: [
     {
       type: "category",
-      label: "X Endpoint Node",
+      label: "X-Endpoint-Node",
       items: [
-        "nodes/X Endpoint Node",
+        "nodes/X-Endpoint-Node",
         "nodes/requirements",
-        "nodes/Install XEN Guide",
-        "nodes/XEN CLI Commands",
-        "nodes/json-RPC APIs",
+        "nodes/Install-XEN-Guide",
+        "nodes/json-RPC-APIs",
       ],
     },
+    "nodes/Use-Chaindata-Snapshots",
+
     "nodes/downloads/Downloads",
   ],
 
