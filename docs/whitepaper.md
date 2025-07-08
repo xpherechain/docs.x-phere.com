@@ -28,8 +28,10 @@ This innovative design supports diverse applications such as finance, logistics,
    2. [51% Attack Mitigation in Xphere](#ii-51-attack-mitigation-in-xphere)
 5. [Economic Model of Coin](#5-economic-model-of-coin)
    1. [Coin Utility and Role in the Network](#a-coin-utility-and-role-in-the-network)
-   2. [Emission Mechanism](#b-emission-mechanism)
-   3. [Distribution Model](#c-distribution-model)
+   2. [Union Staking and Reward Mechanism](#b-union-staking-and-reward-mechanism)
+   3. [Emission Mechanism](#c-emission-mechanism)
+   4. [Transaction Fee Burn Mechanism](#d-transaction-fee-burn-mechanism)
+   5. [Distribution Model](#e-distribution-model)
 6. [Ethereum Compatibility in Xphere](#6-ethereum-compatibility-in-xphere)
    1. [Key Aspects of Ethereum Compatibility](#i-key-aspects-of-ethereum-compatibility)
    2. [Benefits of Ethereum Compatibility](#ii-benefits-of-ethereum-compatibility)
@@ -346,15 +348,115 @@ Xphere’s coin serves as the foundation of the ecosystem, enabling key function
 4. **Governance**:
    - Coin holders may participate in future governance mechanisms, influencing decisions related to network upgrades and policies.
 
-### B. Emission Mechanism
+### B. Union Staking and Reward Mechanism
+
+Xphere introduces a **Union staking system** that allows network participants to contribute to network security and governance while earning rewards through block validation activities.
+
+#### Union Participation Requirements
+
+1. **Staking Threshold**:
+   - To participate as a Union member, participants must stake exactly **35 million XP coins**.
+   - This substantial staking requirement ensures that only committed participants with significant network investment can join the Union.
+2. **Node Address Registration**:
+   - During the staking process, participants must provide a valid **node address** that will be associated with their Union membership.
+   - This node address serves as the identifier for reward distribution and network participation tracking.
+
+#### Union Reward Distribution
+
+1. **Block Proposer Selection and Rewards**:
+   - When a Union member's node address is selected as a **block proposer** by the Proof Chain, that specific Union member receives **40% of the block reward** for the proposed block.
+2. **Reward Distribution Logic**:
+   - The Proof Chain operates using a **round-robin mechanism** where validators are selected sequentially in a predetermined order.
+   - Union members participate in this round-robin cycle, and when their turn arrives, they serve as the block proposer for that specific block.
+   - Once a block is successfully validated, the Union member who serves as the **proposer at the reward distribution moment** on the Main Chain receives **40% of that block's reward** automatically distributed to their registered node address.
+3. **Round-Robin Validator Selection**:
+   - The Proof Chain maintains a sequential order of all eligible Union validators in the round-robin cycle.
+   - Each Union member gets their turn to serve as block proposer based on this predetermined rotation.
+   - This systematic approach ensures fair distribution of proposer opportunities among all participating Union members.
+   - The round-robin mechanism guarantees that every Union member will have predictable chances to earn block rewards based on their position in the validation sequence.
+
+#### Benefits of Union Participation
+
+- **Consistent Rewards**: Regular block reward distribution provides stable income for committed network participants.
+- **Network Governance**: Union members gain enhanced governance rights within the Xphere ecosystem.
+- **Long-term Value**: The substantial staking requirement aligns Union members' interests with the network's long-term success.
+- **Security Contribution**: Union staking enhances overall network security through increased stake-based participation.
+
+### C. Emission Mechanism
 
 1. **Total Supply**:
-   - The total coin supply is capped at **5.5 billion coins**, ensuring scarcity and long-term value retention.
+   - The total coin supply is capped at 5.5 billion coins, combining the legacy token distribution with a long-term emission schedule.
+   - **1.5 billion coins** were pre-distributed based on the total supply of Xphere 1.0, ensuring continuity for existing holders.
+   - The remaining **4 billion coins** will be distributed over 100 years as mining and validation rewards.
+   - This structure ensures both scarcity and long-term value preservation.
 2. **Deflationary Model**:
    - The emission follows a **26.28% annual reduction model**, gradually decreasing the reward for miners and validators each year.
    - This deflationary mechanism promotes scarcity, incentivizing early participation while maintaining economic stability over time.
+3. **Block Reward System**:
+   - **Reward Adjustment Cycle**: Block rewards are adjusted every **31,536,000 blocks**, creating predictable emission cycles.
+   - **Reward Distribution Frequency**: Rewards are distributed every **60 blocks**, ensuring regular and consistent compensation for network participants.
+   - **Transaction-Based Rewards**: Each block provides transaction-based rewards, creating direct incentives for transaction processing and network activity.
 
-### C. Distribution Model
+#### Emission Schedule Over 100 Years
+The following table demonstrates the systematic reduction of mining rewards over a 100-year period:
+   | Year | Annual Mining Reward | Per Block Reward | Cumulative Supply |
+   | ---- | -------------------- | ---------------- | ----------------- |
+   | 0    | 0                    | 0                | 1,500,000,000     | 
+   | 1    | 1,051,200,000        | 2,000            | 2,551,200,000     | 
+   | 2    | 774,944,640          | 1,474.4          | 3,326,144,640     | 
+   | 3    | 571,289,188.608      | 1,086.92768      | 3,897,433,828     |
+   | ...  | ...                  | ...              | ...               |
+   | 98   | 0.00015047           | 0.00000029       | 5,500,000,000     |
+   | 99   | 0.00011093           | 0.00000021       | 5,500,000,000     |
+   | 100  | 0.00008178           | 0.00000016       | 5,500,000,000     |
+
+**Total Reward Over 100 Years**: 5,500,000,000 xp
+#### Key Characteristics of the Emission Schedule:
+- **Predictable Decline**: The 26.28% annual reduction creates a predictable and transparent emission curve
+- **Long-term Sustainability**: The model ensures network incentives remain viable for decades while maintaining scarcity
+- **Early Adopter Advantage**: Higher initial rewards incentivize early network participation and security
+- **Mathematical Precision**: The emission schedule is algorithmically determined, ensuring fairness and transparency
+
+### D. Transaction Fee Burn Mechanism
+
+Xphere implements a **50% transaction fee burn mechanism** as a cornerstone of its sustainable economic model, designed to create long-term value preservation and network stability:
+
+#### Balanced Deflation
+
+1. **Controlled Network Activity Mitigation**:
+   - The burn mechanism provides balanced deflationary pressure to prevent excessive network activity from causing inflationary effects.
+   - By permanently removing 50% of transaction fees from circulation, the system maintains economic equilibrium even during high-usage periods.
+2. **Value Stability Through Appropriate Inflation Pressure Management**:
+   - The burn mechanism works synergistically with the 26.28% annual emission reduction to ensure optimal inflation control.
+   - This dual-deflationary approach creates a stable foundation for long-term value preservation.
+
+#### Validator Incentive Preservation
+
+1. **Sufficient Validator Reward Maintenance**:
+   - While 50% of fees are burned, the remaining 50% ensures validators receive adequate compensation for network security.
+   - This balance maintains strong validator participation essential for network integrity.
+2. **Decentralized Consensus Mechanism Sustainability**:
+   - The preserved portion of transaction fees supports the long-term viability of the consensus mechanism.
+   - Validators remain economically incentivized to maintain network security and performance.
+
+#### Transparency and Predictability
+
+1. **Clear and Reliable Burn Policy for Market Confidence**:
+   - The fixed 50% burn rate provides market participants with transparent and predictable tokenomics.
+   - This clarity enhances investor confidence and supports informed decision-making within the ecosystem.
+2. **Democratic Policy Decision Process Through Governance**:
+   - Future adjustments to the burn mechanism can be implemented through community governance.
+   - This democratic approach ensures that policy changes reflect the collective interests of network participants.
+
+#### Economic Impact and Benefits
+
+The 50% burn mechanism creates several key advantages for the Xphere ecosystem:
+
+- **Usage-Based Scarcity**: Higher network activity directly correlates with increased coin burns, creating a positive feedback loop between adoption and value preservation.
+- **Long-term Sustainability**: The mechanism ensures that network growth contributes to coin scarcity rather than dilution, supporting sustainable economic growth.
+- **Market Stability**: By providing predictable deflationary pressure, the burn mechanism helps stabilize coin value against market volatility.
+
+### E. Distribution Model
 
 Xphere coins are distributed in a manner that balances network operation, ecosystem growth, and community incentives:
 
