@@ -129,7 +129,7 @@ const config: Config = {
           label: "References",
         },
         {
-          to: "nodes/X Endpoint Node",
+          to: "nodes/X-Endpoint-Node",
           position: "left",
           label: "Nodes",
         },

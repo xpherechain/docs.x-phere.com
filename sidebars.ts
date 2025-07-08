@@ -51,7 +51,6 @@ const sidebars = {
       ],
     },
     "nodes/Use-Chaindata-Snapshots",
-
     "nodes/downloads/Downloads",
   ],
 
