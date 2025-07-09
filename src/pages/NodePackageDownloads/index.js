@@ -28,7 +28,6 @@ export default function NodePackageDownloads() {
     //   .then((response) => response.json())
     //   .then((response) => {
     let releasesData = response.data.releases;
-    console.log(releasesData, "1");
     let machineTypes = response.data.machineTypes.filter(
       (item) => item.machineType !== "windows"
     );
@@ -129,15 +128,18 @@ const response = {
       {
         machineType: "linux",
         default: false,
-        binaryBaseUrls: {},
+        binaryBaseUrls: {
+          xphere:
+            "https://github.com/xpherechain/xpherechain/releases/download/",
+        },
         gitBaseUrls: {
-          xphere: "https://github.com/xpherechain/kaia/",
+          xphere: "https://github.com/xpherechain/xpherechain/",
         },
         config: [
           {
             binaryTitle: "FOR Xphere MAINNET",
             binaryNames: ["xen"],
-            binaryFileFormat: "{BINARY_NAME}-{TAG_NAME}-0-linux-amd64.tar.gz",
+            binaryFileFormat: "{BINARY_NAME}-{TAG_NAME}-amd64-linux.tar",
             baseUrl: "{BINARY_BASE_URL}{TAG_NAME}/{BINARY_FILE_FORMAT}",
             releaseLabel: {
               klaytn: "Cypress Mainnet",
@@ -175,7 +177,7 @@ const response = {
     config: {
       binaryBaseUrls: {},
       gitBaseUrls: {
-        xphere: "https://github.com/xpherechain/",
+        xphere: "https://github.com/xpherechain/xpherechain/",
       },
     },
   },
