@@ -2,7 +2,7 @@
 
 ## Download <a id="download"></a>
 
-You can download the latest version of the XEN on Download page.
+You can download the latest version of the XEN on the [Download page](./downloads/Downloads.md).
 
 ## Installation
 
