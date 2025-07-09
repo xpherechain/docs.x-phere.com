@@ -8,23 +8,34 @@ For Xphere Nodes, the following minimum specifications are recommended.
 
 ### Cloud VM <a id="cloud-vm"></a>
 
-#### Minimum Required Specification (based on AWS)
+#### Minimum Hardware Requirements
 
-| vCPU | Memory (GiB) | Storage (GiB) | Disk Bandwidth (MB/s) | Network Bandwidth (Gbps) |
-| :--- | :----------- | :------------ | :-------------------- | :----------------------- |
-| 16   | 64           | >4,000        | 3500                  | 1                        |
+| Component        | Minimum           | Recommended |
+| ---------------- | ----------------- | ----------- |
+| vCPU             | 8                 | 16          |
+| Memory (RAM)     | 32 GiB            | 64 GiB      |
+| Storage Type     | NVMe SSD (no HDD) | NVMe SSD    |
+| Storage Capacity | 2 TB              | 4 TB+       |
+| Disk Bandwidth   | 250 MB/s          | 500 MB/s+   |
+| IOPS             | 5,000             | 10,000+     |
+| Network          | 1 Gbps            | 10 Gbps     |
 
 ### Bare-metal Machine <a id="bare-metal-machine"></a>
 
-Any physical machine having hardware configuration similar to the one in the Cloud VM section would be sufficient to operate a Xphere Node.
+Any physical machine meeting or exceeding the minimum requirements above is suitable for running a Xphere Node.
 
 ## Storage Requirements <a id="storage-requirements"></a>
 
-- The Xphere blockchain data grows continuously.
-- Assuming 100 TPS on average, 300 bytes per transaction, and 1-second block latency, the expected storage requirement is approximately **2.5 GB/day** (300 x 100 x 86,400).
-- This results in about **1 TB/year** and **4 TB/4 years**.
-- It is recommended to prepare at least **5 TB** (최소 5,000 GiB) of storage to ensure sufficient space for long-term operation and future growth.
-- All specifications above are **minimum requirements** for stable operation. Higher specs are recommended for better performance.
+- **Type:** NVMe SSD only (HDDs are not supported)
+- **Capacity:** At least 2 TB free space (4 TB+ recommended for long-term operation)
+- **Disk Bandwidth:** 250 MB/s or higher
+- **IOPS:** 5,000 or higher
+- **Filesystem:** ext4 or xfs recommended
+- **Data Growth Reference:** At 100 TPS, 300 bytes/tx, 1s block time: ~2.5 GB/day, ~1 TB/year
+
+> **Note:** Storage must be dedicated to blockchain data. Do not share with OS or other applications.
+
+All specifications above are **minimum requirements** for stable operation. Higher specs are strongly recommended for mainnet or production use.
 
 ## Operating System <a id="operating-system"></a>
 
