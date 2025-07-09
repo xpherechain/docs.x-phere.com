@@ -1,6 +1,6 @@
-# XEN JSON-RPC APIs
+# Xphere JSON-RPC APIs
 
-X Endpoint Node exposes JSON-RPC APIs. You can enable/disable APIs as follows.
+A Xphere Node exposes JSON-RPC APIs. You can enable or disable APIs as follows.
 
 **NOTE**: Offering an API over the HTTP (`rpc`) or WebSocket (`ws`) interfaces will give everyone
 access to the APIs who can access this interface (DApps, browser tabs, etc). Be careful about which APIs
@@ -29,7 +29,14 @@ The HTTP RPC interface must be explicitly enabled using the `--rpc` flag.
 
 Please update the `RPC_ENABLE`, `RPC_API`, `WS_ENABLE` and `WS_API` properties in the
 
-## Querying Enabled APIs <a id="querying-enabled-apis"></a>
+## Xphere JSON-RPC API Overview <a id="full-api-list"></a>
+
+The `xp` namespace provides a wide range of JSON-RPC methods for interacting with the Xphere blockchain.
+
+For detailed usage examples, parameters, and response formats, please refer directly to the  
+[JSON-RPC API Reference](../references/json-rpc.md).
+
+You will find comprehensive guides and examples for all available methods in the reference documentation.
 
 To determine which APIs an interface provides, the `modules` JSON-RPC method can be invoked. For
 example over an `rpc` interface:
