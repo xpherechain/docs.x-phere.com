@@ -42,9 +42,9 @@ const sidebars = {
   nodeSidebar: [
     {
       type: "category",
-      label: "X-Endpoint-Node",
+      label: "Xphere-Endpoint-Node",
       items: [
-        "nodes/X-Endpoint-Node",
+        "nodes/Xphere-Endpoint-Node",
         "nodes/requirements",
         "nodes/Install-XEN-Guide",
         "nodes/json-RPC-APIs",
