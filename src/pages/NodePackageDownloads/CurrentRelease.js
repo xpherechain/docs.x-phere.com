@@ -13,15 +13,15 @@ const CurrentRelease = (props) => {
     return (
       <>
         <div className="current-release-container">
-          {tabConfig.config.map((_config) => {
+          {tabConfig.config.map((_config, index) => {
             return (
-              <div>
+              <div key={index}>
                 <div className="current-release-binary-title">
                   {_config.binaryTitle}
                 </div>
                 <div className="current-release-binary-names-section">
                   {_config.binaryNames &&
-                    _config.binaryNames.map((_binaryName) => {
+                    _config.binaryNames.map((_binaryName, idx) => {
                       let binaryPrefixValue = _config.binaryPrefixes
                         ? _config.binaryPrefixes[binaryPrefix]
                         : "";
@@ -53,7 +53,9 @@ const CurrentRelease = (props) => {
                         "{BINARY_BASE_URL}",
                         binaryBaseUrl
                       );
-                      baseUrl = baseUrl.replace("{TAG_NAME}", tagName);
+                      // Remove 'v' prefix from tagName for URL
+                      const tagNameWithoutV = tagName.replace(/^v/, "");
+                      baseUrl = baseUrl.replace("{TAG_NAME}", tagNameWithoutV);
                       baseUrl = baseUrl.replace(
                         "{BINARY_FILE_FORMAT}",
                         binaryFileformat
@@ -62,13 +64,8 @@ const CurrentRelease = (props) => {
                         "{BINARY_PREFIX}",
                         binaryPrefixValue
                       );
-                      console.log({
-                        releaseData,
-                        tabConfig,
-                        tagName,
-                      });
                       return (
-                        <>
+                        <React.Fragment key={_binaryName + "-" + idx}>
                           <a
                             target="_blank"
                             href={baseUrl}
@@ -93,7 +90,7 @@ const CurrentRelease = (props) => {
                                 .replace("x86_64", "aarch64")}
                             </a>
                           )}
-                        </>
+                        </React.Fragment>
                       );
                     })}
                 </div>
