@@ -40,7 +40,7 @@ rm -rf /DATA_DIR/chaindata
 **Third step:** Move the extracted chaindata to your DATA_DIR.
 
 ```sh
-mv /path/to/extracted/chaindata /DATA_DIR/chaindata
+mv /path/to/extracted/chaindata /DATA_DIR/xphere/chaindata
 ```
 
 - Replace `/path/to/extracted/chaindata` with the path where you extracted the tar.gz file.
