@@ -9,7 +9,7 @@ const config: Config = {
   title: "X-Phere v2.0 Docs",
   tagline: "Welcome to the X-Phere",
   favicon: "img/favicon.ico",
-  
+
   // Set the production url of your site here
   url: "https://docs.x-phere.com",
   // Set the /<baseUrl>/ pathname under which your site is served
@@ -43,8 +43,7 @@ const config: Config = {
 
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            "https://github.com/xpherechain",
+          editUrl: "https://github.com/xpherechain",
         },
         // blog: {
         //   showReadingTime: true,
@@ -63,13 +62,11 @@ const config: Config = {
         // },
         theme: {
           customCss: "./src/css/custom.css",
-        }, 
+        },
         gtag: {
-          trackingID: 'G-25VV0Q5M3G',
+          trackingID: "G-25VV0Q5M3G",
           anonymizeIP: true,
         },
-        
-
       } satisfies Preset.Options,
     ],
   ],
@@ -77,12 +74,15 @@ const config: Config = {
 
   themeConfig: {
     metadata: [
-      { name: 'og:title', content: 'X-Phere v2.0 Docs' },
-      { name: 'og:description', content: 'Welcome to the X-Phere' },
-      { name: 'og:image', content: 'https://docs.x-phere.com/img/kakao_bg.png' },
-      { name: 'og:url', content: 'https://docs.x-phere.com' },
-      { name: 'og:type', content: 'website' },
-      { name: 'og:site_name', content: 'X-Phere v2.0 Docs' },
+      { name: "og:title", content: "X-Phere v2.0 Docs" },
+      { name: "og:description", content: "Welcome to the X-Phere" },
+      {
+        name: "og:image",
+        content: "https://docs.x-phere.com/img/kakao_bg.png",
+      },
+      { name: "og:url", content: "https://docs.x-phere.com" },
+      { name: "og:type", content: "website" },
+      { name: "og:site_name", content: "X-Phere v2.0 Docs" },
     ],
     colorMode: {
       defaultMode: "dark", // 기본 모드를 다크 모드로 설정
@@ -121,11 +121,17 @@ const config: Config = {
         //   position: "left",
         //   to: "/docs/category/petstore-api",
         // },
+
         {
           to: "references",
           position: "left",
           sidebarid: "refSidebar",
           label: "References",
+        },
+        {
+          to: "nodes/Xphere-Endpoint-Node",
+          position: "left",
+          label: "Nodes",
         },
         {
           to: "mining",
@@ -178,17 +184,24 @@ const config: Config = {
             {
               label: "Docs",
               href: "/",
-            }, {
+            },
+            {
               label: "Reference",
               href: "/references",
-            }, {
+            },
+            {
+              label: "Nodes",
+              href: "/nodes",
+            },
+            {
               label: "Mining",
               href: "/mining",
-            }, {
+            },
+            {
               label: "Faucet",
               href: "/faucet",
             },
-          ]
+          ],
         },
         {
           title: "More",

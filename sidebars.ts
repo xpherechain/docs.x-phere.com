@@ -39,6 +39,21 @@ const sidebars = {
     // },
   ],
 
+  nodeSidebar: [
+    {
+      type: "category",
+      label: "Xphere-Endpoint-Node",
+      items: [
+        "nodes/Xphere-Endpoint-Node",
+        "nodes/requirements",
+        "nodes/Install-XEN-Guide",
+        "nodes/json-RPC-APIs",
+      ],
+    },
+    "nodes/Use-Chaindata-Snapshots",
+    "nodes/downloads/Downloads",
+  ],
+
   miningSidebar: [
     "mining/mining",
     "mining/requirements",
