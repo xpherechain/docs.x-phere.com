@@ -1,14 +1,15 @@
 import React from "react";
 import { isAddArm } from "/src/pages/NodePackageDownloads/index";
+import BrowserOnly from "@docusaurus/BrowserOnly";
 
 const CurrentRelease = (props) => {
   const releaseData = props.releaseData;
 
-  const tagName = releaseData.tagName;
-  const binaryPrefix = releaseData.binaryPrefix;
-  const githubUrl = releaseData.githubUrl;
+  const tagName = releaseData?.tagName;
+  const binaryPrefix = releaseData?.binaryPrefix;
+  const githubUrl = releaseData?.githubUrl;
 
-  if (releaseData && props.tabConfig && props.tabConfig.length > 0) {
+  if (releaseData && props?.tabConfig && props?.tabConfig.length > 0) {
     const tabConfig = props.tabConfig[0];
     return (
       <>
