@@ -213,7 +213,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © 2024. X-Phere. All rights reserved`,
+      copyright: `Ⓒ2025 XPHERE Foundation. All rights reserved.`,
     },
     plugins: [
       [
