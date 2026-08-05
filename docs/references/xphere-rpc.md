@@ -536,7 +536,7 @@ xp_subscription 0x2b102c5
 
 ## Names that are not RPC methods {#not-methods}
 
-An earlier version of this page listed the methods below. They are **not** registered on XPHERE nodes: every one returns `-32601`. If you copied them, replace them with the method in the right-hand column.
+These names appear in tooling and in documentation ported from other chains, but they are **not** registered on XPHERE nodes — every one returns `-32601`. Use the method in the right-hand column instead.
 
 | Name | Status | Use instead |
 |------|--------|-------------|
@@ -556,9 +556,9 @@ curl -s -X POST https://en-hkg.x-phere.com \
 Two clarifications:
 
 - **This is a statement about RPC only.** A name in the table above may still exist as a member of the `xp` object in the XEN JavaScript console. Console helpers are JavaScript wrappers that call whatever RPC method they are bound to, and that name need not match the one you type. If a console call works, that does not make the console's name a valid RPC method. See [XEN CLI Commands](/nodes/xen-cli-commands).
-- **Two response shapes shown on the earlier page do not exist.** No XPHERE response contains a `consensus` object with `prepareMsgNum`, `commitMsgNum` and `validators` — the real consensus fields are listed [above](#xp_getblockwithconsensusinfobynumber). And `xp_getChainConfig` returns no `xpHashForkBlock`, `blockTime`, `consensus` or `proofChain` fields; its actual response is [above](#xp_getchainconfig).
+- **Two response shapes commonly assumed do not exist.** No XPHERE response contains a `consensus` object with `prepareMsgNum`, `commitMsgNum` and `validators` — the real consensus fields are listed [above](#xp_getblockwithconsensusinfobynumber). And `xp_getChainConfig` returns no `xpHashForkBlock`, `blockTime`, `consensus` or `proofChain` fields; its actual response is [above](#xp_getchainconfig).
 
-`xp_getCode` was also listed on the earlier page as a compatibility helper. It is real — see [Accounts and transactions](#accounts).
+`xp_getCode`, by contrast, is real — see [Accounts and transactions](#accounts).
 
 ## See Also
 

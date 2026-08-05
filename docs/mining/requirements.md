@@ -6,8 +6,10 @@ lang: en
 
 # System Requirements
 
-:::caution Software / CPU mining requirements are deprecated
-The CPU and operating-system requirements previously listed here applied to the legacy software miner, which is **no longer supported**. Mining now runs exclusively on the **IceRiver XP0** xpHash ASIC.
+:::caution CPU mining is not possible on XPHERE
+Mining runs exclusively on the **IceRiver XP0** xpHash ASIC. The legacy software miner and its CPU
+and operating-system requirements no longer apply — since the [xpHash fork](./xphash-fork), a CPU
+cannot seal a valid block.
 :::
 
 ## Mining Hardware

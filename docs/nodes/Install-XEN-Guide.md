@@ -237,16 +237,18 @@ XPHERE provides a CLI client: `xen console`. Another way of using the client is 
 Please execute the following command and check out the result.
 
 ```text
-$ xen attach --datadir /var/xend/data
+$ ./bin/xen attach --datadir ~/xen_data
 Welcome to the Xphere JavaScript console!
 
-instance: Xphere/vX.X.X/XXXX-XXXX/goX.X.X
- datadir: root/xen_data
- modules: eth:1.0 net:1.0 rpc:1.0  xp:1.0
+instance: Xphere/v0.9.0/linux-amd64/go1.22.12
+ datadir: /home/user/xen_data
+ modules: admin:1.0 debug:1.0 eth:1.0 governance:1.0 istanbul:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0 web3:1.0 xp:1.0
  >
 ```
 
-You can check the usable commands
+The `modules:` line lists the namespaces this connection can call. Over IPC no whitelist is applied,
+which is why the list is long. The full command reference is in
+[XEN CLI Commands](./xen-cli-commands).
 
 The useful APIs to check the status of XEN:
 
@@ -258,8 +260,11 @@ You can get the latest block number to see if blocks are propagated properly.
 
 ```text
 > xp.blockNumber
-1
+45160854
 ```
+
+Compare it against a public endpoint or [XPScan](https://xpscan.io) — if your node is still syncing,
+its number will be lower and should be climbing.
 
 #### net.peerCount {#net-peercount}
 ```text

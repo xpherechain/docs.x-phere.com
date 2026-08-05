@@ -1,235 +1,206 @@
 ---
 title: JavaScript API libraries
-description: An introduction to the JavaScript client libraries that let you interact with the blockchain from your application.
+description: Using ethers.js, viem, and web3.js to read XPHERE state, sign transactions, and call contracts from JavaScript.
 lang: en
 ---
 
-In order for a web app to interact with the XPHERE blockchain (i.e. read blockchain data and/or send transactions to the network), it must connect to a XPHERE node.
+# JavaScript API libraries
 
-For this purpose, every XPHERE client implements the [JSON-RPC](/references/json-rpc/) specification, so there are a uniform set of [methods](/references/json-rpc/#json-rpc-methods) that applications can rely on.
+A web app talks to XPHERE the same way it talks to Ethereum: over [JSON-RPC](./json-rpc). You can
+send those requests by hand with `fetch`, but the mainstream libraries handle encoding, nonce
+management, gas estimation, and ABI decoding for you.
 
-If you want to use JavaScript to connect with a XPHERE node, it's possible to use vanilla JavaScript but several convenience libraries exist within the ecosystem that make this much easier. With these libraries, developers can write intuitive, one-line methods to initialize JSON-RPC requests (under the hood) that interact with XPHERE.
+XPHERE is EVM-compatible, so **ethers.js, viem, and web3.js all work unmodified** — they only need
+to be pointed at an XPHERE endpoint and given the right chain ID.
 
-Please note that for running a node, it's essential to ensure your node includes all necessary components for proper operation. If your node is not on your local machine (e.g. your node is running on an AWS instance), update the IP addresses in the tutorial accordingly. For more information, please see our page on running a node.
+| Library | Install | Notes |
+|---------|---------|-------|
+| [ethers.js](https://docs.ethers.org/v6/) | `npm i ethers` | v6 is current; v5 syntax differs, see below |
+| [viem](https://viem.sh) | `npm i viem` | TypeScript-first, used by wagmi |
+| [web3.js](https://docs.web3js.org) | `npm i web3` | v4 is current |
 
-## Prerequisites {#prerequisites}
+## Connecting
 
-As well as understanding JavaScript, it might be helpful to understand the XPHERE stack and XPHERE clients.
+The full chain definitions for all three libraries are in
+[Network Information](./network-info#viem--ethersjs--web3js). The short version:
 
-## Why use a library? {#why-use-a-library}
+| | Mainnet | Testnet |
+|---|---|---|
+| Chain ID | `20250217` (`0x134fe69`) | `1998991` (`0x1e808f`) |
+| Native token | `XP` | `XPT` |
+| Public endpoint | `https://en-hkg.x-phere.com` | `https://testnet.x-phere.com` |
 
-These libraries abstract away much of the complexity of interacting directly with a XPHERE node. They also provide utility functions (e.g. converting XPH to smaller units) so as a developer you can spend less time dealing with the intricacies of XPHERE clients and more time focused on the unique functionality of your application.
+**ethers v6**
 
-## Library features {#library-features}
+```js
+import { JsonRpcProvider, BrowserProvider, Network } from "ethers";
 
-### Connect to XPHERE nodes {#connect-to-xphere-nodes}
-
-Using providers, these libraries allow you to connect to XPHERE and read its data, whether that's over JSON-RPC, XphereScan, or other supported services.
-
-**Ethers example**
-
-```javascript
-// A BrowserProvider wraps a standard Web3 provider, which is
-// injected into each page
-const provider = new ethers.BrowserProvider(window.ethereum);
-
-// Sign transactions to send XPH and change the state within the blockchain
-const signer = provider.getSigner();
-```
-
-**Web3js Example**
-
-```javascript
-var web3 = new Web3("http://localhost:8545");
-// or
-var web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
-
-// Change provider
-web3.setProvider("ws://localhost:8546");
-// or
-web3.setProvider(new Web3.providers.WebsocketProvider("ws://localhost:8546"));
-
-// Using the IPC provider in Node.js
-var net = require("net");
-var web3 = new Web3(
-  new Web3.providers.IpcProvider("/Users/myuser/Library/Xphere/geth.ipc", net)
+// Read-only, straight to a public endpoint
+const provider = new JsonRpcProvider(
+  "https://en-hkg.x-phere.com",
+  new Network("xphere", 20250217)
 );
-// On Windows: "\\\\.\\pipe\\xphere.ipc"
-// On Linux: "/users/myuser/.xphere/geth.ipc"
+
+// Or through an injected wallet, when you need the user to sign
+const browserProvider = new BrowserProvider(window.ethereum);
+const signer = await browserProvider.getSigner();
 ```
 
-Once set up you'll be able to query the blockchain for:
+**viem**
 
-- block numbers
-- gas estimates
-- smart contract events
-- network id
-- and more...
+```ts
+import { createPublicClient, http } from "viem";
+import { xphere } from "./chains"; // defineChain block from Network Information
 
-### Wallet functionality {#wallet-functionality}
+const client = createPublicClient({
+  chain: xphere,
+  transport: http(),
+});
+```
 
-These libraries give you functionality to create wallets, manage keys and sign transactions.
+**web3.js**
 
-Here's an examples from Ethers
+```js
+import { Web3 } from "web3";
 
-:::danger Never use a mnemonic or private key taken from documentation
-The mnemonic below is the public example from the ethers.js documentation. Anyone can derive its
-keys, so any funds sent to it can be taken by anyone. Generate your own mnemonic, and never paste a
-real one into code you share.
+const web3 = new Web3("https://en-hkg.x-phere.com");
+```
+
+### Connecting to your own node
+
+If you run an [Endpoint Node](/nodes/Xphere-Endpoint-Node), the shipped `conf/xend.conf` serves
+HTTP-RPC on **28551** and WebSocket on **28552**:
+
+```js
+import { JsonRpcProvider, WebSocketProvider } from "ethers";
+
+const local = new JsonRpcProvider("http://127.0.0.1:28551");
+const localWs = new WebSocketProvider("ws://127.0.0.1:28552");
+```
+
+The IPC socket sits at `<DATA_DIR>/xphere.ipc` — with the shipped `DATA_DIR=~/xen_data`, that is
+`~/xen_data/xphere.ipc`.
+
+:::caution IPC has no namespace whitelist
+Every namespace is exposed over IPC, including `personal` and `admin`. Filesystem access to the
+socket is equivalent to full control of the node. See [JSON-RPC APIs](/nodes/json-RPC-APIs).
 :::
 
+## Reading chain state
+
 ```js
-// Create a wallet instance from a mnemonic...
-mnemonic =
-  "announce room limb pattern dry unit scale effort smooth jazz weasel alcohol";
-walletMnemonic = Wallet.fromPhrase(mnemonic);
+await provider.getBlockNumber();
+// 45160854
 
-// ...or from a private key
-walletPrivateKey = new Wallet(walletMnemonic.privateKey);
+await provider.getBalance("0x71CB05EE1b1F506fF321Da3dac38f25c0c9ce6E1");
+// 0n  (a BigInt, in wei)
 
-walletMnemonic.address === walletPrivateKey.address;
-// true
+await provider.getTransactionCount(address);
+```
 
-// The address as a Promise per the Signer API
-walletMnemonic.getAddress();
-// { Promise: '0x71CB05EE1b1F506fF321Da3dac38f25c0c9ce6E1' }
+:::note XPHERE has no name service
+There is no ENS on XPHERE. Every address argument must be a literal `0x…` address — passing a
+`.eth` name will fail.
+:::
 
-// A Wallet address is also available synchronously
-walletMnemonic.address;
-// '0x71CB05EE1b1F506fF321Da3dac38f25c0c9ce6E1'
+## Wallets and signing
 
-// The internal cryptographic components
-walletMnemonic.privateKey;
-// '0x1da6847600b0ee25e9ad9a52abbd786dd2502fa4005dd5af9310b7cc7a3b25db'
-walletMnemonic.publicKey;
-// '0x04b9e72dfd423bcf95b3801ac93f4392be5ff22143f9980eb78b3a860c4843bfd04829ae61cdba4b3b1978ac5fc64f5cc2f4350e35a108a9c9a92a81200a60cd64'
+```js
+import { Wallet, parseEther } from "ethers";
 
-// The wallet mnemonic
-walletMnemonic.mnemonic;
-// {
-//   locale: 'en',
-//   path: 'm/44\'/60\'/0\'/0/0',
-//   phrase: 'announce room limb pattern dry unit scale effort smooth jazz weasel alcohol'
-// }
+// Load a key from the environment — never hardcode one
+const wallet = new Wallet(process.env.PRIVATE_KEY, provider);
 
-// Note: A wallet created with a private key does not
-//       have a mnemonic (the derivation prevents it)
-walletPrivateKey.mnemonic;
-// null
+wallet.address;
 
-// Signing a message
-walletMnemonic.signMessage("Hello World");
-// { Promise: '0x14280e5885a19f60e536de50097e96e3738c7acae4e9e62d67272d794b8127d31c03d9cd59781d4ee31fb4e1b893bd9b020ec67dfa65cfb51e2bdadbb1de26d91c' }
+await wallet.signMessage("Hello XPHERE");
 
-tx = {
+const tx = await wallet.sendTransaction({
   to: "0x8ba1f109551bD432803012645Ac136ddd64DBA72",
-  value: utils.parseEther("1.0"),
-};
-
-// Signing a transaction
-walletMnemonic.signTransaction(tx);
-// { Promise: '0xf865808080948ba1f109551bd432803012645ac136ddd64dba72880de0b6b3a7640000801ca0918e294306d177ab7bd664f5e141436563854ebe0a3e523b9690b4922bbb52b8a01181612cec9c431c4257a79b8c9f0c980a2c49bb5a0e6ac52949163eeb565dfc' }
-
-// The connect method returns a new instance of the
-// Wallet connected to a provider
-wallet = walletMnemonic.connect(provider);
-
-// Querying the network
-wallet.getBalance();
-// { Promise: { BigNumber: "42" } }
-wallet.getTransactionCount();
-// { Promise: 0 }
-
-// Sending xp
-wallet.sendTransaction(tx);
+  value: parseEther("1.0"), // 1 XP
+});
+await tx.wait();
 ```
 
-[Read the full docs](https://docs.ethers.io/v5/api/signer/#Wallet)
+:::danger Never use a key from documentation
+Any private key or mnemonic printed in a document — here or anywhere else — is known to everyone
+who has read that document. Funds sent to such an address can be taken by anyone. Generate your own,
+and keep it out of source control.
+:::
 
-Once set up you'll be able to:
+## Calling contracts
 
-- create accounts
-- send transactions
-- sign transactions
-- and more...
-
-### Interact with smart contract functions {#interact-with-smart-contract-functions}
-
-JavaScript client libraries allow your application to call smart contract functions by reading the Application Binary Interface (ABI) of a compiled contract.
-
-The ABI essentially explains the contract's functions in a JSON format and allows you to use it like a normal JavaScript object.
-
-So the following Solidity contract:
-
-```solidity
-contract Test {
-    uint a;
-    address d = 0x12345678901234567890123456789012;
-
-    function Test(uint testInt)  { a = testInt;}
-
-    event Event(uint indexed b, bytes32 c);
-
-    event Event2(uint indexed b, bytes32 c);
-
-    function foo(uint b, bytes32 c) returns(address) {
-        Event(b, c);
-        return d;
-    }
-}
-```
-
-Would result in the following JSON:
-
-```json
-[{
-    "type":"constructor",
-    "payable":false,
-    "stateMutability":"nonpayable"
-    "inputs":[{"name":"testInt","type":"uint256"}],
-  },{
-    "type":"function",
-    "name":"foo",
-    "constant":false,
-    "payable":false,
-    "stateMutability":"nonpayable",
-    "inputs":[{"name":"b","type":"uint256"}, {"name":"c","type":"bytes32"}],
-    "outputs":[{"name":"","type":"address"}]
-  },{
-    "type":"event",
-    "name":"Event",
-    "inputs":[{"indexed":true,"name":"b","type":"uint256"}, {"indexed":false,"name":"c","type":"bytes32"}],
-    "anonymous":false
-  },{
-    "type":"event",
-    "name":"Event2",
-    "inputs":[{"indexed":true,"name":"b","type":"uint256"},{"indexed":false,"name":"c","type":"bytes32"}],
-    "anonymous":false
-}]
-```
-
-This means you can:
-
-- Send a transaction to the smart contract and execute its method
-- Call to estimate the gas a method execution will take when executed in the EVM
-- Deploy a contract
-- And more...
-
-### Utility functions {#utility-functions}
-
-Utility functions give you handy shortcuts that make building with xphere a little easier.
-
-ETH values are in Wei by default. 1 ETH = 1,000,000,000,000,000,000 WEI – this means you're dealing with a lot of numbers! `web3.utils.toWei` converts ether to Wei for you.
-
-And in ethers it looks like this:
+Point the library at a deployed address with its ABI, and the contract behaves like a normal
+JavaScript object:
 
 ```js
-// Get the balance of an account (by address or ENS name)
-balance = await provider.getBalance("ethers.eth");
-// { BigNumber: "2337132817842795605" }
+import { Contract } from "ethers";
 
-// Often you will need to format the output for the user
-// which prefer to see values in ether (instead of wei)
-ethers.utils.formatEther(balance);
-// '2.337132817842795605'
+const abi = [
+  "function balanceOf(address owner) view returns (uint256)",
+  "function transfer(address to, uint256 amount) returns (bool)",
+  "event Transfer(address indexed from, address indexed to, uint256 value)",
+];
+
+const token = new Contract(tokenAddress, abi, wallet);
+
+// A view call costs no gas
+const balance = await token.balanceOf(wallet.address);
+
+// A state change is a transaction
+const tx = await token.transfer(recipient, 1_000n);
+await tx.wait();
+
+// Events
+token.on("Transfer", (from, to, value) => {
+  console.log(from, "→", to, value);
+});
 ```
+
+If the contract's source is verified on XPScan you can fetch its ABI rather than pasting one:
+
+```bash
+curl -s "https://xpscan.io/api?module=contract&action=getabi&address=0x…"
+```
+
+See [Verifying Contracts](/developers/smart-contracts#verifying-contracts).
+
+## Units
+
+Balances and values are in **wei**. 1 XP = 10<sup>18</sup> wei, so you will almost always convert at
+the edges of your application:
+
+```js
+import { parseEther, formatEther, parseUnits, formatUnits } from "ethers";
+
+parseEther("1.5"); // 1500000000000000000n
+formatEther(1500000000000000000n); // '1.5'
+
+// Tokens with other decimals
+parseUnits("1.5", 6); // 1500000n  (a 6-decimal token)
+formatUnits(balance, 18);
+```
+
+ethers v5 exposes these under `ethers.utils.*` (`ethers.utils.parseEther`). In v6 they are top-level
+imports, as above. Mixing the two is the most common upgrade error.
+
+## Gas
+
+XPHERE uses EIP-1559 style fees. The base fee is set by the network and the **priority fee is
+`0`** — `eth_maxPriorityFeePerGas` returns `0x0`. Letting the library estimate is correct in almost
+all cases:
+
+```js
+const fee = await provider.getFeeData();
+// { gasPrice, maxFeePerGas, maxPriorityFeePerGas }
+```
+
+Full parameters and current values are in [Network Information](./network-info).
+
+## See Also
+
+- [Network Information](./network-info) — chain IDs, endpoints, and ready-to-paste chain definitions
+- [JSON-RPC Reference](./json-rpc) — the methods these libraries call underneath
+- [XPHERE-specific RPC](./xphere-rpc) — the `xp_*` namespace
+- [Wallet Setup](/developers/wallet-setup) — adding XPHERE to MetaMask
+- [Smart Contracts](/developers/smart-contracts) — deploying and verifying with Hardhat or Foundry

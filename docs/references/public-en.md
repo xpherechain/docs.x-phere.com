@@ -1,14 +1,15 @@
 ---
 title: Public JSON-RPC Endpoints
-description: A comprehensive guide to publicly accessible JSON-RPC endpoints for interacting with the XPHERE network, including mainnet and testnet endpoints, service providers, and important considerations for usage.
+description: Public JSON-RPC endpoints for XPHERE mainnet and testnet, who operates them, and what to know before depending on one.
 lang: en
 ---
 
-Publicly accessible JSON-RPC endpoints enable you to test and operate your blockchain applications by interacting with the XPHERE network without the need to run your own node.
+Public JSON-RPC endpoints let you read the chain and send transactions without running a node of
+your own. They are the fastest way to start, and for many applications they are enough permanently.
 
-Operating your own XPHERE Endpoint Node (EN) requires technical expertise, continuous monitoring, and computing resources. This entails costs for maintaining storage, network bandwidth, and dedicating engineering time; nodes must be regularly updated and health-checked.
-
-Utilizing existing public ENs allows you to focus solely on developing and testing your blockchain applications without the burden of maintaining the infrastructure necessary to connect and interact with the XPHERE network.
+Running your own [Endpoint Node](/nodes/Xphere-Endpoint-Node) buys you a dedicated rate limit,
+access to namespaces the public endpoints do not serve, and independence from a third party — at the
+cost of storage, bandwidth, and the operational time to keep it healthy.
 
 ## Considerations
 

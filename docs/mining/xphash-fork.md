@@ -91,5 +91,6 @@ Yes. Pre-fork balances and historical transactions are preserved — only future
 **Q: Do I need to re-download chaindata?**
 No. The fork applies to new blocks only; existing chain history is unchanged.
 
-**Q: What if my pool/endpoint is offline at the fork moment?**
-The miner client automatically failovers across the `domain` list. Configure at least two mining endpoints.
+**Q: What if my pool endpoint goes offline?**
+Configure a backup pool on the XP0 dashboard so the unit fails over instead of idling. The fork
+itself is long past, so this is ordinary operational practice rather than a fork concern.

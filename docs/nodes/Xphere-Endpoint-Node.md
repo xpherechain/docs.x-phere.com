@@ -1,20 +1,55 @@
+---
+title: XPHERE Endpoint Node
+description: What an Endpoint Node (XEN) does, who needs one, and what ships in the package.
+lang: en
+---
+
 # XPHERE Endpoint Node
 
-## Intended Audience <a id="intended-audience"></a>
+An **Endpoint Node** — XEN — is how an application reaches the XPHERE network. It holds a full copy
+of the chain, answers queries locally, and relays the transactions you submit to its peers.
 
-- Anyone who wants to send transactions or query the state of XPHERE MainChain network using needs to do so via an XPHERE Endpoint Node.
-- XPHERE Endpoint Nodes are the interface to the XPHERE Network.
+## Who needs one {#intended-audience}
 
-## Overview <a id="endpoint-node-overview"></a>
+You do **not** need to run a node to build on XPHERE. The
+[public endpoints](/references/public-en) are enough to get started, and for many applications they
+are enough permanently.
 
-An XPHERE Endpoint Node has the following roles and functions.
+Run your own Endpoint Node when you want:
 
-- Synchronize the blockchain data.
-- Validate the blocks newly received.
-- Handles query requests.
-- Transmits transaction requests to the Proxy Nodes.
+- **No shared rate limit** — public endpoints are shared infrastructure.
+- **Namespaces the public endpoints do not serve** — `debug_*`, `admin_*`, and `personal_*` are not
+  exposed publicly. See [JSON-RPC APIs](./json-RPC-APIs).
+- **Independence** — your service keeps working if a third-party provider has an outage, and you are
+  not trusting anyone else's view of the chain.
+- **Archive or indexing workloads** — heavy historical queries that would be throttled elsewhere.
 
-The XPHERE Endpoint Node install binary comes with the following interfaces and utilities.
+## What it does {#endpoint-node-overview}
 
-- JSON-RPC APIs: JSON-RPC server runs inside the node, and it exposes for Blockchain Application development. It has several node management APIs as well.
-- Command-line Interface: Provides account management and node configuration functions. An interactive JavaScript console is also provided, that is attached to the node.
+- Synchronizes blockchain data from its peers.
+- Validates every block it receives, rather than trusting what it is told.
+- Answers state and history queries over JSON-RPC.
+- Propagates the transactions it receives to the rest of the network, so they reach the
+  [Union](/union) members who propose blocks.
+
+An Endpoint Node does **not** propose or seal blocks. Block production is split between
+[Union validators](/nodes/validator-node), which finalize on the Main Chain, and
+[miners](/mining), who seal Proof Chain blocks.
+
+## What ships in the package
+
+| Interface | Purpose |
+|-----------|---------|
+| **JSON-RPC server** | Ethereum-compatible `eth_*` / `net_*` / `web3_*` plus the XPHERE-specific [`xp_*`](/references/xphere-rpc) namespace, over HTTP, WebSocket, and IPC |
+| **Command-line interface** | `bin/xen` for node operation and account management, plus an interactive JavaScript console that attaches to a running node |
+
+The published package is a single Linux x86-64 build. See [Requirements](./requirements) for what it
+runs on.
+
+## Next steps
+
+1. [Requirements](./requirements) — hardware, OS, and disk sizing
+2. [Install XEN](./Install-XEN-Guide) — download, configure, and start the node
+3. [Chain Data Snapshots](./Use-Chaindata-Snapshots) — skip the initial sync
+4. [CLI commands](./xen-cli-commands) — operating the node
+5. [JSON-RPC APIs](./json-RPC-APIs) — exposing and securing the RPC interfaces

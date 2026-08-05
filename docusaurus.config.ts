@@ -80,7 +80,7 @@ const config: Config = {
       title: "XPHERE",
       logo: {
         alt: "XPHERE",
-        src: "img/logo.svg",
+        src: "img/gnb_logo.png",
       },
       items: [
         // Grouped by what a reader is trying to do, so the bar stays short.

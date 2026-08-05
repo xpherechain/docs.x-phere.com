@@ -19,9 +19,9 @@ admitted through the Foundation after evaluation. Applications go to
 
 | Role | What it means |
 |------|---------------|
-| **① Block validation** | Validating the blocks produced on the **Proof Chain** and recording them on the **Main Chain**. |
-| **② Governance participation** | Taking part in network policy decisions and ecosystem expansion. |
-| **③ Reward distribution management** | Managing the distribution of protocol rewards. |
+| **① Block validation** | Validating the blocks produced on the **Proof Chain** and finalizing them on the **Main Chain** through PBFT consensus. Members take turns proposing. |
+| **② Governance participation** | Voting on network policy — **one vote per member**, not per slot, with the Foundation breaking ties. See [Governance](/resources/governance). |
+| **③ Reward distribution** | Union members collectively receive **40%** of each minted block reward and **20%** of transaction fees. See [Tokenomics](/resources/tokenomics). |
 
 ## The Union in the Dual-Chain Architecture
 

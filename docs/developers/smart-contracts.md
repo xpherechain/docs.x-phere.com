@@ -220,13 +220,12 @@ client.watchContractEvent({
 });
 ```
 
-## Limitations
-
-See [EVM Compatibility](./evm-compatibility) for the full opcode and precompile matrix.
-
 ## See Also
 
-- [XPScan contract verification form](https://xpscan.io/verify)
-- [JavaScript API libraries](/references/javascript-api)
-- [JSON-RPC Reference](/references/json-rpc)
-- [Network Info](/references/network-info)
+- [EVM Compatibility](./evm-compatibility) — the opcode and precompile matrix, and where XPHERE
+  differs from Ethereum mainnet
+- [Token Standards](./token-standards) — ERC-20, ERC-721, and ERC-1155 on XPHERE
+- [JavaScript API libraries](/references/javascript-api) — ethers, viem, and web3.js
+- [JSON-RPC Reference](/references/json-rpc) — the methods underneath your tooling
+- [Network Info](/references/network-info) — chain IDs, endpoints, and gas parameters
+- [XPScan verification form](https://xpscan.io/verify) — the manual alternative to CLI verification
