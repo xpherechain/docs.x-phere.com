@@ -43,7 +43,7 @@ Miners are the group most directly exposed to Proof Chain changes, because a con
 
 - Mining on XPHERE today requires an **xpHash-capable ASIC — the IceRiver XP0**. The legacy CPU software miner is deprecated and cannot produce valid xpHash blocks.
 - Keep at least two mining endpoints configured (`sgp-mining`, `bkk-mining`, `hkg-mining`, `idn-mining`) so an endpoint outage around an activation height does not stop your hashrate.
-- After an activation height passes, confirm your ASIC dashboard still shows **accepted** blocks, and confirm payouts to your `targetMiner` address on an explorer.
+- After an activation height passes, confirm your ASIC dashboard still shows **accepted** shares, and confirm payouts to your address on an explorer.
 
 See [Mining — Getting Started](/mining/getting-started) and the [xpHash Hard Fork](/mining/xphash-fork) guide.
 

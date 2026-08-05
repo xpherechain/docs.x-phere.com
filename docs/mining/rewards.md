@@ -74,12 +74,19 @@ earnings of the Foundation's own Union node and burns the remainder. See
 
 ## Payout Flow
 
-1. The IceRiver XP0 submits sealed xpHash blocks to the assigned mining endpoint (`sgp-mining`, `bkk-mining`, `hkg-mining`, or `idn-mining`).
-2. The endpoint validates the block via the xpHash verifier.
-3. On finalization, the **miner allocation** of the minted reward for the period is credited to `targetMiner`.
-4. Balance is queryable on [XPScan](https://xpscan.io), the [Tamsa Explorer](https://xp.tamsa.io), or via `eth_getBalance`.
+Mining is done through a pool, so there are two hops — the protocol's, and the pool's.
 
-There is **no separate claim transaction** — rewards land directly in your address.
+1. Your IceRiver XP0 submits shares to the pool over Stratum.
+2. When the pool seals a valid Proof Chain block, the protocol credits the **miner allocation** for
+   that reward cycle.
+3. The pool distributes that income among its participants according to their accumulated difficulty
+   contribution, after deducting its fee.
+4. Your balance is queryable on [XPScan](https://xpscan.io), the
+   [Tamsa Explorer](https://xp.tamsa.io), or via `eth_getBalance`.
+
+There is **no claim transaction** at either hop — payouts arrive in your address on the pool's
+schedule. See [Getting Started](./getting-started#how-pool-payouts-work) for the current pool's fee,
+minimum payout, and distribution interval.
 
 ## Estimating Your Earnings
 
@@ -104,7 +111,11 @@ Example, at the current emission (1474.4 XP / 60s) with 1% of network hashrate:
 0.01 × (1474.4 × 0.40) ≈ 5.90 XP per 60s ≈ 8,493 XP/day
 ```
 
-Network hashrate is published on the explorer's mining dashboard.
+This is the figure **before** your pool's fee. At a 1% pool fee, you would receive about
+`8,493 × 0.99 ≈ 8,408 XP/day` of it.
+
+Network and pool hashrate are published on the [XPScan](https://xpscan.io) mining dashboard and on
+[xppool.io](https://xppool.io).
 
 ### Fee share
 

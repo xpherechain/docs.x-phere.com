@@ -52,7 +52,7 @@ The legacy CPU software miner (`miner-*-amd64` binaries + `config.json`) **canno
 
 1. Obtain an **IceRiver XP0** xpHash ASIC
 2. Connect it to power and network and open its web dashboard
-3. Point it at one of the XPHERE mining endpoints (`sgp-mining`, `bkk-mining`, `hkg-mining`, `idn-mining`) with your `targetMiner` payout address
+3. Point it at a mining pool over Stratum, with your XPHERE address as the payout account — see [Getting Started](./getting-started)
 4. Confirm post-fork acceptance — accepted blocks should appear in the dashboard and rewards on [XPScan](https://xpscan.io) or the [Tamsa Explorer](https://xp.tamsa.io)
 
 See [Getting Started](/mining/getting-started) for the full XP0 setup walkthrough.

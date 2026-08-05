@@ -64,7 +64,7 @@ Zigap is an official XPHERE partner wallet with built-in XPHERE 2.0 support, so 
 2. Create or import a wallet
 3. Select network: `XPHERE 2.0` (Mainnet) or `XPHERE 2.0 TESTNET`
 
-For [Mining](/mining/getting-started), the miner CLI uses the Zigap address format for `targetMiner`, so a Zigap `XPHERE 2.0` address is used as the payout address.
+For [Mining](/mining/getting-started), rewards are paid to an ordinary XPHERE address that you set as the payout account on the pool. A Zigap `XPHERE 2.0` address works, as does any address you control.
 
 ## 4. WalletConnect (Trust Wallet, Rainbow, etc.)
 

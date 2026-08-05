@@ -19,20 +19,30 @@ After the [xpHash hard fork](/mining/xphash-fork), blocks must be sealed with xp
 | Aspect | Value |
 |--------|-------|
 | Algorithm | **xpHash** (XPHERE-tuned Proof of Work) |
-| Chain | Proof Chain |
+| Chain | Proof Chain — where miners submit work |
 | Supported hardware | **IceRiver XP0** (xpHash ASIC) — only operable miner |
-| Block time | ~1 second |
-| Payout | Direct to your `targetMiner` address — no claim transaction |
+| Proof Chain block interval | ~1 minute |
+| Main Chain block interval | ~1 second — this is the chain that finalizes transactions |
+| How to mine | Through a pool, over Stratum |
+| Payout | To an ordinary XPHERE address — no claim transaction |
+
+Do not confuse the two intervals. The **Main Chain** produces a block roughly every second and is
+what gives XPHERE its ~1-second finality. The **Proof Chain**, which is what you are mining,
+produces a block roughly every minute.
 
 ## What You Need
 
 1. An **IceRiver XP0** xpHash ASIC unit
-2. A **Zigap** wallet address to receive rewards (`targetMiner`) — see [Wallet Setup](/developers/wallet-setup)
+2. An XPHERE address to receive rewards — see [Wallet Setup](/developers/wallet-setup)
 3. A stable power and network environment for the device
+
+Mining is done through a pool. **[XP Pool](https://xppool.io) is currently the only pool operating
+on XPHERE**; see [Getting Started](/mining/getting-started) for its terms and for what that
+concentration means.
 
 ## Next Steps
 
-- [Getting Started](/mining/getting-started) — configure the IceRiver XP0 against the XPHERE mining endpoints
+- [Getting Started](/mining/getting-started) — point the XP0 at a pool and confirm it is earning
 - [xpHash Hard Fork](/mining/xphash-fork) — why ASIC mining is required
 - [Mining Rewards](/mining/rewards) — emission, fee sharing, and payout flow
 - [XP Staking (Union Vault)](/staking/overview) — stake XP at [stake.x-phere.com](https://stake.x-phere.com); real yield, with the remainder burned

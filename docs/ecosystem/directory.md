@@ -74,6 +74,14 @@ A Mainnet endpoint returns the Mainnet chain ID `20250217` (hex `0x134fe69`).
 Ankr also operates a Union validator slot. The authoritative, live membership list is on-chain — see [Union Members](/union/members).
 :::
 
+## Mining Pools
+
+| Project | What it does | Link |
+|---------|--------------|------|
+| [XP Pool](https://xppool.io) | xpHash mining pool serving Mainnet and Testnet over Stratum | `stratum+tcp://xphash.xppool.io:3333` · `stratum+tcp://testnet-xphash.xppool.io:3333` |
+
+This is currently the **only** mining pool operating on XPHERE. Setup instructions, its published fee and payout terms, and what that concentration means are covered in [Mining → Getting Started](/mining/getting-started).
+
 ## Union Members
 
 Union members are the network's validators. Because membership changes as slots are registered, this directory does **not** duplicate the list.

@@ -30,4 +30,4 @@ For the unit's electrical, hashrate, and acoustic specifications, refer to the o
 
 ## Wallet Requirements
 
-- A [Zigap](https://about.zigap.io) wallet address on the `XPHERE 2.0` network to receive rewards (`targetMiner`)
+- An XPHERE address to receive rewards — a [Zigap](https://about.zigap.io) wallet on the `XPHERE 2.0` network works, as does any address you control
