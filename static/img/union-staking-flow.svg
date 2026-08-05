@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 430" width="900" height="430" role="img" aria-labelledby="title desc">
+  <title id="title">Union Staking reward flow on Xphere</title>
+  <desc id="desc">Every 60 seconds a block reward is minted and split into 20 percent Foundation, 40 percent Miner and 40 percent Union. The Union share funds the Union staking pool, which pays the member whose node address is the block proposer in the round-robin rotation.</desc>
+
+  <style>
+    .bg    { fill: #ffffff; }
+    .card  { fill: #f8fafc; stroke: #cbd5e1; }
+    .mint  { fill: #eef2ff; stroke: #6366f1; }
+    .union { fill: #ecfdf5; stroke: #10b981; }
+    .muted { fill: #f1f5f9; stroke: #cbd5e1; }
+    .t     { fill: #0f172a; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Pretendard, sans-serif; }
+    .sub   { fill: #475569; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Pretendard, sans-serif; }
+    .arrow { stroke: #94a3b8; }
+    .arrowhead { fill: #94a3b8; }
+    .accent { fill: #059669; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Pretendard, sans-serif; }
+
+    @media (prefers-color-scheme: dark) {
+      .bg    { fill: #1b1b1d; }
+      .card  { fill: #26282c; stroke: #3f4450; }
+      .mint  { fill: #232645; stroke: #818cf8; }
+      .union { fill: #12302a; stroke: #34d399; }
+      .muted { fill: #24262a; stroke: #3f4450; }
+      .t     { fill: #f1f5f9; }
+      .sub   { fill: #a9b1bd; }
+      .arrow { stroke: #6b7280; }
+      .arrowhead { fill: #6b7280; }
+      .accent { fill: #34d399; }
+    }
+  </style>
+
+  <rect class="bg" x="0" y="0" width="900" height="430" rx="12"/>
+
+  <!-- Emission -->
+  <rect class="mint" x="325" y="24" width="250" height="66" rx="10" stroke-width="1.5"/>
+  <text class="t" x="450" y="52" text-anchor="middle" font-size="17" font-weight="700">Minted block reward</text>
+  <text class="sub" x="450" y="74" text-anchor="middle" font-size="13">every 60 s · 1,474.4 XP (current)</text>
+
+  <!-- Split arrows -->
+  <path class="arrow" d="M450 90 V116" stroke-width="1.5" fill="none"/>
+  <path class="arrow" d="M150 116 H750" stroke-width="1.5" fill="none"/>
+  <path class="arrow" d="M150 116 V146" stroke-width="1.5" fill="none"/>
+  <path class="arrow" d="M450 116 V146" stroke-width="1.5" fill="none"/>
+  <path class="arrow" d="M750 116 V146" stroke-width="1.5" fill="none"/>
+  <polygon class="arrowhead" points="150,156 144,144 156,144"/>
+  <polygon class="arrowhead" points="450,156 444,144 456,144"/>
+  <polygon class="arrowhead" points="750,156 744,144 756,144"/>
+
+  <!-- Three recipients -->
+  <rect class="muted" x="40" y="158" width="220" height="74" rx="10" stroke-width="1.5"/>
+  <text class="t" x="150" y="188" text-anchor="middle" font-size="15" font-weight="600">Foundation</text>
+  <text class="sub" x="150" y="211" text-anchor="middle" font-size="13">20% · 294.88 XP</text>
+
+  <rect class="muted" x="340" y="158" width="220" height="74" rx="10" stroke-width="1.5"/>
+  <text class="t" x="450" y="188" text-anchor="middle" font-size="15" font-weight="600">Miner (Proof Chain)</text>
+  <text class="sub" x="450" y="211" text-anchor="middle" font-size="13">40% · 589.76 XP</text>
+
+  <rect class="union" x="640" y="158" width="220" height="74" rx="10" stroke-width="1.5"/>
+  <text class="t" x="750" y="188" text-anchor="middle" font-size="15" font-weight="700">Union (staking)</text>
+  <text class="accent" x="750" y="211" text-anchor="middle" font-size="13" font-weight="600">40% · 589.76 XP</text>
+
+  <!-- Union pool -->
+  <path class="arrow" d="M750 232 V264" stroke-width="1.5" fill="none"/>
+  <polygon class="arrowhead" points="750,274 744,262 756,262"/>
+
+  <rect class="union" x="605" y="276" width="255" height="66" rx="10" stroke-width="1.5"/>
+  <text class="t" x="732" y="304" text-anchor="middle" font-size="15" font-weight="600">Union staking pool</text>
+  <text class="sub" x="732" y="326" text-anchor="middle" font-size="13">funded every emission cycle</text>
+
+  <!-- Rotation -->
+  <path class="arrow" d="M605 309 H500" stroke-width="1.5" fill="none"/>
+  <polygon class="arrowhead" points="490,309 502,303 502,315"/>
+
+  <rect class="card" x="230" y="276" width="260" height="66" rx="10" stroke-width="1.5"/>
+  <text class="t" x="360" y="304" text-anchor="middle" font-size="15" font-weight="600">Round-robin proposer turn</text>
+  <text class="sub" x="360" y="326" text-anchor="middle" font-size="13">sequential, predetermined order</text>
+
+  <!-- Member payout -->
+  <path class="arrow" d="M360 342 V374" stroke-width="1.5" fill="none"/>
+  <polygon class="arrowhead" points="360,384 354,372 366,372"/>
+
+  <rect class="card" x="200" y="386" width="320" height="34" rx="8" stroke-width="1.5"/>
+  <text class="t" x="360" y="409" text-anchor="middle" font-size="14" font-weight="600">Union member&#8217;s registered node address</text>
+
+  <!-- Stake requirement note -->
+  <rect class="card" x="40" y="276" width="160" height="66" rx="10" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <text class="t" x="120" y="303" text-anchor="middle" font-size="14" font-weight="600">Stake</text>
+  <text class="sub" x="120" y="325" text-anchor="middle" font-size="13">35,000,000 XP</text>
+  <path class="arrow" d="M200 309 H222" stroke-width="1.5" fill="none" stroke-dasharray="5 4"/>
+  <polygon class="arrowhead" points="232,309 220,303 220,315"/>
+</svg>
