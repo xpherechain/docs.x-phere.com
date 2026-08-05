@@ -3,13 +3,13 @@ import styles from "./styles.module.css";
 import "slick-carousel/slick/slick.css";
 import { useEffect } from "react";
 import AOS from "aos";
-import "aos/dist/aos.css"; // AOS 기본 스타일 적용
+import "aos/dist/aos.css"; // AOS default styles
 
 export default function HomepageFeatures(): JSX.Element {
   useEffect(() => {
     AOS.init({
-      duration: 2000, // 애니메이션 지속 시간 (기본값: 400ms)
-      once: false, // 한 번만 실행할지 여부
+      duration: 2000, // animation duration (default: 400ms)
+      once: false, // replay the animation each time the element scrolls into view
     });
   }, []);
 
@@ -56,7 +56,7 @@ export default function HomepageFeatures(): JSX.Element {
         <div className={styles.sectionInner}>
           <div className={styles.container}>
             <div className={styles.introTitle}>
-              {/* h3 태그 자체적으로 백그라운드 이미지로 관리하고있음 텍스트 수정 안잡힘 */}
+              {/* The heading is rendered as a background image, so editing this text has no visible effect. */}
               <h3 data-aos="fade-up" data-aos-delay="100">
                 XPHERE 2.0
               </h3>
@@ -96,7 +96,7 @@ export default function HomepageFeatures(): JSX.Element {
                 <a href="references/public-en/">
                   <div>
                     <dl>
-                      <dt>XPublic JSON-RPC Endpoint</dt>
+                      <dt>Public JSON-RPC Endpoint</dt>
                       <dd>
                         Public endpoints to connect with the XPHERE network
                       </dd>
@@ -170,10 +170,10 @@ export default function HomepageFeatures(): JSX.Element {
                   <dl>
                     <dt></dt>
                     <dd>
-                      <h5>Technical Validation</h5>
+                      <h5>Fast Finality</h5>
                       <p>
-                        Validate the performance, security, and scalability of
-                        the XPHERE network
+                        A PBFT Main Chain finalizes blocks in roughly one
+                        second, with no probabilistic confirmation wait
                       </p>
                     </dd>
                   </dl>
@@ -184,8 +184,8 @@ export default function HomepageFeatures(): JSX.Element {
                     <dd>
                       <h5>Support for DApp Ecosystem</h5>
                       <p>
-                        Provide a safe environment for developers to test
-                        applications
+                        Full EVM compatibility, so Solidity contracts and
+                        Ethereum tooling work without modification
                       </p>
                     </dd>
                   </dl>
@@ -260,9 +260,10 @@ export default function HomepageFeatures(): JSX.Element {
                   <dd>
                     <h5>ZIGAP Wallet</h5>
                     <p>
-                      Create your XPHERE 2.0 Testnet Wallet using ZIGAP Wallet.
+                      Create an XPHERE wallet with ZIGAP to hold XP and receive
+                      mining or staking payouts.
                     </p>
-                    <a href="https://about.zigap.io/" target="_blank">
+                    <a href="https://about.zigap.io/" target="_blank" rel="noopener noreferrer">
                       <span>
                         <strong>ZIGAP Download</strong>
                       </span>
@@ -274,17 +275,14 @@ export default function HomepageFeatures(): JSX.Element {
                 <dl>
                   <dt></dt>
                   <dd>
-                    <h5>GitHub</h5>
+                    <h5>Mining</h5>
                     <p>
-                      Download the official mining program from GitHub and start
-                      mining today.
+                      XPHERE mining runs on the IceRiver XP0 xpHash ASIC. See
+                      the mining guide to get started.
                     </p>
-                    <a
-                      href="https://github.com/xpherechain/Xphere-miner"
-                      target="_blank"
-                    >
+                    <a href="/mining">
                       <span>
-                        <strong>Download link</strong>
+                        <strong>Mining guide</strong>
                       </span>
                     </a>
                   </dd>
@@ -299,7 +297,7 @@ export default function HomepageFeatures(): JSX.Element {
                       Track blocks, transactions, and network stats on XPScan,
                       the XPHERE blockchain explorer
                     </p>
-                    <a href="https://xpscan.io" target="_blank">
+                    <a href="https://xpscan.io" target="_blank" rel="noopener noreferrer">
                       <span>
                         <strong>Go to XPScan</strong>
                       </span>
@@ -316,7 +314,7 @@ export default function HomepageFeatures(): JSX.Element {
                       Explore your token transactions and monitor Blockchain
                       activity with Tamsa Explorer
                     </p>
-                    <a href="https://xp.tamsa.io" target="_blank">
+                    <a href="https://xp.tamsa.io" target="_blank" rel="noopener noreferrer">
                       <span>
                         <strong>Go to Explorer</strong>
                       </span>
@@ -356,8 +354,9 @@ export default function HomepageFeatures(): JSX.Element {
                 <dl>
                   <dt>Global WEB 3.0 Integrated Ecosystem</dt>
                   <dd>
-                    Download the official mining program from GitHub and start
-                    mining today.
+                    XPHERE connects wallets, explorers, staking, and dApps into
+                    a single EVM-compatible environment, so tools built for
+                    Ethereum work here without modification.
                   </dd>
                 </dl>
               </li>
@@ -379,27 +378,27 @@ export default function HomepageFeatures(): JSX.Element {
       <div className={styles.aside}>
         <ul>
           <li>
-            <a href="https://twitter.com/Xphere_official " target="_blank">
+            <a href="https://x.com/Xphere_official" target="_blank" rel="noopener noreferrer">
               X
             </a>
           </li>
           <li>
-            <a href="https://t.me/Xphere_official" target="_blank">
+            <a href="https://t.me/Xphere_official" target="_blank" rel="noopener noreferrer">
               Telegram
             </a>
           </li>
           {/* <li>
-            <a href="https://medium.com/@Xphere_official" target="_blank">
+            <a href="https://medium.com/@Xphere_official" target="_blank" rel="noopener noreferrer">
               Medium
             </a>
           </li> */}
           <li>
-            <a href="https://discord.gg/xphere" target="_blank">
+            <a href="https://discord.gg/xphere" target="_blank" rel="noopener noreferrer">
               discord
             </a>
           </li>
           <li>
-            <a href="https://github.com/xpherechain" target="_blank">
+            <a href="https://github.com/xpherechain" target="_blank" rel="noopener noreferrer">
               Github
             </a>
           </li>

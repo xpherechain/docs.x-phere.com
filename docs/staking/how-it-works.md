@@ -46,11 +46,11 @@ Claiming has **no expiry**. Accrued rewards stay claimable until you take them.
 
 ## Unstaking
 
-Unstaking is a **two-step** process:
+Unstaking takes **two transactions**, with a cooldown between them:
 
-1. **Request unstake** — your exit is recorded on-chain.
-2. **7-day cooldown** — the request matures.
-3. **Claim matured** — you receive **100% of your principal**.
+1. **Request unstake** — your exit is recorded on-chain. A **7-day cooldown** then runs before the
+   request matures.
+2. **Claim matured** — you receive **100% of your principal**.
 
 Principal and rewards are held on **separate ledgers**. Even if reward distribution stops entirely, your **full principal remains withdrawable**.
 

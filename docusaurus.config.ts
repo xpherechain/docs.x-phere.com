@@ -39,28 +39,11 @@ const config: Config = {
           sidebarPath: "./sidebars.ts",
           docItemComponent: "@theme/ApiItem", // Derived from docusaurus-theme-openapi
 
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
           editUrl:
             "https://github.com/xpherechain/docs.x-phere.com/tree/main/",
           // Show the last updated date on each doc page (derived from git history)
           showLastUpdateTime: true,
         },
-        // blog: {
-        //   showReadingTime: true,
-        //   feedOptions: {
-        //     type: ['rss', 'atom'],
-        //     xslt: true,
-        //   },
-        //   // Please change this to your repo.
-        //   // Remove this to remove the "edit this page" links.
-        //   editUrl:
-        //     'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-        //   // Useful options to enforce blogging best practices
-        //   onInlineTags: 'warn',
-        //   onInlineAuthors: 'warn',
-        //   onUntruncatedBlogPosts: 'warn',
-        // },
         theme: {
           customCss: "./src/css/custom.css",
         },
@@ -75,23 +58,24 @@ const config: Config = {
 
   themeConfig: {
     metadata: [
-      { name: "og:title", content: "XPHERE v2.0 Docs" },
-      { name: "og:description", content: "Welcome to XPHERE" },
+      { property: "og:title", content: "XPHERE Documentation" },
       {
-        name: "og:image",
-        content: "https://docs.x-phere.com/img/kakao_bg.png",
+        property: "og:description",
+        content:
+          "Official documentation for XPHERE — an EVM-compatible Layer 1 with a dual-chain PBFT and xpHash architecture.",
       },
-      { name: "og:url", content: "https://docs.x-phere.com" },
-      { name: "og:type", content: "website" },
-      { name: "og:site_name", content: "XPHERE v2.0 Docs" },
+      { property: "og:url", content: "https://docs.x-phere.com" },
+      { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "XPHERE Documentation" },
     ],
     colorMode: {
-      defaultMode: "dark", // 기본 모드를 다크 모드로 설정
-      disableSwitch: false, // 다크/라이트 모드 전환 버튼 활성화 (true로 설정하면 전환 불가능)
-      respectPrefersColorScheme: false, // 사용자의 시스템 설정을 따르지 않음 (true로 설정하면 OS 테마를 따름)
+      defaultMode: "dark",
+      disableSwitch: false,
+      // Ignore the visitor's OS theme so the site always opens in dark mode.
+      respectPrefersColorScheme: false,
     },
-    // Replace with your project's social card
-    image: "img/docusaurus-social-card.jpg",
+    // Social card used for link previews.
+    image: "img/xphere-social-card.png",
     navbar: {
       title: "XPHERE",
       logo: {
@@ -99,30 +83,6 @@ const config: Config = {
         src: "img/logo.svg",
       },
       items: [
-        // {
-        //   to: 'learn',
-        //   position: 'left',
-        //   sidebarid: 'learnSidebar',
-        //   label: 'Learn'
-        // },
-        // {
-        //   to: "build",
-        //   position: 'left',
-        //   sidebarid: 'buildSidebar',
-        //   label: 'Build',
-        // },
-        // {
-        //   to: "nodes",
-        //   position: 'left',
-        //   sidebarid: 'nodeSidebar',
-        //   label: 'Nodes',
-        // },
-        // {
-        //   label: "Petstore API",
-        //   position: "left",
-        //   to: "/docs/category/petstore-api",
-        // },
-
         // Grouped by what a reader is trying to do, so the bar stays short.
         {
           type: "dropdown",
@@ -280,7 +240,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Ⓒ2025 XPHERE Foundation. All rights reserved.`,
+      copyright: `Ⓒ${new Date().getFullYear()} XPHERE Foundation. All rights reserved.`,
     },
     prism: {
       theme: prismThemes.github,

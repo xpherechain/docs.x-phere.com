@@ -90,9 +90,8 @@ infrastructure** — no signup or API key required to start.
 | The `xp_*` namespace | Available on both Ankr endpoints — `xp_blockNumber` returns a height on `xphere_mainnet` and `xphere_testnet` alike |
 | A second opinion | An independently operated endpoint to fail over to when a Foundation endpoint is unreachable |
 
-Ankr is not only a gateway to XPHERE — it is also a **Union validator** on the network, staking
-35,000,000 XP and taking its turn proposing Main Chain blocks (see [Union Members](/union/members)).
-The same partner that serves your RPC traffic has a stake in the chain's security.
+Ankr also operates a **Union validator** slot on XPHERE, staking 35,000,000 XP and taking its turn
+proposing Main Chain blocks (see [Union Members](/union/members)).
 
 :::note What to know before relying on it
 - `rpc_modules` on Ankr advertises `admin`, `debug`, `personal`, `txpool`, and `web3`, but the

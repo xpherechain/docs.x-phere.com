@@ -88,11 +88,9 @@ npx hardhat run scripts/deploy-token.ts --network xphereTestnet
 
 ### Verify the Source
 
-:::caution `npx hardhat verify` and `forge verify-contract` do not work on XPHERE
-Both tools require an Etherscan-compatible verification API. XPHERE does not publish one — `https://xp.tamsa.io/api` and `https://xpt.tamsa.io/api` both return `404`, and XPScan exposes no Etherscan-style `/api?module=contract` route. Do not add an `etherscan` block to `hardhat.config.ts` for XPHERE; it will fail.
-:::
+XPScan exposes an Etherscan-compatible verification API, so `npx hardhat verify` and `forge verify-contract` both work once `hardhat.config.ts` points at it. XPScan serves **Mainnet** (`Chain ID: 20250217`); no Testnet verification service is published, so plan to verify after the Mainnet deployment rather than on Testnet.
 
-Verification is done through **XPScan's web form at [xpscan.io/verify](https://xpscan.io/verify)**, which takes the contract address, contract name, compiler version, license, optimizer setting, Solidity source, and ABI-encoded constructor arguments. XPScan serves **Mainnet** (`Chain ID: 20250217`); no Testnet verification service is published, so plan to verify after the Mainnet deployment rather than on Testnet. Details are under [Verifying Contracts](./smart-contracts#verifying-contracts).
+The configuration block and a worked end-to-end example are under [Verifying Contracts](./smart-contracts#verifying-contracts). Submitting the source through the [web form](https://xpscan.io/verify) also works if you prefer not to wire up the CLI.
 
 :::tip
 After deployment, add the token to your wallet by contract address to confirm that `name`, `symbol`, and `decimals` read back correctly. See [Wallet Setup](./wallet-setup).
@@ -134,7 +132,7 @@ Deploy and verify exactly as for ERC-20 — the constructor takes the same singl
 npx hardhat run scripts/deploy-collection.ts --network xphereTestnet
 ```
 
-Source verification follows the same route as ERC-20 — the [XPScan web form](https://xpscan.io/verify), not `npx hardhat verify`.
+Source verification follows the same route as ERC-20 — see [Verifying Contracts](./smart-contracts#verifying-contracts).
 
 ## ERC-1155
 
@@ -223,9 +221,9 @@ Deploy to testnet first. Nothing about a token contract is cheaper to fix after 
 | 3. Read the deployment | Testnet | On [xpt.tamsa.io](https://xpt.tamsa.io) — the Testnet explorer. Testnet transactions do **not** appear on XPScan |
 | 4. Exercise the contract | Testnet | Mint, transfer, approve, batch — including the paths only an owner can call |
 | 5. Deploy to production | Mainnet — Chain ID `20250217` (`0x134fe69`) | `--network xphereMainnet` |
-| 6. Verify the source | Mainnet | Submit source and ABI through the [XPScan web form](https://xpscan.io/verify) |
+| 6. Verify the source | Mainnet | `npx hardhat verify --network xphereMainnet <address> <args>` — see [Verifying Contracts](./smart-contracts#verifying-contracts) |
 
-Source verification happens at the Mainnet step, not the Testnet step: XPScan's verification form serves Mainnet, and no Testnet verification service is published.
+Source verification happens at the Mainnet step, not the Testnet step: XPScan's verification service serves Mainnet, and no Testnet verification service is published.
 
 Use a **disposable** private key for testnet work, and a separate key you control for mainnet. Full parameter list for both networks: [Network Information](/references/network-info).
 

@@ -121,7 +121,7 @@ curl -s -X POST https://testnet.x-phere.com \
 | Centralized exchanges | Mainnet | `XP` | Search "XP" on supported exchanges |
 | [Faucet](/faucet) | Testnet | `XPT` | 10 XPT per address per 24 hours, free |
 | Mining | Both | native | Run a [mining node](/mining/getting-started) |
-| Bridge from Ethereum | Mainnet | `XP` | See [Bridge guide](/resources/bridge) |
+| Bridge from Ethereum | — | — | Not yet available — see [Bridge](/resources/bridge) |
 
 Testnet `XPT` cannot be moved to Mainnet, and the faucet does not distribute Mainnet `XP`.
 

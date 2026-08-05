@@ -81,9 +81,11 @@ ls ~/snapshot_stage
 `conf/xend.conf`, inside a subdirectory named after the client:
 
 ```bash
-find ~/xen_data -maxdepth 2 -type d -name chaindata
-# e.g. /home/user/xen_data/xen/chaindata
+find ~/xen_data -maxdepth 3 -type d -name chaindata
+# e.g. /home/user/xen_data/xphere/chaindata
 ```
+
+The subdirectory is named after the client identifier `xphere`, not after the `xen` binary.
 
 Use whatever path this returns as `CHAINDATA` below. If the node has never been initialized, run
 `./bin/xen init` first so the directory structure exists.
@@ -91,7 +93,7 @@ Use whatever path this returns as `CHAINDATA` below. If the node has never been 
 **Third step:** Replace the contents of that directory with the extracted snapshot.
 
 ```bash
-CHAINDATA=~/xen_data/xen/chaindata     # use the path found above
+CHAINDATA=~/xen_data/xphere/chaindata  # use the path found above
 mv "$CHAINDATA" "$CHAINDATA.bak"       # keep the old data until the node is verified
 mkdir -p "$CHAINDATA"
 mv ~/snapshot_stage/* "$CHAINDATA"/

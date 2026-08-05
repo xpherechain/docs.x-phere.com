@@ -25,6 +25,13 @@ The Docusaurus configuration, React components, and styles — everything under
 `src/`, plus the build configuration at the repository root — are licensed under
 the MIT License.
 
+Exception: the Pretendard font files bundled under
+`src/components/HomepageFeatures/` (the `woff/`, `woff2/`, `woff-subset/`, and
+`woff2-subset/` directories, together with `pretendard.css`) are third-party
+material, not XPHERE Foundation code. They are licensed under the SIL Open Font
+License 1.1, whose full text is in `src/components/HomepageFeatures/OFL.txt`.
+Copyright (c) 2021 Kil Hyung-jin, with Reserved Font Name Pretendard.
+
 Copyright (c) XPHERE Foundation
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of

@@ -102,8 +102,7 @@ A modern 64-bit Linux distribution on **x86-64 (amd64)** hardware is required.
 :::caution Only a Linux x86-64 build is distributed
 The single published package is
 [`xen-v0.9.0-amd64-linux.tar.gz`](/nodes/downloads). **No macOS build and no ARM build is
-distributed** — an earlier version of this page said macOS binaries were provided for development,
-and that was incorrect. There is no download that yields a XEN binary for macOS.
+distributed.** There is no download that yields a XEN binary for macOS.
 :::
 
 `bin/xen` from the package is a dynamically linked x86-64 ELF binary, so it needs a glibc-based
@@ -119,10 +118,9 @@ ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked,
 interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 3.2.0
 ```
 
-The client source is public at [github.com/xpherechain](https://github.com/xpherechain), and its
-build system defines `linux-amd64` and `linux-arm64` targets. There is no macOS build target, and
-the Foundation publishes no binary for either ARM or macOS — building for anything other than Linux
-x86-64 is unsupported.
+The XEN client source is not currently published, so building your own binary for another platform
+is not an option today. Run the distributed Linux x86-64 package, and verify it against the
+[published SHA256 checksum](/nodes/downloads) before running it.
 
 ## See Also
 

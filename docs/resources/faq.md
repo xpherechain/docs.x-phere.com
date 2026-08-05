@@ -49,7 +49,9 @@ Any EVM-compatible wallet (MetaMask, Rabby, Trust Wallet, etc.) plus the native 
 Testnet tokens are **XPT**, not XP. Request them from the [faucet](https://faucet.x-phere.com): **10 XPT per address, once every 24 hours**, free. Add the Testnet first (Chain ID `1998991` / `0x1e808f`, symbol `XPT`, RPC `https://testnet.x-phere.com`), then check the resulting balance on [xpt.tamsa.io](https://xpt.tamsa.io). See [Testnet Faucet](/faucet).
 
 ### How do I bridge from Ethereum?
-See the [Bridge guide](./bridge).
+There is no Foundation-operated bridge available yet, so there is currently no supported route for
+moving assets from Ethereum to XPHERE. See [Bridge](./bridge) for what will be published when one
+exists. To acquire XP today, use an exchange that lists it.
 
 ## Mining
 

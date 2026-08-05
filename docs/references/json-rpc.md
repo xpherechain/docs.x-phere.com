@@ -71,7 +71,7 @@ These are commonly assumed to be present because they exist on Ethereum clients.
 | `web3_clientVersion` | `-32601` — the `web3` namespace is not served | [`xp_clientVersion`](./xphere-rpc) |
 | `web3_sha3` | `-32601` | Hash locally (`ethers.keccak256`, `cast keccak`) |
 | `eth_protocolVersion` | `-32601` | [`xp_protocolVersion`](./xphere-rpc) |
-| `debug_*` | `-32601` on mainnet endpoints. Served on `https://testnet.x-phere.com`. | Run your own node with `--http.api debug` |
+| `debug_*` | `-32601` on mainnet endpoints. Served on `https://testnet.x-phere.com`. | Run your own node with `--rpcapi debug` |
 | `personal_*` | `-32601` | Sign locally, then [`eth_sendRawTransaction`](#eth_sendrawtransaction) |
 | `admin_*` | `-32601` | Only meaningful on a node you operate |
 | `txpool_*` | `-32601` | — |

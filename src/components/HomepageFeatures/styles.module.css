@@ -1,7 +1,7 @@
 @charset "utf-8";
 @import url(./pretendard.css);
 
-/* 초기화 */
+/* reset */
 * {
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
@@ -1141,14 +1141,14 @@ h1#title {
     margin-bottom: 0;
   }
 }
-/* 전체 리스트 스타일 초기화 */
+/* reset list styles */
 ol {
   counter-reset: section;
   list-style: none;
   padding-left: 20px;
 }
 
-/* 1차 목록 (1, 2, 3...) */
+/* level 1 (1, 2, 3...) */
 ol > li {
   counter-increment: section;
 }
@@ -1157,7 +1157,7 @@ ol > li::before {
   font-weight: bold;
 }
 
-/* 2차 목록 (i, ii, iii...) */
+/* level 2 (i, ii, iii...) */
 ol ol {
   counter-reset: subsection;
 }
@@ -1169,7 +1169,7 @@ ol ol > li::before {
   font-weight: bold;
 }
 
-/* 3차 목록 (a, b, c...) */
+/* level 3 (a, b, c...) */
 ol ol ol {
   counter-reset: subsubsection;
 }

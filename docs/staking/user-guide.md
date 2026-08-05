@@ -47,11 +47,11 @@ The vault is in **guarded launch** with a limited cap. If the cap is full, depos
 
 ## 4. Unstake
 
-Unstaking runs in two steps with a cooldown in between:
+Unstaking takes two transactions, with a cooldown in between:
 
-1. **Request unstake** — submit the request for the amount you want to withdraw.
-2. **7-day cooldown** — the interface shows a **progress bar** until the request matures.
-3. **Claim matured** — receive **100% of your principal**.
+1. **Request unstake** — submit the request for the amount you want to withdraw. A **7-day
+   cooldown** follows; the interface shows a **progress bar** until the request matures.
+2. **Claim matured** — receive **100% of your principal**.
 
 Principal and rewards sit on separate ledgers, so a withdrawal is always for the full amount you put in.
 

@@ -72,6 +72,12 @@ These libraries give you functionality to create wallets, manage keys and sign t
 
 Here's an examples from Ethers
 
+:::danger Never use a mnemonic or private key taken from documentation
+The mnemonic below is the public example from the ethers.js documentation. Anyone can derive its
+keys, so any funds sent to it can be taken by anyone. Generate your own mnemonic, and never paste a
+real one into code you share.
+:::
+
 ```js
 // Create a wallet instance from a mnemonic...
 mnemonic =
