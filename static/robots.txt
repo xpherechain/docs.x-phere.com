@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# The 404 page also carries a noindex meta tag; this keeps crawlers from
+# spending requests on it in the first place.
+Disallow: /404.html
+
+Sitemap: https://docs.x-phere.com/sitemap.xml

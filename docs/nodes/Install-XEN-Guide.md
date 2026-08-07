@@ -1,3 +1,9 @@
+---
+title: XEN Install Guide
+description: Download, verify, and install the XEN endpoint node client on Linux, including checksum verification and first run.
+lang: en
+---
+
 # XEN Install Guide
 
 ## Download {#download}

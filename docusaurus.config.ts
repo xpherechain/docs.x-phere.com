@@ -22,6 +22,12 @@ const config: Config = {
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
 
+  // `trailingSlash` is deliberately left unset. Index pages (`/nodes`) need
+  // directory semantics for their relative links while leaf pages
+  // (`/references/json-rpc`) need the opposite, and only the default handles
+  // both. The redirect this used to cause on every internal link is fixed in
+  // firebase.json instead.
+
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
@@ -55,6 +61,43 @@ const config: Config = {
     ],
   ],
   themes: ["docusaurus-theme-openapi-docs"], // export theme components
+
+  headTags: [
+    // Structured data. Without it search engines infer the publisher and the
+    // site search endpoint from the page text, which is how documentation ends
+    // up attributed to the wrong organisation in results.
+    {
+      tagName: "script",
+      attributes: { type: "application/ld+json" },
+      innerHTML: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        name: "XPHERE Foundation",
+        url: "https://x-phere.com",
+        logo: "https://docs.x-phere.com/img/gnb_logo.png",
+        sameAs: [
+          "https://github.com/xpherechain",
+          "https://x.com/Xphere_official",
+          "https://medium.com/@Xphere_official",
+        ],
+      }),
+    },
+    {
+      tagName: "script",
+      attributes: { type: "application/ld+json" },
+      innerHTML: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        name: "XPHERE Documentation",
+        url: "https://docs.x-phere.com",
+        inLanguage: "en",
+        publisher: {
+          "@type": "Organization",
+          name: "XPHERE Foundation",
+        },
+      }),
+    },
+  ],
 
   themeConfig: {
     metadata: [

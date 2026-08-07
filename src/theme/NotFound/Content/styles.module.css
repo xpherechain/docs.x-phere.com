@@ -1,0 +1,100 @@
+/*
+ * Mobile first. The default 404 was a centered column sized for desktop, which
+ * left a phone with one line of unhelpful text and nowhere to go.
+ */
+
+.wrap {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 1rem 0 3rem;
+}
+
+.code {
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  color: var(--ifm-color-emphasis-600);
+  margin-bottom: 0.5rem;
+}
+
+.title {
+  font-size: 1.6rem;
+  line-height: 1.25;
+  text-wrap: balance;
+  margin-bottom: 0.75rem;
+}
+
+.path {
+  margin-bottom: 1rem;
+}
+
+.path code {
+  /* A long dead URL must not push the page sideways on a phone. */
+  overflow-wrap: anywhere;
+  word-break: break-all;
+  font-size: 0.8rem;
+}
+
+.lede {
+  color: var(--ifm-color-emphasis-700);
+  margin-bottom: 2rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  text-decoration: none;
+  /* Comfortably tappable without hunting for the label. */
+  min-height: 44px;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.card:hover,
+.card:focus-visible {
+  text-decoration: none;
+  border-color: var(--ifm-color-primary);
+  background-color: var(--ifm-color-emphasis-100);
+}
+
+.cardTitle {
+  font-weight: 600;
+  color: var(--ifm-heading-color);
+}
+
+.cardBlurb {
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.footer {
+  font-size: 0.9rem;
+  color: var(--ifm-color-emphasis-700);
+}
+
+@media (min-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 997px) {
+  .title {
+    font-size: 2.2rem;
+  }
+
+  .wrap {
+    padding-top: 2rem;
+  }
+}

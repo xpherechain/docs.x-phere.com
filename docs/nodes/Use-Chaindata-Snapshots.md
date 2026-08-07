@@ -1,3 +1,9 @@
+---
+title: Use Chaindata Snapshots
+description: Restore an XPHERE node from a published chaindata snapshot instead of syncing from genesis, including disk space requirements and verification.
+lang: en
+---
+
 # Use Chaindata Snapshots
 
 You can start a node from an already-synced database called a chaindata snapshot. A chaindata
