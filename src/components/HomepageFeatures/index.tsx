@@ -1,4 +1,5 @@
 import Slider from "react-slick";
+import Link from "@docusaurus/Link";
 import styles from "./styles.module.css";
 import "slick-carousel/slick/slick.css";
 import { useEffect } from "react";
@@ -75,7 +76,7 @@ export default function HomepageFeatures(): JSX.Element {
                 data-aos="fade-up"
                 data-aos-delay="0"
               >
-                <a href="references/">
+                <Link to="/references">
                   <div>
                     <dl>
                       <dt>XPHERE Overview</dt>
@@ -85,7 +86,7 @@ export default function HomepageFeatures(): JSX.Element {
                       </dd>
                     </dl>
                   </div>
-                </a>
+                </Link>
               </div>
 
               <div
@@ -93,7 +94,7 @@ export default function HomepageFeatures(): JSX.Element {
                 data-aos="fade-up"
                 data-aos-delay="200"
               >
-                <a href="references/public-en/">
+                <Link to="/references/public-en">
                   <div>
                     <dl>
                       <dt>Public JSON-RPC Endpoint</dt>
@@ -102,14 +103,14 @@ export default function HomepageFeatures(): JSX.Element {
                       </dd>
                     </dl>
                   </div>
-                </a>
+                </Link>
               </div>
               <div
                 className={`${styles.introItem} ${styles.item3}`}
                 data-aos="fade-up"
                 data-aos-delay="400"
               >
-                <a href="references/javascript-api/">
+                <Link to="/references/javascript-api">
                   <div>
                     <dl>
                       <dt>JavaScript API Libraries</dt>
@@ -118,21 +119,21 @@ export default function HomepageFeatures(): JSX.Element {
                       </dd>
                     </dl>
                   </div>
-                </a>
+                </Link>
               </div>
               <div
                 className={`${styles.introItem} ${styles.item4}`}
                 data-aos="fade-up"
                 data-aos-delay="600"
               >
-                <a href="references/json-rpc/">
+                <Link to="/references/json-rpc">
                   <div>
                     <dl>
                       <dt>JSON-RPC API</dt>
                       <dd>Documentation for Xphere’s JSON-RPC API</dd>
                     </dl>
                   </div>
-                </a>
+                </Link>
               </div>
             </Slider>
           </div>
@@ -280,11 +281,11 @@ export default function HomepageFeatures(): JSX.Element {
                       XPHERE mining runs on the IceRiver XP0 xpHash ASIC. See
                       the mining guide to get started.
                     </p>
-                    <a href="/mining">
+                    <Link to="/mining">
                       <span>
                         <strong>Mining guide</strong>
                       </span>
-                    </a>
+                    </Link>
                   </dd>
                 </dl>
               </li>

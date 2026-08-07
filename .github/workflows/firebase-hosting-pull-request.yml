@@ -17,6 +17,7 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+      - run: npm run check-links
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
@@ -24,8 +25,8 @@ jobs:
           projectId: docs-x-phere
 
   # Pull requests from forks cannot access deployment credentials, so they get a
-  # build check instead. The build is configured to fail on broken internal links,
-  # which is the check that matters most for a documentation change.
+  # build check instead. The build fails on broken Markdown links, and check-links
+  # catches the ones Docusaurus cannot see — raw anchors in React components.
   build:
     if: ${{ github.event.pull_request.head.repo.full_name != github.repository }}
     runs-on: ubuntu-latest
@@ -37,3 +38,4 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+      - run: npm run check-links

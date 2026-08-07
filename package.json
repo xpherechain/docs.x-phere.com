@@ -1,7 +1,7 @@
 {
   "name": "docs-x-phere-com",
   "version": "0.0.0",
-  "description": "Official XPHERE documentation — docs.x-phere.com",
+  "description": "Official XPHERE documentation \u2014 docs.x-phere.com",
   "license": "CC-BY-4.0",
   "repository": {
     "type": "git",
@@ -19,7 +19,9 @@
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "check-links": "node scripts/check-links.mjs",
+    "verify": "npm run build && npm run check-links && npm run typecheck"
   },
   "dependencies": {
     "@chakra-ui/react": "^2.8.2",
