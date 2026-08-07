@@ -3,5 +3,9 @@
   "extends": "@docusaurus/tsconfig",
   "compilerOptions": {
     "baseUrl": "."
-  }
+  },
+  // Without this, `npm run typecheck` walks the emitted bundles in build/ and
+  // reports errors from minified third-party code that no one can act on.
+  "include": ["src/**/*", "docusaurus.config.ts", "sidebars.ts"],
+  "exclude": ["build", ".docusaurus", "node_modules"]
 }

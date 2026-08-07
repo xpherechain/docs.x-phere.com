@@ -75,7 +75,9 @@ export default function NotFoundContent({
 
         <p className={styles.lede}>
           The page may have been renamed, or the link that brought you here may
-          be out of date. These are the pages people reach for most often.
+          be out of date. <Link to="/search">Search the documentation</Link> if
+          you know what you are after — otherwise these are the pages people
+          reach for most often.
         </p>
 
         <nav className={styles.grid} aria-label="Popular pages">

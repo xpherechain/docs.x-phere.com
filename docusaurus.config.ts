@@ -20,7 +20,14 @@ const config: Config = {
   projectName: "docs.x-phere.com",
 
   onBrokenLinks: "throw",
-  onBrokenMarkdownLinks: "warn",
+
+  markdown: {
+    hooks: {
+      // Moved out of the deprecated top-level `onBrokenMarkdownLinks`, which
+      // Docusaurus v4 removes.
+      onBrokenMarkdownLinks: "warn",
+    },
+  },
 
   // `trailingSlash` is deliberately left unset. Index pages (`/nodes`) need
   // directory semantics for their relative links while leaf pages
@@ -60,7 +67,23 @@ const config: Config = {
       } satisfies Preset.Options,
     ],
   ],
-  themes: ["docusaurus-theme-openapi-docs"], // export theme components
+  themes: [
+    "docusaurus-theme-openapi-docs", // export theme components
+    [
+      // Search runs entirely from a prebuilt index served with the site. No
+      // third-party service, so nothing to key, rate limit, or take down the
+      // search box when it expires.
+      "@easyops-cn/docusaurus-search-local",
+      {
+        hashed: true, // index filename carries a content hash, so it caches safely
+        indexBlog: false, // no blog on this site
+        docsRouteBasePath: "/", // docs are served at the root
+        highlightSearchTermsOnTargetPage: true,
+        searchResultLimits: 8,
+        searchBarShortcutHint: false,
+      },
+    ],
+  ],
 
   headTags: [
     // Structured data. Without it search engines infer the publisher and the

@@ -192,27 +192,33 @@ main > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) {
 .theme-code-block {
   background: none !important;
 }
-.codeBlockContent_biex pre {
+/*
+ * Selectors below target `.theme-code-block` and `pre.prism-code`, both of which
+ * Docusaurus guarantees. An earlier version keyed off `codeBlockContent_biex` —
+ * a CSS-module hash that changes between releases, so an upgrade would have
+ * dropped code block styling with nothing failing to signal it.
+ */
+.theme-code-block pre.prism-code {
   background: #262626 !important;
   border: solid 1px #232323;
   border-radius: 16px;
 }
 
-.codeBlockContent_biex pre span {
+.theme-code-block pre.prism-code span {
   color: #fff !important;
   font-weight: 200;
 }
-.codeBlockContent_biex pre span.comment {
+.theme-code-block pre.prism-code span.comment {
   font-style: normal !important;
   color: #6273a4 !important;
 }
-.codeBlockContent_biex pre span.keyword {
+.theme-code-block pre.prism-code span.keyword {
   color: #bc92f8 !important;
 }
-.codeBlockContent_biex pre span.string {
+.theme-code-block pre.prism-code span.string {
   color: #ff79c6 !important;
 }
-.codeBlockContent_biex pre span.function {
+.theme-code-block pre.prism-code span.function {
   color: #4ffa7b !important;
 }
 
@@ -318,29 +324,35 @@ footer.footer > div {
 }
 
 @media (max-width: 996px) {
-  .navbar > div:nth-child(1) > div:nth-child(1) {
+  /*
+   * Anchored to Infima's named classes rather than child position. The mobile
+   * sidebar is mounted at open time, so the previous `nth-child(3)` depended on
+   * how many siblings the navbar happened to render — a detail that is not part
+   * of any contract and would take the mobile menu with it if it changed.
+   */
+  .navbar__inner > .navbar__items:not(.navbar__items--right) {
     justify-content: flex-end;
     padding-right: 10px;
   }
-  .navbar > div:nth-child(3) {
+  .navbar-sidebar {
     height: 100vh !important;
     z-index: 1;
     overflow-y: hidden;
     background: #000;
   }
-  .navbar > div:nth-child(3) > div:nth-child(1) {
+  .navbar-sidebar__brand {
     height: 72px !important;
   }
-  .navbar > div:nth-child(3) > div:nth-child(1) a {
+  .navbar-sidebar__brand a {
     width: 40px;
     height: 40px;
     text-indent: -9999px;
     background: url("/img/gnb_logo.png") no-repeat center center / cover;
   }
-  .navbar > div:nth-child(3) > div:nth-child(1) > div {
+  .navbar-sidebar__brand > div {
     display: none;
   }
-  .navbar > div:nth-child(3) .navbar-sidebar__item {
+  .navbar-sidebar .navbar-sidebar__item {
     padding: 0;
   }
   main {
