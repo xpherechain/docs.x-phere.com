@@ -119,7 +119,7 @@ Yes. Just add XPHERE as a network in `hardhat.config.ts`. See [Smart Contracts](
 Yes — see [Public RPC Endpoints](/references/public-en). For production, run your own [Endpoint Node](/nodes/Install-XEN-Guide).
 
 ### Can I subscribe to events via WebSocket?
-Yes. `wss://en-hkg.x-phere.com/ws` (mainnet) and `wss://testnet.x-phere.com/ws/` (testnet — note the trailing slash; the path without it answers `301` to `/ws/`, which not every WebSocket client follows).
+Yes. `wss://rpc.x-phere.com/ws` (mainnet) and `wss://testnet.x-phere.com/ws/` (testnet — note the trailing slash; the path without it answers `301` to `/ws/`, which not every WebSocket client follows).
 
 ## Ecosystem
 

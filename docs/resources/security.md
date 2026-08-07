@@ -69,7 +69,7 @@ is listed here. **Anything not on this list is not ours.**
 | Staking portal | `https://stake.x-phere.com` |
 | Mainnet explorer | `https://xpscan.io` |
 | Testnet faucet | `https://faucet.x-phere.com` |
-| Mainnet RPC | `https://en-hkg.x-phere.com`, `https://en-bkk.x-phere.com` |
+| Mainnet RPC | `https://rpc.x-phere.com`, `https://en-hkg.x-phere.com`, `https://en-bkk.x-phere.com` |
 | Testnet RPC | `https://testnet.x-phere.com` |
 | GitHub organization | [`github.com/xpherechain`](https://github.com/xpherechain) |
 | Telegram | [`t.me/Xphere_official`](https://t.me/Xphere_official) |

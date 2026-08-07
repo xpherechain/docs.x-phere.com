@@ -18,7 +18,7 @@ Recommended for most TypeScript-based teams. See the [Quickstart](./quickstart) 
 ```bash
 # foundry.toml
 [rpc_endpoints]
-xphere_mainnet = "https://en-hkg.x-phere.com"
+xphere_mainnet = "https://rpc.x-phere.com"
 xphere_testnet = "https://testnet.x-phere.com"
 ```
 
@@ -49,7 +49,7 @@ For Mainnet source verification, point Foundry at XPScan — see
 Confirm either value yourself:
 
 ```bash
-curl -s -X POST https://en-hkg.x-phere.com -H "Content-Type: application/json" \
+curl -s -X POST https://rpc.x-phere.com -H "Content-Type: application/json" \
   --data '{"jsonrpc":"2.0","method":"eth_maxPriorityFeePerGas","params":[],"id":1}'
 # {"jsonrpc":"2.0","id":1,"result":"0x0"}
 ```
@@ -209,7 +209,7 @@ import { createPublicClient, webSocket } from "viem";
 
 const client = createPublicClient({
   chain: xphere,
-  transport: webSocket("wss://en-hkg.x-phere.com/ws"),
+  transport: webSocket("wss://rpc.x-phere.com/ws"),
 });
 
 client.watchContractEvent({

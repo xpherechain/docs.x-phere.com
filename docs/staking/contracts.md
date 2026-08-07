@@ -57,7 +57,7 @@ Any EVM tool works. Point it at a mainnet RPC endpoint from [Public RPC Endpoint
 
 ```bash
 # Native XP balance of the burn address
-curl -X POST https://en-hkg.x-phere.com \
+curl -X POST https://rpc.x-phere.com \
   -H "Content-Type: application/json" \
   --data '{"jsonrpc":"2.0","method":"eth_getBalance","params":["0x000000000000000000000000000000000000dEaD","latest"],"id":1}'
 ```
@@ -68,7 +68,7 @@ The timelock's minimum delay is a public read — `getMinDelay()`, selector `0xf
 
 ```bash
 # Minimum delay enforced by the Timelock
-curl -X POST https://en-hkg.x-phere.com \
+curl -X POST https://rpc.x-phere.com \
   -H "Content-Type: application/json" \
   --data '{"jsonrpc":"2.0","method":"eth_call","params":[{"to":"0x0737B4EEB4dA0920cE7CeE2D1eF64E0f57211F4E","data":"0xf27a0c92"},"latest"],"id":1}'
 ```

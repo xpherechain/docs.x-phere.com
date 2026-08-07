@@ -113,7 +113,7 @@ Foundation's own Union node earns.
 Query current circulating supply:
 
 ```bash
-curl -X POST https://en-hkg.x-phere.com \
+curl -X POST https://rpc.x-phere.com \
   -H "Content-Type: application/json" \
   --data '{"jsonrpc":"2.0","method":"xp_getTotalSupply","params":[],"id":1}'
 ```

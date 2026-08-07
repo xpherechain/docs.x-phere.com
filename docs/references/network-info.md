@@ -20,8 +20,8 @@ This page consolidates every parameter you need to connect to XPHERE from a wall
 | Decimals | `18` |
 | Block Time | ~1 second |
 | Consensus | Optimized PBFT (Main Chain) + xpHash PoW (Proof Chain) |
-| HTTPS RPC | `https://en-hkg.x-phere.com`<br/>`https://en-bkk.x-phere.com`<br/>`https://rpc.ankr.com/xphere_mainnet` (Ankr) |
-| WebSocket RPC | `wss://en-hkg.x-phere.com/ws`<br/>`wss://en-bkk.x-phere.com/ws` |
+| HTTPS RPC | `https://rpc.x-phere.com` (recommended)<br/>`https://en-hkg.x-phere.com`<br/>`https://en-bkk.x-phere.com`<br/>`https://rpc.ankr.com/xphere_mainnet` (Ankr) |
+| WebSocket RPC | `wss://rpc.x-phere.com/ws` (recommended)<br/>`wss://en-hkg.x-phere.com/ws`<br/>`wss://en-bkk.x-phere.com/ws` |
 | Block Explorer | `https://xpscan.io` (XPScan)<br/>`https://xp.tamsa.io` (Tamsa Explorer) |
 | xpHash Fork Block | `1,740,000` |
 
@@ -49,6 +49,14 @@ Mainnet is `XP`; Testnet is `XPT`. A wallet configured with `XP` against Chain I
 `wss://testnet.x-phere.com/ws` answers `301 Moved Permanently` to `/ws/`. Clients that do not follow redirects during the WebSocket handshake must use the trailing-slash form. Mainnet upgrades at `/ws` directly.
 :::
 
+### Which Mainnet endpoint to use
+
+Point production traffic at **`rpc.x-phere.com`**. It fronts several Foundation endpoint nodes across regions. Health checks run continuously, and requests move to a healthy node when one stops answering — no client change, no DNS edit on your side.
+
+`en-hkg` and `en-bkk` remain available and address single nodes directly. Use them when you need to pin traffic to one region, or to compare two nodes against each other while debugging. Because they are single origins, an outage there is visible to your application; `rpc.x-phere.com` absorbs it.
+
+All three answer the same JSON-RPC methods over both HTTPS and WebSocket, and are rate limited per client IP. If you run an indexer or any workload that needs sustained high request volume, contact the Foundation rather than spreading load across the hostnames — the limit applies to the underlying nodes either way.
+
 ### Explorer routing
 
 | Network | Explorer to use | Notes |
@@ -64,7 +72,7 @@ Every number in the tables above is readable from the live RPC:
 
 ```bash
 # Mainnet → 0x134fe69 (20250217)
-curl -s -X POST https://en-hkg.x-phere.com \
+curl -s -X POST https://rpc.x-phere.com \
   -H "Content-Type: application/json" \
   --data '{"jsonrpc":"2.0","method":"eth_chainId","params":[],"id":1}'
 
@@ -90,7 +98,7 @@ await window.ethereum.request({
     chainId: "0x134fe69", // 20250217
     chainName: "Xphere Mainnet",
     nativeCurrency: { name: "Xphere", symbol: "XP", decimals: 18 },
-    rpcUrls: ["https://en-hkg.x-phere.com"],
+    rpcUrls: ["https://rpc.x-phere.com"],
     blockExplorerUrls: ["https://xpscan.io", "https://xp.tamsa.io"],
   }],
 });
@@ -118,7 +126,7 @@ export const xphere = defineChain({
   name: "Xphere Mainnet",
   nativeCurrency: { name: "Xphere", symbol: "XP", decimals: 18 },
   rpcUrls: {
-    default: { http: ["https://en-hkg.x-phere.com"] },
+    default: { http: ["https://rpc.x-phere.com"] },
   },
   blockExplorers: {
     default: { name: "Tamsa Explorer", url: "https://xp.tamsa.io" },
@@ -144,7 +152,7 @@ export const xphereTestnet = defineChain({
 import { JsonRpcProvider, Network } from "ethers";
 
 const mainnet = new JsonRpcProvider(
-  "https://en-hkg.x-phere.com",
+  "https://rpc.x-phere.com",
   new Network("xphere", 20250217)
 );
 
@@ -157,7 +165,7 @@ const testnet = new JsonRpcProvider(
 ### curl (sanity check)
 ```bash
 # Mainnet
-curl -X POST https://en-hkg.x-phere.com \
+curl -X POST https://rpc.x-phere.com \
   -H "Content-Type: application/json" \
   --data '{"jsonrpc":"2.0","method":"eth_chainId","params":[],"id":1}'
 

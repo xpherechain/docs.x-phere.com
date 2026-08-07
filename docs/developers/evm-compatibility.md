@@ -63,7 +63,7 @@ All opcodes through Cancun are supported, including:
 The fee figures come from the chain's own governance config and are readable live:
 
 ```bash
-curl -s -X POST https://en-hkg.x-phere.com \
+curl -s -X POST https://rpc.x-phere.com \
   -H "Content-Type: application/json" \
   --data '{"jsonrpc":"2.0","method":"xp_getChainConfig","params":[],"id":1}'
 # governance.dgp.lowerboundbasefee = 25000000000, upperboundbasefee = 750000000000

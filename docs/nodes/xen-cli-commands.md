@@ -6,8 +6,8 @@ lang: en
 
 # XEN CLI Commands
 
-Everything on this page was checked against the XEN v0.9.0 client source and a live Mainnet node
-(`https://en-hkg.x-phere.com`). Commands are shown as run from the package root — the directory
+Everything on this page was checked against the XEN v0.9.0 client source and a live Foundation
+Mainnet node, reachable at `https://rpc.x-phere.com`. Commands are shown as run from the package root — the directory
 containing `bin/` and `conf/` — because the release archive does not install anything onto your
 `PATH`. See [Install XEN](/nodes/Install-XEN-Guide) for unpacking and first-run setup.
 
@@ -368,7 +368,7 @@ and the RPC name do not always match (see the caution above), so confirm the RPC
 scripting against it. `xp.getRewards(45150208)` in the console is this over curl:
 
 ```bash
-curl -s -X POST https://en-hkg.x-phere.com \
+curl -s -X POST https://rpc.x-phere.com \
   -H "Content-Type: application/json" \
   --data '{"jsonrpc":"2.0","method":"xp_getRewards","params":["0x2b0f000"],"id":1}'
 ```
@@ -400,7 +400,7 @@ configuration sets both to `eth,net,xp`.
 Ask any endpoint what it offers:
 
 ```bash
-curl -s -X POST https://en-hkg.x-phere.com \
+curl -s -X POST https://rpc.x-phere.com \
   -H "Content-Type: application/json" \
   --data '{"jsonrpc":"2.0","method":"rpc_modules","params":[],"id":1}'
 ```
@@ -450,7 +450,7 @@ security note in [Install XEN](/nodes/Install-XEN-Guide#update-the-configuration
 You do not have to take this page's word for anything. Probe the method directly:
 
 ```bash
-curl -s -X POST https://en-hkg.x-phere.com \
+curl -s -X POST https://rpc.x-phere.com \
   -H "Content-Type: application/json" \
   --data '{"jsonrpc":"2.0","method":"xp_blockNumber","params":[],"id":1}'
 ```

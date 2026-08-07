@@ -9,7 +9,7 @@ lang: en
 XPHERE nodes serve an `xp_*` namespace alongside the [Ethereum-compatible methods](/references/json-rpc). Most of it mirrors the `eth_*` namespace — `xp_getBalance`, `xp_getCode`, `xp_blockNumber` and `xp_chainId` return byte-identical results to their `eth_*` counterparts. A smaller set has no Ethereum equivalent: the council and committee, the block-level consensus record, the on-chain governance parameters, and the per-block reward breakdown.
 
 :::note Everything on this page was called
-Every method documented below was invoked against `https://en-hkg.x-phere.com` (client `Xphere/v0.9.0/linux-amd64/go1.22.12`) on 2026-08-05, and every response shown was captured from that endpoint. Nothing is listed because it is expected to exist. Methods that were tried and did **not** answer are listed in [Names that are not RPC methods](#not-methods).
+Every method documented below was invoked against a Foundation Mainnet endpoint node — `en-hkg.x-phere.com`, which `rpc.x-phere.com` also serves from (client `Xphere/v0.9.0/linux-amd64/go1.22.12`) — on 2026-08-05, and every response shown was captured from that node. Nothing is listed because it is expected to exist. Methods that were tried and did **not** answer are listed in [Names that are not RPC methods](#not-methods).
 :::
 
 ## Checking a method yourself {#checking}
@@ -17,7 +17,7 @@ Every method documented below was invoked against `https://en-hkg.x-phere.com` (
 Call it with no arguments and read the error code:
 
 ```bash
-curl -s -X POST https://en-hkg.x-phere.com \
+curl -s -X POST https://rpc.x-phere.com \
   -H "Content-Type: application/json" \
   --data '{"jsonrpc":"2.0","method":"xp_getCouncilSize","params":[],"id":1}'
 ```
@@ -34,7 +34,7 @@ Adding arguments one at a time until the `-32602` stops is how the parameter cou
 ## Namespaces on the public endpoints {#namespaces}
 
 ```bash
-curl -s -X POST https://en-hkg.x-phere.com \
+curl -s -X POST https://rpc.x-phere.com \
   -H "Content-Type: application/json" \
   --data '{"jsonrpc":"2.0","method":"rpc_modules","params":[],"id":1}'
 # {"jsonrpc":"2.0","id":1,"result":{"eth":"1.0","net":"1.0","rpc":"1.0","xp":"1.0"}}
@@ -42,9 +42,10 @@ curl -s -X POST https://en-hkg.x-phere.com \
 
 | Endpoint | Namespaces served |
 |----------|-------------------|
+| `https://rpc.x-phere.com` | `eth`, `net`, `rpc`, `xp` |
 | `https://en-hkg.x-phere.com` | `eth`, `net`, `rpc`, `xp` |
 | `https://en-bkk.x-phere.com` | `eth`, `net`, `rpc`, `xp` |
-| `wss://en-hkg.x-phere.com/ws`, `wss://en-bkk.x-phere.com/ws` | `eth`, `net`, `rpc`, `xp` |
+| `wss://rpc.x-phere.com/ws`, `wss://en-hkg.x-phere.com/ws`, `wss://en-bkk.x-phere.com/ws` | `eth`, `net`, `rpc`, `xp` |
 | `https://testnet.x-phere.com` | `debug`, `eth`, `net`, `rpc`, `xp` |
 
 Third-party providers run their own configuration and may serve more. Run `rpc_modules` against any endpoint before assuming what it offers. To add `xp` to a node you operate, put it in `RPC_API` / `WS_API` (`--rpcapi` / `--wsapi`) — see [Node JSON-RPC Setup](/nodes/json-RPC-APIs).
@@ -75,7 +76,7 @@ Third-party providers run their own configuration and may serve more. Run `rpc_m
 `xp_getBlockByNumber` and `xp_getBlockByHash` do not return the Ethereum block object. There is no `difficulty`, `totalDifficulty`, `miner`, `nonce`, `mixHash`, `sha3Uncles`, `uncles` or `gasLimit`. Captured from Mainnet, with the long fields elided:
 
 ```bash
-curl -s -X POST https://en-hkg.x-phere.com \
+curl -s -X POST https://rpc.x-phere.com \
   -H "Content-Type: application/json" \
   --data '{"jsonrpc":"2.0","method":"xp_getHeaderByNumber","params":["latest"],"id":1}'
 ```
@@ -116,7 +117,7 @@ Returns every receipt in one block in a single call.
 `Array` — one entry per transaction; `[]` for an empty block. Each entry merges transaction and receipt fields: `blockHash`, `blockNumber`, `contractAddress`, `effectiveGasPrice`, `from`, `gas`, `gasPrice`, `gasUsed`, `input`, `logs`, `logsBloom`, `nonce`, `senderTxHash`, `signatures`, `status`, `to`, `transactionHash`, `transactionIndex`, `type`, `typeInt`, `value`.
 
 ```bash
-curl -s -X POST https://en-hkg.x-phere.com \
+curl -s -X POST https://rpc.x-phere.com \
   -H "Content-Type: application/json" \
   --data '{"jsonrpc":"2.0","method":"xp_getBlockReceipts","params":["latest"],"id":1}'
 ```
@@ -134,7 +135,7 @@ Returns the supply accounting for a block. This has no `eth_*` equivalent.
 `Object` with `number`, `totalSupply`, `totalMinted`, `totalBurnt`, `burntFee`, `zeroBurn`, `deadBurn`, all as hex quantities in wei.
 
 ```bash
-curl -s -X POST https://en-hkg.x-phere.com \
+curl -s -X POST https://rpc.x-phere.com \
   -H "Content-Type: application/json" \
   --data '{"jsonrpc":"2.0","method":"xp_getTotalSupply","params":["latest"],"id":1}'
 ```
@@ -184,7 +185,7 @@ The public endpoints do not keep state for every past block. `xp_getCommitteeSiz
 Unlike Ethereum's `eth_estimateGas`, `xp_estimateGas` answers with a single argument — the block parameter is optional.
 
 ```bash
-curl -s -X POST https://en-hkg.x-phere.com \
+curl -s -X POST https://rpc.x-phere.com \
   -H "Content-Type: application/json" \
   --data '{"jsonrpc":"2.0","method":"xp_getAccount","params":["0x9e24c8ad703c8d9a638469f19e737da0e7c0b447","latest"],"id":1}'
 ```
@@ -216,7 +217,7 @@ curl -s -X POST https://en-hkg.x-phere.com \
 A full round trip, all four calls verified against Mainnet:
 
 ```bash
-EP=https://en-hkg.x-phere.com
+EP=https://rpc.x-phere.com
 ID=$(curl -s -X POST $EP -H "Content-Type: application/json" \
   --data '{"jsonrpc":"2.0","method":"xp_newBlockFilter","params":[],"id":1}' \
   | sed 's/.*"result":"//;s/".*//')
@@ -250,7 +251,7 @@ These have no Ethereum equivalent.
 `Array of DATA`, 20 bytes for the list methods; `Number` (decimal, not hex) for the size methods.
 
 ```bash
-curl -s -X POST https://en-hkg.x-phere.com \
+curl -s -X POST https://rpc.x-phere.com \
   -H "Content-Type: application/json" \
   --data '{"jsonrpc":"2.0","method":"xp_getCommitteeSize","params":[],"id":1}'
 # {"jsonrpc":"2.0","id":1,"result":29}
@@ -293,7 +294,7 @@ Returns a block together with who proposed it and who signed it.
 | `reward` | `DATA` 20 bytes | Reward recipient recorded in the header |
 
 ```bash
-curl -s -X POST https://en-hkg.x-phere.com \
+curl -s -X POST https://rpc.x-phere.com \
   -H "Content-Type: application/json" \
   --data '{"jsonrpc":"2.0","method":"xp_getBlockWithConsensusInfoByNumber","params":["0x2b103da"],"id":1}'
 ```
@@ -352,7 +353,7 @@ Returns the active chain configuration, including the governance and reward para
 **Returns** — `Object`
 
 ```bash
-curl -s -X POST https://en-hkg.x-phere.com \
+curl -s -X POST https://rpc.x-phere.com \
   -H "Content-Type: application/json" \
   --data '{"jsonrpc":"2.0","method":"xp_getChainConfig","params":[],"id":1}'
 ```
@@ -392,7 +393,7 @@ The same governance parameters as a flat map. Useful because the large numbers c
 **Parameters** — none, or an optional `QUANTITY|TAG`
 
 ```bash
-curl -s -X POST https://en-hkg.x-phere.com \
+curl -s -X POST https://rpc.x-phere.com \
   -H "Content-Type: application/json" \
   --data '{"jsonrpc":"2.0","method":"xp_getParams","params":[],"id":1}'
 ```
@@ -439,7 +440,7 @@ Returns the reward and fee breakdown for a block: what was minted, what was burn
 | `rewards` | `Object` | Address → amount actually paid |
 
 ```bash
-curl -s -X POST https://en-hkg.x-phere.com \
+curl -s -X POST https://rpc.x-phere.com \
   -H "Content-Type: application/json" \
   --data '{"jsonrpc":"2.0","method":"xp_getRewards","params":["0x2b10358"],"id":1}'
 ```
@@ -487,7 +488,7 @@ Unlike the `eth_*` namespace, `xp_getRewards`, `xp_getChainConfig` and `xp_getPa
 | `xp_rewardbase` | none | The node's reward address; returns `-32000 rewardbase must be explicitly specified` when the operator did not set one |
 
 ```bash
-curl -s -X POST https://en-hkg.x-phere.com \
+curl -s -X POST https://rpc.x-phere.com \
   -H "Content-Type: application/json" \
   --data '{"jsonrpc":"2.0","method":"xp_clientVersion","params":[],"id":1}'
 # {"jsonrpc":"2.0","id":1,"result":"Xphere/v0.9.0/linux-amd64/go1.22.12"}
@@ -500,13 +501,13 @@ curl -s -X POST https://en-hkg.x-phere.com \
 `xp_subscribe` and `xp_unsubscribe` are WebSocket-only. Over HTTP the node answers:
 
 ```bash
-curl -s -X POST https://en-hkg.x-phere.com \
+curl -s -X POST https://rpc.x-phere.com \
   -H "Content-Type: application/json" \
   --data '{"jsonrpc":"2.0","method":"xp_subscribe","params":["newHeads"],"id":1}'
 # {"jsonrpc":"2.0","id":1,"error":{"code":-32000,"message":"notifications not supported"}}
 ```
 
-Connect to `wss://en-hkg.x-phere.com/ws` or `wss://en-bkk.x-phere.com/ws` instead. The bare host without `/ws` is not a WebSocket endpoint — it answers HTTP 200 and the handshake fails.
+Connect to `wss://rpc.x-phere.com/ws` or `wss://en-bkk.x-phere.com/ws` instead. The bare host without `/ws` is not a WebSocket endpoint — it answers HTTP 200 and the handshake fails.
 
 **Topics confirmed to subscribe:** `newHeads`, `logs`, `newPendingTransactions`. An unknown topic returns `-32601 no "<topic>" subscription in xp namespace`.
 
@@ -516,7 +517,7 @@ Connect to `wss://en-hkg.x-phere.com/ws` or `wss://en-bkk.x-phere.com/ws` instea
 import asyncio, json, websockets
 
 async def main():
-    async with websockets.connect("wss://en-hkg.x-phere.com/ws") as ws:
+    async with websockets.connect("wss://rpc.x-phere.com/ws") as ws:
         await ws.send(json.dumps({"jsonrpc":"2.0","method":"xp_subscribe","params":["newHeads"],"id":1}))
         sub = json.loads(await ws.recv())["result"]
         print("subscription", sub)
@@ -547,7 +548,7 @@ These names appear in tooling and in documentation ported from other chains, but
 | `xp_getBlockWithConsensusInfoRange` | `-32601` | [`xp_getBlockWithConsensusInfoByNumberRange`](#xp_getblockwithconsensusinfobynumberrange) |
 
 ```bash
-curl -s -X POST https://en-hkg.x-phere.com \
+curl -s -X POST https://rpc.x-phere.com \
   -H "Content-Type: application/json" \
   --data '{"jsonrpc":"2.0","method":"xp_getBlockWithConsensusInfo","params":[],"id":1}'
 # {"jsonrpc":"2.0","id":1,"error":{"code":-32601,"message":"the method xp_getBlockWithConsensusInfo does not exist/is not available"}}

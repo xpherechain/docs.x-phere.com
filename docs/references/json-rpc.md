@@ -13,20 +13,20 @@ XPHERE nodes expose an Ethereum-compatible [JSON-RPC](https://www.jsonrpc.org/sp
 This page documents the `eth_*`, `net_*` and `rpc_*` methods **that were confirmed to exist on the XPHERE public endpoints**. XPHERE's own namespace is documented separately in [XPHERE-Specific RPC (`xp_*`)](./xphere-rpc).
 
 :::note Everything on this page is reproducible
-Every example request and response below was executed against `https://en-hkg.x-phere.com`. Values that change over time (block numbers, gas prices, balances) are labelled as such; the shapes and the method availability are not expected to change.
+Every example request and response below was executed against a Foundation Mainnet endpoint node — `en-hkg.x-phere.com`, which `rpc.x-phere.com` also serves from. Values that change over time (block numbers, gas prices, balances) are labelled as such; the shapes and the method availability are not expected to change.
 :::
 
 ## Endpoints {#endpoints}
 
 | Network | HTTPS | WebSocket |
 |---------|-------|-----------|
-| Mainnet (chain ID `20250217` / `0x134fe69`) | `https://en-hkg.x-phere.com`<br/>`https://en-bkk.x-phere.com` | `wss://en-hkg.x-phere.com/ws`<br/>`wss://en-bkk.x-phere.com/ws` |
+| Mainnet (chain ID `20250217` / `0x134fe69`) | `https://rpc.x-phere.com`<br/>`https://en-hkg.x-phere.com`<br/>`https://en-bkk.x-phere.com` | `wss://rpc.x-phere.com/ws`<br/>`wss://en-hkg.x-phere.com/ws`<br/>`wss://en-bkk.x-phere.com/ws` |
 | Testnet (chain ID `1998991` / `0x1e808f`) | `https://testnet.x-phere.com` | `wss://testnet.x-phere.com/ws/` |
 
 Confirm which network an endpoint serves before you use it:
 
 ```bash
-curl -s -X POST https://en-hkg.x-phere.com \
+curl -s -X POST https://rpc.x-phere.com \
   -H "Content-Type: application/json" \
   --data '{"jsonrpc":"2.0","method":"eth_chainId","params":[],"id":1}'
 # {"jsonrpc":"2.0","id":1,"result":"0x134fe69"}
@@ -39,7 +39,7 @@ See [Network Information](./network-info) for the full parameter list and [Publi
 XPHERE runs a single reference client. Its version string is served by `xp_clientVersion` (there is no `web3_clientVersion` — see below):
 
 ```bash
-curl -s -X POST https://en-hkg.x-phere.com \
+curl -s -X POST https://rpc.x-phere.com \
   -H "Content-Type: application/json" \
   --data '{"jsonrpc":"2.0","method":"xp_clientVersion","params":[],"id":1}'
 # {"jsonrpc":"2.0","id":1,"result":"Xphere/v0.9.0/linux-amd64/go1.22.12"}
@@ -50,7 +50,7 @@ curl -s -X POST https://en-hkg.x-phere.com \
 Ask any endpoint which namespaces it serves:
 
 ```bash
-curl -s -X POST https://en-hkg.x-phere.com \
+curl -s -X POST https://rpc.x-phere.com \
   -H "Content-Type: application/json" \
   --data '{"jsonrpc":"2.0","method":"rpc_modules","params":[],"id":1}'
 # {"jsonrpc":"2.0","id":1,"result":{"eth":"1.0","net":"1.0","rpc":"1.0","xp":"1.0"}}
@@ -58,6 +58,7 @@ curl -s -X POST https://en-hkg.x-phere.com \
 
 | Endpoint | Namespaces served |
 |----------|-------------------|
+| `https://rpc.x-phere.com` | `eth`, `net`, `rpc`, `xp` |
 | `https://en-hkg.x-phere.com` | `eth`, `net`, `rpc`, `xp` |
 | `https://en-bkk.x-phere.com` | `eth`, `net`, `rpc`, `xp` |
 | `https://testnet.x-phere.com` | `debug`, `eth`, `net`, `rpc`, `xp` |
@@ -80,7 +81,7 @@ These are commonly assumed to be present because they exist on Ethereum clients.
 Verify any of them yourself — `-32601` means the method does not exist, `-32602` means it exists but needs arguments:
 
 ```bash
-curl -s -X POST https://en-hkg.x-phere.com \
+curl -s -X POST https://rpc.x-phere.com \
   -H "Content-Type: application/json" \
   --data '{"jsonrpc":"2.0","method":"web3_clientVersion","params":[],"id":1}'
 # {"jsonrpc":"2.0","id":1,"error":{"code":-32601,"message":"the method web3_clientVersion does not exist/is not available"}}
@@ -147,7 +148,7 @@ The following options are possible for the defaultBlock parameter:
 XPHERE nodes reject both tags with `-32602 invalid argument: hex string without 0x prefix`. If you copied a snippet that uses them, replace them with `"latest"`. XPHERE's PBFT main chain finalizes each block as it is proposed, so `"latest"` is already final.
 
 ```bash
-curl -s -X POST https://en-hkg.x-phere.com \
+curl -s -X POST https://rpc.x-phere.com \
   -H "Content-Type: application/json" \
   --data '{"jsonrpc":"2.0","method":"eth_getBalance","params":["0x21864fcde19a0ea12726b4c2fbd8c7ff972c5c11","finalized"],"id":1}'
 # {"jsonrpc":"2.0","id":1,"error":{"code":-32602,"message":"invalid argument 1: hex string without 0x prefix"}}
@@ -156,17 +157,17 @@ curl -s -X POST https://en-hkg.x-phere.com \
 
 ## Curl examples {#curl-examples}
 
-The examples below use the command line tool [curl](https://curl.se). Each one gives the endpoint's parameters, return type, and a request/response pair captured from `https://en-hkg.x-phere.com`.
+The examples below use the command line tool [curl](https://curl.se). Each one gives the endpoint's parameters, return type, and a request/response pair captured from a Foundation Mainnet endpoint node.
 
 Always set the content type header — without `-H "Content-Type: application/json"`, curl sends `application/x-www-form-urlencoded` and the node may reject the request. A complete request takes the following form:
 
 ```shell
-curl -X POST https://en-hkg.x-phere.com \
+curl -X POST https://rpc.x-phere.com \
   -H "Content-Type: application/json" \
   --data '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}'
 ```
 
-For brevity, the individual examples below omit the URL and the header. Append `-H "Content-Type: application/json" https://en-hkg.x-phere.com` to run any of them.
+For brevity, the individual examples below omit the URL and the header. Append `-H "Content-Type: application/json" https://rpc.x-phere.com` to run any of them.
 
 ## Gossip, State, History {#gossip-state-history}
 
@@ -369,7 +370,7 @@ None
 ```js
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"eth_coinbase","params":[],"id":64}'
-// Result — from https://en-hkg.x-phere.com; other nodes return other addresses
+// Result — from one Foundation endpoint node; other nodes return other addresses
 {
   "jsonrpc": "2.0",
   "id": 64,
@@ -526,7 +527,7 @@ None
 ```js
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"eth_accounts","params":[],"id":1}'
-// Result — from https://en-hkg.x-phere.com
+// Result — from one Foundation endpoint node
 {
   "jsonrpc": "2.0",
   "id": 1,
@@ -1563,13 +1564,13 @@ XPHERE produces a block roughly every second, so a range of a few thousand block
 `eth_subscribe` and `eth_unsubscribe` require a persistent connection. Over HTTP they return `-32000 notifications not supported`:
 
 ```bash
-curl -s -X POST https://en-hkg.x-phere.com \
+curl -s -X POST https://rpc.x-phere.com \
   -H "Content-Type: application/json" \
   --data '{"jsonrpc":"2.0","method":"eth_subscribe","params":["newHeads"],"id":1}'
 # {"jsonrpc":"2.0","id":1,"error":{"code":-32000,"message":"notifications not supported"}}
 ```
 
-Use the WebSocket endpoint instead — `wss://en-hkg.x-phere.com/ws` or `wss://en-bkk.x-phere.com/ws` on Mainnet, `wss://testnet.x-phere.com/ws/` on Testnet. Sending `{"jsonrpc":"2.0","method":"eth_subscribe","params":["newHeads"],"id":1}` over that connection returns a subscription id such as `"0x9781da59352731af278342760be05a24"`, followed by `eth_subscription` notifications. `eth_unsubscribe` takes that id and returns `-32000 subscription not found` for an unknown one.
+Use the WebSocket endpoint instead — `wss://rpc.x-phere.com/ws` or `wss://en-bkk.x-phere.com/ws` on Mainnet, `wss://testnet.x-phere.com/ws/` on Testnet. Sending `{"jsonrpc":"2.0","method":"eth_subscribe","params":["newHeads"],"id":1}` over that connection returns a subscription id such as `"0x9781da59352731af278342760be05a24"`, followed by `eth_subscription` notifications. `eth_unsubscribe` takes that id and returns `-32000 subscription not found` for an unknown one.
 
 The `/ws` path is required — connecting to the bare host does not upgrade. On Testnet the trailing slash matters: `/ws` answers with a `301` redirect to `/ws/`, which some WebSocket clients will not follow.
 
@@ -1587,7 +1588,7 @@ These exist and accept arguments (they return `-32602` when called with none), b
 Check any of them before you depend on it:
 
 ```bash
-curl -s -X POST https://en-hkg.x-phere.com \
+curl -s -X POST https://rpc.x-phere.com \
   -H "Content-Type: application/json" \
   --data '{"jsonrpc":"2.0","method":"eth_feeHistory","params":["0x2","latest",[25,75]],"id":1}'
 ```
@@ -1599,7 +1600,7 @@ Everything in this walkthrough runs against the public Mainnet endpoint with no 
 **1. Confirm which chain you are talking to.**
 
 ```bash
-curl -s -X POST https://en-hkg.x-phere.com \
+curl -s -X POST https://rpc.x-phere.com \
   -H "Content-Type: application/json" \
   --data '{"jsonrpc":"2.0","method":"eth_chainId","params":[],"id":1}'
 # {"jsonrpc":"2.0","id":1,"result":"0x134fe69"}
@@ -1608,7 +1609,7 @@ curl -s -X POST https://en-hkg.x-phere.com \
 **2. Check the address is a contract.** An empty result (`0x`) means it is an externally owned account.
 
 ```bash
-curl -s -X POST https://en-hkg.x-phere.com \
+curl -s -X POST https://rpc.x-phere.com \
   -H "Content-Type: application/json" \
   --data '{"jsonrpc":"2.0","method":"eth_getCode","params":["0x511b90c056cfdc41173ba0f6bfac6ea603e16eb4","latest"],"id":1}'
 # {"jsonrpc":"2.0","id":1,"result":"0x60806040523480156100105760..."}
@@ -1617,7 +1618,7 @@ curl -s -X POST https://en-hkg.x-phere.com \
 **3. Call a read-only function.** The `input` field is the 4-byte function selector — the first four bytes of `keccak256("owner()")` — followed by ABI-encoded arguments. Compute the selector locally; XPHERE nodes do not serve `web3_sha3`.
 
 ```bash
-curl -s -X POST https://en-hkg.x-phere.com \
+curl -s -X POST https://rpc.x-phere.com \
   -H "Content-Type: application/json" \
   --data '{"jsonrpc":"2.0","method":"eth_call","params":[{"to":"0x511b90c056cfdc41173ba0f6bfac6ea603e16eb4","input":"0x8da5cb5b"},"latest"],"id":1}'
 # {"jsonrpc":"2.0","id":1,"result":"0x000000000000000000000000df8ec803056b5ed5d0ed32f697c13d0e7cf642e5"}
@@ -1628,7 +1629,7 @@ The result is a left-padded 32-byte word; the address is its last 20 bytes.
 **4. Read the events it emitted.**
 
 ```bash
-curl -s -X POST https://en-hkg.x-phere.com \
+curl -s -X POST https://rpc.x-phere.com \
   -H "Content-Type: application/json" \
   --data '{"jsonrpc":"2.0","method":"eth_getLogs","params":[{"address":"0x511b90c056cfdc41173ba0f6bfac6ea603e16eb4","fromBlock":"0x2b10260","toBlock":"0x2b10262"}],"id":1}'
 ```

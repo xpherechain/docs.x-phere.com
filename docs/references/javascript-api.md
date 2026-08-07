@@ -28,7 +28,7 @@ The full chain definitions for all three libraries are in
 |---|---|---|
 | Chain ID | `20250217` (`0x134fe69`) | `1998991` (`0x1e808f`) |
 | Native token | `XP` | `XPT` |
-| Public endpoint | `https://en-hkg.x-phere.com` | `https://testnet.x-phere.com` |
+| Public endpoint | `https://rpc.x-phere.com` | `https://testnet.x-phere.com` |
 
 **ethers v6**
 
@@ -37,7 +37,7 @@ import { JsonRpcProvider, BrowserProvider, Network } from "ethers";
 
 // Read-only, straight to a public endpoint
 const provider = new JsonRpcProvider(
-  "https://en-hkg.x-phere.com",
+  "https://rpc.x-phere.com",
   new Network("xphere", 20250217)
 );
 
@@ -63,7 +63,7 @@ const client = createPublicClient({
 ```js
 import { Web3 } from "web3";
 
-const web3 = new Web3("https://en-hkg.x-phere.com");
+const web3 = new Web3("https://rpc.x-phere.com");
 ```
 
 ### Connecting to your own node

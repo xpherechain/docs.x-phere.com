@@ -37,14 +37,14 @@ Please note that these endpoints are provided to the community for testing and d
 
 | Service Provider  | Endpoints                                                      | Namespaces (`rpc_modules`) | Type |
 | ----------------- | -------------------------------------------------------------- | -------------------------- | ---- |
-| XPHERE Foundation | `https://en-hkg.x-phere.com`<br />`https://en-bkk.x-phere.com` | `eth`, `net`, `rpc`, `xp` | Full |
+| XPHERE Foundation | `https://rpc.x-phere.com` (load balanced, use this)<br />`https://en-hkg.x-phere.com`<br />`https://en-bkk.x-phere.com` | `eth`, `net`, `rpc`, `xp` | Full |
 | Ankr              | `https://rpc.ankr.com/xphere_mainnet`                          | `eth`, `net`, `rpc`, `xp`, plus `admin`, `debug`, `personal`, `txpool`, `web3` advertised but partly disabled — see the caveats below | Full |
 
 **WebSocket**
 
 | Service Provider  | Endpoints                                                        | Namespaces (`rpc_modules`) | Type |
 | ----------------- | ---------------------------------------------------------------- | -------------------------- | ---- |
-| XPHERE Foundation | `wss://en-hkg.x-phere.com/ws`<br />`wss://en-bkk.x-phere.com/ws` | `eth`, `net`, `rpc`, `xp` | Full |
+| XPHERE Foundation | `wss://rpc.x-phere.com/ws` (load balanced, use this)<br />`wss://en-hkg.x-phere.com/ws`<br />`wss://en-bkk.x-phere.com/ws` | `eth`, `net`, `rpc`, `xp` | Full |
 
 ### Testnet Public JSON-RPC Endpoints — Chain ID `1998991` (`0x1e808f`)
 
@@ -74,7 +74,7 @@ Below is a list of XPHERE's Public Node Providers.
 
 | Provider | Mainnet | Testnet | Notes |
 |----------|---------|---------|-------|
-| XPHERE Foundation | `https://en-hkg.x-phere.com`, `https://en-bkk.x-phere.com` | `https://testnet.x-phere.com` | Operated by the Foundation, rate-limited |
+| XPHERE Foundation | `https://rpc.x-phere.com`, `https://en-hkg.x-phere.com`, `https://en-bkk.x-phere.com` | `https://testnet.x-phere.com` | Operated by the Foundation, rate-limited |
 | [Ankr](https://www.ankr.com/rpc/xphere/) | `https://rpc.ankr.com/xphere_mainnet` | `https://rpc.ankr.com/xphere_testnet` | Global infrastructure provider; XPHERE is listed in Ankr's public chain directory. Ankr also operates a [Union](/union) validator slot on XPHERE. |
 
 ### Ankr

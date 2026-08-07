@@ -13,8 +13,8 @@ It is not a method reference. For method documentation see
 [JSON-RPC Reference](/references/json-rpc) (`eth_*`, `net_*`, `web3_*`) and
 [XPHERE-specific RPC](/references/xphere-rpc) (`xp_*`).
 
-Everything below was verified against the XEN v0.9.0 client source and the live Mainnet endpoint
-`https://en-hkg.x-phere.com`.
+Everything below was verified against the XEN v0.9.0 client source and a live Foundation Mainnet
+endpoint node, reachable at `https://rpc.x-phere.com`.
 
 ## The three interfaces
 
@@ -149,7 +149,7 @@ about `miner`: no `miner` namespace is registered anywhere in the XEN client, so
 yourself:
 
 ```bash
-curl -s -X POST https://en-hkg.x-phere.com \
+curl -s -X POST https://rpc.x-phere.com \
   -H "Content-Type: application/json" \
   --data '{"jsonrpc":"2.0","method":"miner_start","params":[],"id":1}'
 ```
@@ -232,7 +232,7 @@ curl -s -X POST http://localhost:28551 \
 **Against a Foundation public endpoint:**
 
 ```bash
-curl -s -X POST https://en-hkg.x-phere.com \
+curl -s -X POST https://rpc.x-phere.com \
   -H "Content-Type: application/json" \
   --data '{"jsonrpc":"2.0","method":"rpc_modules","params":[],"id":1}'
 ```
@@ -246,7 +246,7 @@ shipped config. An IPC connection to the same node returns considerably more.
 
 ### Confirming the node is answering
 
-Swap `http://localhost:28551` for `https://en-hkg.x-phere.com` to run any of these against a public
+Swap `http://localhost:28551` for `https://rpc.x-phere.com` to run any of these against a public
 endpoint instead.
 
 ```bash
@@ -282,7 +282,7 @@ peer count are specific to the node you asked and change constantly.
 ## Verifying a single method
 
 ```bash
-curl -s -X POST https://en-hkg.x-phere.com \
+curl -s -X POST https://rpc.x-phere.com \
   -H "Content-Type: application/json" \
   --data '{"jsonrpc":"2.0","method":"xp_getBalance","params":[],"id":1}'
 ```
@@ -301,7 +301,7 @@ namespace is listed there and the method still returns `-32601`, the method does
 
 The WebSocket server accepts JSON-RPC on any path, so a local node is reached directly at
 `ws://localhost:28552`. The Foundation's public WebSocket endpoints are published under a `/ws`
-path, for example `wss://en-hkg.x-phere.com/ws`.
+path, for example `wss://rpc.x-phere.com/ws`.
 
 WebSocket also supports subscriptions, which HTTP does not. Subscribe with
 `<namespace>_subscribe`, receive pushes as `<namespace>_subscription`, and cancel with

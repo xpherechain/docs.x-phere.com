@@ -55,7 +55,7 @@ Parameters, contract addresses, risks, and the settlement model are documented i
 
 | Project | What it does | Link |
 |---------|--------------|------|
-| XPHERE Foundation | Official public JSON-RPC endpoints for Mainnet | `https://en-hkg.x-phere.com` · `https://en-bkk.x-phere.com` |
+| XPHERE Foundation | Official public JSON-RPC endpoints for Mainnet. `rpc` is load balanced across regions and is the one to use in production; the other two address single nodes | `https://rpc.x-phere.com` · `https://en-hkg.x-phere.com` · `https://en-bkk.x-phere.com` |
 | [Ankr](https://www.ankr.com/rpc/xphere/) | Global RPC provider serving **both Mainnet and Testnet**; XPHERE is listed in Ankr's public chain directory, and Ankr also runs a [Union](/union) validator slot | `https://rpc.ankr.com/xphere_mainnet` · `https://rpc.ankr.com/xphere_testnet` |
 
 Testnet endpoints, WebSocket URLs, namespaces, and rate-limit caveats are covered in [Public JSON-RPC Endpoints](/references/public-en).
@@ -63,7 +63,7 @@ Testnet endpoints, WebSocket URLs, namespaces, and rate-limit caveats are covere
 You can confirm any endpoint yourself before relying on it:
 
 ```bash
-curl -X POST https://en-hkg.x-phere.com \
+curl -X POST https://rpc.x-phere.com \
   -H "Content-Type: application/json" \
   --data '{"jsonrpc":"2.0","method":"eth_chainId","params":[],"id":1}'
 ```

@@ -83,3 +83,18 @@ docs/.bkit-memory.json
 docs/.pdca-status.json
 docs/.pdca-snapshots/
 .playwright-mcp/
+
+# Credentials and node identity — never commit
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa*
+id_ed25519*
+nodekey
+static-nodes.json
+
+# Infrastructure working files kept outside the published docs
+/scratchpad/
+/fw-*.sh
+/*-backup-*/

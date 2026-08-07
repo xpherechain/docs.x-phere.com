@@ -45,7 +45,7 @@ const config: HardhatUserConfig = {
       accounts: [process.env.PRIVATE_KEY!],
     },
     xphereMainnet: {
-      url: "https://en-hkg.x-phere.com",
+      url: "https://rpc.x-phere.com",
       chainId: 20250217,
       accounts: [process.env.PRIVATE_KEY!],
     },

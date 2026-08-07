@@ -72,7 +72,7 @@ whatever the snapshot captured.
 **Chain height and block rate.** Ask a public Endpoint Node for the current head:
 
 ```bash
-curl -s -X POST https://en-hkg.x-phere.com -H "Content-Type: application/json" \
+curl -s -X POST https://rpc.x-phere.com -H "Content-Type: application/json" \
   --data '{"jsonrpc":"2.0","method":"xp_blockNumber","params":[],"id":1}'
 ```
 

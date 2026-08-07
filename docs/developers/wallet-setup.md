@@ -29,7 +29,7 @@ curl -s https://chainid.network/chains.json \
    **Mainnet**
    ```
    Network Name:     Xphere Mainnet
-   New RPC URL:      https://en-hkg.x-phere.com
+   New RPC URL:      https://rpc.x-phere.com
    Chain ID:         20250217
    Currency Symbol:  XP
    Block Explorer:   https://xp.tamsa.io
@@ -78,7 +78,7 @@ await window.ethereum.request({
     chainId: "0x134fe69", // 20250217 in hex
     chainName: "Xphere Mainnet",
     nativeCurrency: { name: "Xphere", symbol: "XP", decimals: 18 },
-    rpcUrls: ["https://en-hkg.x-phere.com"],
+    rpcUrls: ["https://rpc.x-phere.com"],
     blockExplorerUrls: ["https://xpscan.io", "https://xp.tamsa.io"],
   }],
 });
@@ -130,7 +130,7 @@ Testnet `XPT` cannot be moved to Mainnet, and the faucet does not distribute Mai
 **"Transaction underpriced"** — Read the current suggestion from the node rather than assuming a floor. Both networks currently report a base fee of `25 gwei` and an `eth_gasPrice` of `27.5 gwei`; the chain's configured lower bound is `25 gwei` (`lowerboundbasefee: 25000000000`) and the upper bound is `750 gwei`. Set `maxFeePerGas` from a live call:
 
 ```bash
-curl -s -X POST https://en-hkg.x-phere.com \
+curl -s -X POST https://rpc.x-phere.com \
   -H "Content-Type: application/json" \
   --data '{"jsonrpc":"2.0","method":"eth_gasPrice","params":[],"id":1}'
 # {"jsonrpc":"2.0","id":1,"result":"0x66720b300"}   ← 27,500,000,000 wei = 27.5 gwei

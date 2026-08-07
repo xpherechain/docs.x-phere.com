@@ -76,7 +76,7 @@ Three checks, in order:
    [XPScan](https://xpscan.io) or through `eth_getBalance`:
 
 ```bash
-curl -s -X POST https://en-hkg.x-phere.com \
+curl -s -X POST https://rpc.x-phere.com \
   -H "Content-Type: application/json" \
   --data '{"jsonrpc":"2.0","method":"eth_getBalance","params":["0xYOUR_ADDRESS","latest"],"id":1}'
 ```

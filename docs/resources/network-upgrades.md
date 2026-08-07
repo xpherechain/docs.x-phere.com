@@ -118,7 +118,7 @@ XPHASH_FORK_BLOCK=1740000  # mainnet
 **4. Watch for the activation block.** Track the head block against the announced height:
 
 ```bash
-curl -X POST https://en-hkg.x-phere.com \
+curl -X POST https://rpc.x-phere.com \
   -H "Content-Type: application/json" \
   --data '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}'
 ```
